@@ -1,0 +1,36 @@
+
+Aula 5
+
+---
+
+1) Conectando o back ao front
+
+  * Garanta que o servidor tenha uma rota
+
+    ```
+    app.get("/mensagem", (req, res) => {
+      res.json({ texto: "Olá do servidor 👋" });
+    });
+
+    ```
+  
+  * Rode o servidor
+    --> node app.js
+
+---
+
+
+2) No front 
+
+   * JS
+     ```
+     async function conectarServidor () {
+	const resposta = await fetch('http://localhost:3000/mensagem')
+        const dados = await resposta.json
+	
+     }
+
+
+
+
+

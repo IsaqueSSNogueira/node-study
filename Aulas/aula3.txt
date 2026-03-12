@@ -1,0 +1,42 @@
+
+Aula 3
+
+---
+
+1) Montando a base de um servidor
+
+  * Monte uma pasta do projeto
+    --> mkdir nome-projeto (comando criar nova pasta) 
+	(ou crie diretamente nos 'meus arquivos')
+    --> cd nome-projeto
+        
+
+  * Inicie um projeto node (package.json)
+    --> npm init -y
+	(isso cria o package.json (config. do projeto)
+
+  * Instale o Express
+    --> npm install express
+  
+  (cria automaticamente a pasta node_modules, onde ficam guardadas todas as bibliotecas baixadas no projeto... e package-lock.json, que é um documento detalhado das versões das bibliotecas npm)
+
+---
+
+2) No que express facilita
+
+  * Node puro consegue fazer servidor… mas é meio trabalhoso. Express é tipo um “kit pronto” pra backend.
+
+  * Sem Express (Node puro):
+
+	-você cria servidor manualmente
+	-precisa tratar rotas sozinho
+	-precisa lidar com requisições e respostas na mão
+	-código fica mais verboso
+
+ (depois de entender a base, vale a pena visitar o node puro para entender conceitos)
+
+---
+
+
+
+
