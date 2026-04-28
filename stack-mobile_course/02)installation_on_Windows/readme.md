@@ -36,3 +36,11 @@
 
 - O NPM é uma lojinha de códigos prontos, certo? Mas cada projeto tem suas próprias dependências. Isso é muito importante de se entender 👉 cada projeto é um "mundo separado"; 
 - Por isso existe o `npm init -y`. Rodando ele no terminal cria o `package.json`, que é uma lista de dependências e configurações do projeto. 
+
+
+<br>
+
+## Link da aula:
+
+
+ [Clique aqui para ir para o Youtube!](https://youtu.be/KGss9Yj7ZbY?si=juainvQooFyMhYAl)
