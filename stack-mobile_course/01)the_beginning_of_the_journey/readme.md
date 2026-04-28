@@ -13,7 +13,7 @@ Este é um curso básico de Node.js, focado em construir base inicial para, post
 ### 👨‍💻 O que é Node.js?
 
 - ❌ Ele não é uma linguagem de programação;
-- ✔ Ele é uma plataforma (um softaware), de código aberto multiplataforma (consegue rodar em multiplos sistemas, seja Windows, Mac, Android, IOS) e por debaixo dos panos ele executa código javascript.
+- ✔ Ele é uma plataforma (um software), de código aberto multiplataforma (consegue rodar em multiplos sistemas, seja Windows, Mac, Android, IOS) e por debaixo dos panos ele executa código javascript.
 
 <br>
 
