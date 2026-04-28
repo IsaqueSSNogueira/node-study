@@ -11,6 +11,7 @@ app.get("/mensagem", (req, res) => {
 		{ text: 'Congratulations'},
 		{ img: 'https://gq.globo.com/Cultura/Musica/noticia/2021/11/britney-spears-7-musicas-animadas-da-cantora-para-comemorar-sua-liberdade.html'}
 	)
+	res.send("se")
 })
 
 app.listen(PORT, () => {

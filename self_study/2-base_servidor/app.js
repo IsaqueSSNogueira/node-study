@@ -1,6 +1,6 @@
 // aula 3, 4
 
-// importando a biblioteca que vai facilitar tude hehe
+// importando a biblioteca que vai facilitar tudo hehe
 import express from 'express';
 
 // criando uma aplicação express (um servidor)
