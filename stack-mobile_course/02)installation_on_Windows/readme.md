@@ -23,7 +23,7 @@
 ## O que o node e o npm são? 🤔
 
 - Como sabemos, Node é um ambiente de execução do javascript fora do navegador;
-- Já o NPM é um gerenciador de pacotes que vem junto com o node, ele instala, atualiza e gerencia bibliotecas feitas pela comunidade 😎
+- Já o NPM é um gerenciador de pacotes que vem junto com o node, ele instala, atualiza e gerencia bibliotecas feitas pela comunidade 😎👨‍💻🎡
 ```
 // Como exemplo, isso baixa uma biblioteca pronta pra você usar no seu projeto;
 
