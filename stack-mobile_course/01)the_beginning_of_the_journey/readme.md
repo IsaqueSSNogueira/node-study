@@ -34,7 +34,7 @@ Este é um curso básico de Node.js, focado em construir base inicial para, post
 ### 💪 Vantagens do Node
 
 - Ele é single-thread (usa apenas um núcleo do processador) e tem baixo consumo computacional como RAM e CPU;
-- Ele é escalável;
+- Ele é escalável, ideal para > APIs, sistemas com muitos usuários, apps em tempo real (chat, jogos);
 - Pode trabalhar com muitas requisições simuntâneas;
 - Modelo de Entrada e Saida não bloqueante (E/S): Pode trabalhar com multiplas funções de forma simultânea. Ele não espera finalizar uma requisição para ir trabalhando em outras, ele pode ir adiantando enquanto aguarda a resposta. E olha, mesmo com uma única thread ele consegue trabalhar de forma inteligente e otimizada;
 - Comunidade ativa, isso faz muita diferença;
@@ -43,16 +43,13 @@ Este é um curso básico de Node.js, focado em construir base inicial para, post
 - Por trabalhar com a linguagem JavaScript tem fácil compatibilidade e integração com outros frameworks JavaScript como React, React Native, entre outros. 
 
 
-## Event loop, o segredo do Node
+## 🤯 Event loop, o segredo do Node
 
 Node é single-thread. Como ele aguenta várias requisições?
 
 - Ele recebe várias tarefas (requisições);
 - Se uma tarefa demora (ex: banco de dados, API);
-- Ele não fica esperando parado, ele: Recebe a tarefa > Delega ações > Continua fazendo outras coisas > Quando a reposta volta, ele processa
-
-<br>
-
+- Ele não fica esperando parado, ele: Recebe a tarefa > Delega ações > Continua fazendo outras coisas > Quando a reposta volta, ele processa;
 - Exemplo:
 ```
 // código
@@ -65,14 +62,17 @@ setTimeout(() => {
 console.log("C");
 
 
-
 // Saida
 A
 C
 B
 
+
+/* setTimeout é delegado, Node continua rodando, depois ele volta e executa o callback */
 ```
-- Explicação: setTimeout é delegado, Node continua rodando, depois ele volta e executa o callback.
+
+<br>
+
 
 
 ### 😥 Desvantagens do Node
