@@ -6,6 +6,7 @@ Este é um curso básico de Node.js, focado em construir base inicial para, post
 
 <br>
 
+
 ## 🤔 Principais características do Node:
 
 
@@ -21,9 +22,30 @@ Este é um curso básico de Node.js, focado em construir base inicial para, post
 - Quais empresas utilizam Node.js em suas aplicações? > Microsoft, Netflix, Paypal, Walmart, Yahoo, IBM, GoDaddy;
 - Ele é muito popular no mercado.
 
+<br> 
 
-### Vantagens do Node
+### 💪 Vantagens do Node
 
+- Ele é single-thread (usa apenas um núcleo do processador) e tem baixo consumo computacional como RAM e CPU;
+- Ele é escalável;
+- Pode trabalhar com muitas requisições simuntâneas;
+- Modelo de Entrada e Saida não bloqueante (E/S): Pode trabalhar com multiplas funções de forma simultânea. Ele não espera finalizar uma requisição para ir trabalhando em outras, ele pode ir adiantando enquanto aguarda a resposta. E olha, mesmo com uma única thread ele consegue trabalhar de forma inteligente e otimizada;
+- Comunidade ativa, isso faz muita diferença;
+- Acesso a milhares de bibliotecas e módulos via NPM (Gerenciador de Pacotes Node - Node Package Manager), podendo integra-las para aperfeiçoar o projetos, sendo ambos montando em js;
+- Baixo custos operacionais, ajudando na hospedagem;
+- Por trabalhar com a linguagem JavaScript tem fácil compatibilidade e integração com outros frameworks JavaScript como React, React Native, entre outros. 
+
+
+
+### 😥 Desvantagens do Node
+
+- Depedendo da aplicação ele pode ser mais lento que outras tecnologias de Back-end, como Java, C, PHP, entre outros, por fazer tudo em apenas uma única thread;
+ Se a aplicação for muito grande, tem que otimizar muito bem para evitar esse problema. Não em projetos pequenos ou médios, mas para projetos grandes de fato.
+- Quem trabalha com outras tecnologias, a parte da familirização, integração e compatilidade com outras linguagens é mais complicada (da para implementar, mas não tão bem quanto com uma bibblioteca javascript).
+
+
+
+<br>
 
 ## Link da aula:
 
