@@ -77,7 +77,8 @@ B
 
 ### 😥 Desvantagens do Node
 
-- Depedendo da aplicação ele pode ser mais lento que outras tecnologias de Back-end, como Java, C, PHP, entre outros. Por fazer tudo em apenas uma única thread, ele sofre em tarefas pesadas de cpu, como em processamente de imagens e cálculos pesados. Se a aplicação for muito grande, tem que otimizar muito bem para evitar esse problema. Isso geralmente não impacta projetos pequenos ou médios, mas para projetos grandes. Mas também dá para contornar isso com Workers (threads separadas), microserviços ou outras linguagens só para essa parte;
+- Depedendo da aplicação ele pode ser mais lento que outras tecnologias de Back-end, como Java, C, PHP, entre outros. Por fazer tudo em apenas uma única thread, ele sofre em tarefas pesadas de cpu, como em processamente de imagens e cálculos pesados;
+- Se a aplicação for muito grande, tem que otimizar muito bem para evitar esse problema. Isso geralmente não impacta projetos pequenos ou médios, mas para projetos grandes. Mas também dá para contornar isso com Workers (threads separadas), microserviços ou outras linguagens só para essa parte;
 - Quem trabalha com outras tecnologias, a parte da familirização, integração e compatilidade com outras linguagens é mais complicada (da para implementar, mas não tão bem quanto com uma bibblioteca javascript).
 
 
