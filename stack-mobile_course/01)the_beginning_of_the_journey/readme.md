@@ -39,8 +39,9 @@ Este é um curso básico de Node.js, focado em construir base inicial para, post
 
 ### 😥 Desvantagens do Node
 
-- Depedendo da aplicação ele pode ser mais lento que outras tecnologias de Back-end, como Java, C, PHP, entre outros, por fazer tudo em apenas uma única thread;
- Se a aplicação for muito grande, tem que otimizar muito bem para evitar esse problema. Não em projetos pequenos ou médios, mas para projetos grandes de fato.
+- Depedendo da aplicação ele pode ser mais lento que outras tecnologias de Back-end, como Java, C, PHP, entre outros, por fazer tudo em apenas uma única thread; 
+<br>
+ Se a aplicação for muito grande, tem que otimizar muito bem para evitar esse problema. Isso geralmente não impacta projetos pequenos ou médios, mas para projetos grandes.
 - Quem trabalha com outras tecnologias, a parte da familirização, integração e compatilidade com outras linguagens é mais complicada (da para implementar, mas não tão bem quanto com uma bibblioteca javascript).
 
 
@@ -48,5 +49,7 @@ Este é um curso básico de Node.js, focado em construir base inicial para, post
 <br>
 
 ## Link da aula:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/KGss9Yj7ZbY?si=lcyC4mO_2inGzJge" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 [clique aqui] (https://youtu.be/p9WpBHEXTms?si=qX9qqtGaBTmjfLFP)
