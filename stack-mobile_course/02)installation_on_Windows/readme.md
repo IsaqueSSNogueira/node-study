@@ -30,3 +30,9 @@
 > npm install express
 ```
 - Ou seja, Node é o ambiente de execução (do js fora do navegador) e npm é a lojinha que você baixa e integra bibliotecas no seu projeto. **Por isso o node é baixado apenas uma vez, mas bibliotecas como express e mongoose são instaladas em cada projeto individual** (existe forma de instalar global, mas por enquanto o importante é saber apenas a base).
+
+
+## Para projetos 🎯
+
+- O NPM é uma lojinha de códigos prontos, certo? Mas cada projeto tem suas próprias dependências. Isso é muito importante de se entender 👉 cada projeto é um "mundo separado"; 
+- Por isso existe o `npm init -y`. Rodando ele no terminal cria o `package.json`, que é uma lista de dependências e configurações do projeto. 
