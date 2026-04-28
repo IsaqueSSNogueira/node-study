@@ -50,6 +50,5 @@ Este é um curso básico de Node.js, focado em construir base inicial para, post
 
 ## Link da aula:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/KGss9Yj7ZbY?si=lcyC4mO_2inGzJge" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-[clique aqui] (https://youtu.be/p9WpBHEXTms?si=qX9qqtGaBTmjfLFP)
+ Youtube [clique aqui] (https://youtu.be/p9WpBHEXTms?si=qX9qqtGaBTmjfLFP)
