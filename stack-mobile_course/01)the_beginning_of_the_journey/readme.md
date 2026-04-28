@@ -26,7 +26,7 @@ Este é um curso básico de Node.js, focado em construir base inicial para, post
 ### 🛠 Para que ele serve?
 
 - É usado para criar parte do Back-end de aplicações Web e Mobile;
-- Quais empresas utilizam Node.js em suas aplicações? > Microsoft, Netflix, Paypal, Walmart, Yahoo, IBM, GoDaddy;
+- Algumas empresas utilizam Node.js em suas aplicações, como a Microsoft, Netflix, Paypal, Walmart, Yahoo, IBM, GoDaddy;
 - Ele é muito popular no mercado.
 
 <br> 
