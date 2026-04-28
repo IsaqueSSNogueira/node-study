@@ -15,6 +15,13 @@ Este é um curso básico de Node.js, focado em construir base inicial para, post
 - ❌ Ele não é uma linguagem de programação;
 - ✔ Ele é uma plataforma (um softaware), de código aberto multiplataforma (consegue rodar em multiplos sistemas, seja Windows, Mac, Android, IOS) e por debaixo dos panos ele executa código javascript.
 
+<br>
+
+- Ele usa o motor V8 Javascript Engine (mesmo do Google);
+- É escrito em C/C+;
+- Utiliza um sistema chamado Event Loop.
+
+
 
 ### 🛠 Para que ele serve?
 
@@ -35,6 +42,37 @@ Este é um curso básico de Node.js, focado em construir base inicial para, post
 - Baixo custos operacionais, ajudando na hospedagem;
 - Por trabalhar com a linguagem JavaScript tem fácil compatibilidade e integração com outros frameworks JavaScript como React, React Native, entre outros. 
 
+
+## Event loop, o segredo do Node
+
+Node é single-thread. Como ele aguenta várias requisições?
+
+- Ele recebe várias tarefas (requisições);
+- Se uma tarefa demora (ex: banco de dados, API);
+- Ele não fica esperando parado, ele: Recebe a tarefa > Delega ações > Continua fazendo outras coisas > Quando a reposta volta, ele processa
+
+<br>
+
+- Exemplo:
+```
+// código
+console.log("A");
+
+setTimeout(() => {
+  console.log("B");
+}, 1000);
+
+console.log("C");
+
+
+
+// Saida
+A
+C
+B
+
+```
+- Explicação: setTimeout é delegado, Node continua rodando, depois ele volta e executa o callback.
 
 
 ### 😥 Desvantagens do Node
