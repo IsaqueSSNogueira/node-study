@@ -1,6 +1,6 @@
 
 
-# 👨‍🏫 Sobre esta aula
+# Sobre esta aula
 
 - Nessa aula vamos aprender a criar o nosso primeiro projeto Node do zero, a criar o nosso primeiro servidor e entender como ele funciona.
 
