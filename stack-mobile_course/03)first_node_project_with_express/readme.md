@@ -2,7 +2,7 @@
 
 # 👨‍🏫 Sobre esta aula
 
-- Nessa aula vamos aprender a criar o nosso primeiro projeto Node do zero, a criar o nosso primeiro servidor. 
+- Nessa aula vamos aprender a criar o nosso primeiro projeto Node do zero, a criar o nosso primeiro servidor e entender como ele funciona.
 
 
 ## 🚄 Express
@@ -51,6 +51,22 @@ Aqui você ganha:
 - Estrutura profissional.
 
 <br>
+**Express NÃO substitui o Node → ele usa o Node por baixo**
+
+```
+
+// node puro
+if (req.url === "/user" && req.method === "GET") {
+  ...
+}
+
+// express
+app.get("/user", ...)
+```
+
+- Ele basicamente transforma **condicionais + parsing manual** em **métodos semânticos prontos**.
+
+<br>
 
 ### 🧩 Conceitos importantes citados:
 
@@ -63,5 +79,42 @@ app.get("/login", ...)
 /* ☝ isso significa: “Quando alguém acessar /login, executa isso aqui” */
 ```
 
+- 🔁 Middleware: Um filtro/processador antes da resposta final, intercetando a requisição. Exemplo:
+
+```
+app.use((req, res, next) => {
+	console.log("Passou aqui")
+	next();
+})
+```
+
+### 🧠 Fluxo do acesso ao servidor
+
+Quando alguém acessa ao servidor:
+
+1. Usuário faz requisição (ex: entra no site, envia dados);
+2. Express recebe;
+3. Passa pelos middlewares;
+4. Cai na rota certa;
+5. Você envia a resposta responde.
 
 
+
+## 📦 Instalação e uso
+
+1. Na pasta do projeto:
+
+```
+// </> bash
+
+> npm init -y
+> npm install express
+```
+
+- "init -y" cria o arquivo package.json, que guarda todas as dependências do projeto
+- "install express" instala a biblioteca express no seu projeto, e de quebra, gera:
+```
+node_modules/...
+package-lock.json
+```
+...como o dna do projeto.
