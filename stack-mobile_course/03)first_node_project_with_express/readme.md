@@ -79,7 +79,7 @@ app.get("/login", ...)
 /* ☝ isso significa: “Quando alguém acessar /login, executa isso aqui” */
 ```
 
-- 🔁 Middleware: Um filtro/processador antes da resposta final, intercetando a requisição. Exemplo:
+- 🔁 Middleware: Um filtro/processador antes da resposta final, interceptando a requisição. Exemplo:
 
 ```
 app.use((req, res, next) => {
@@ -96,7 +96,7 @@ Quando alguém acessa ao servidor:
 2. Express recebe;
 3. Passa pelos middlewares;
 4. Cai na rota certa;
-5. Você envia a resposta responde.
+5. Você envia a resposta.
 
 
 
@@ -111,10 +111,11 @@ Quando alguém acessa ao servidor:
 > npm install express
 ```
 
-- "init -y" cria o arquivo package.json, que guarda todas as dependências do projeto
+- "init -y" cria o arquivo package.json, que guarda nome do projeto, dependências e scripts essencias;
 - "install express" instala a biblioteca express no seu projeto, e de quebra, gera:
 ```
-node_modules/...
+node_modules/
 package-lock.json
 ```
-...como o dna do projeto.
+- package-lock.json: Guarda versões exatas instaladas e garante que funcione em qualquer máquina;
+- node_modules/: Onde ficam as libs instaladas, não sobe pro Git.
