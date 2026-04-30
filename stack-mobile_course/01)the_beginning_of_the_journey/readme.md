@@ -18,7 +18,7 @@ Este é um curso básico de Node.js, focado em construir base inicial para, post
 <br>
 
 - Ele usa o motor V8 Javascript Engine (mesmo do Google);
-- É escrito em C/C+;
+- É escrito em C/C++;
 - Utiliza um sistema chamado Event Loop.
 
 

@@ -9,7 +9,7 @@
 
 Para isso, vamos precisar instalar o Express no nosso projeto.  O Express é uma framework, ou seja, uma biblioteca que fornece recursos para que a gente consiga construir nossa aplicação. 
 - Express é uma ferramenta que simplifica MUITO criar servidor com Node;
-- Fornece recursos como http, roteamento para criar rotas na aplicação, midwares, recurso importantes como protocolos de rede, entre outras funcionalidades para construir a base do servidor, ou seja, a estrutura dorsal.
+- Fornece recursos como http, roteamento para criar rotas na aplicação, middleware, recurso importantes como protocolos de rede, entre outras funcionalidades para construir a base do servidor, ou seja, a estrutura dorsal.
 
 ### 🦥 Sem Express (Node Puro)
 ```
@@ -50,12 +50,13 @@ Aqui você ganha:
 - Código mais limpo;
 - Estrutura profissional.
 
+<br>
 
 ### 🧩 Conceitos importantes citados:
 
 - 🌐 HTTP: Comunicação entre cliente (browser/app) e servidor;
 
-- 🛣 Rotas: 
+- 🛣 Rotas (Veja o exemplo):
 ```
 app.get("/login", ...)
 
