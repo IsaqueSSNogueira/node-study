@@ -24,7 +24,7 @@ package-lock.json
 
 2. Crie um arquivo `index.js`, é nele que vamos criar o servidor.
 
-3. Com a pasta do projeto acessada no prompt, para rodar o servidor, basta digitar `> node index.js`.
+3. Com a pasta do projeto acessada no prompt, para rodar o servidor basta digitar `> node index.js`.
 
 ## ✨ Primeiro projeto Node (com Express)
 
