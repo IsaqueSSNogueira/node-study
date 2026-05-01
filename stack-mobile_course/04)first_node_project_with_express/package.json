@@ -1,0 +1,15 @@
+{
+  "name": "04)first_node_project_with_express",
+  "version": "1.0.0",
+  "description": "1. Na pasta do projeto:",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
