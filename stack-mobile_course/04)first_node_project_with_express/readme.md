@@ -60,8 +60,27 @@ app.listen(3000, () => {
 
 ### Considerações
 
-- `const express = require("express");` é CommonJS, padrão tradicional do Node. O ideal posteriormente usar por módulos `import express from "express"`, mais moderno (assim como você já desenvolveu anteriormente), definindo no package.json esse modelo e implementando no código.
+- `const express = require("express");` é CommonJS, padrão tradicional do Node. O ideal posteriormente usar por módulos `import express from "express"`, mais moderno (assim como você já desenvolveu anteriormente), definindo no package.json esse modelo e implementando no código;
+- `res.***(...)` -> O Express define automaticamente o Content-Type com base no tipo de dado enviado e o navegador aplica conforme:
+```
+// string → text/html (por padrão)
+res.send("Hello")
+res.send("<h1>Hello</h1>")
 
 
+// objeto/array → application/json
+res.json({ message: "Hello" })
+// ou:
+res.send({ message: "Hello" })
+
+
+// Buffer (arquivo binário) → application/octet-stream (fallback)
+const buffer = fs.readFileSync("imagem.png");
+res.send(buffer)
+
+// 👇 Em buffer o ideal definir manualmente o tipo correto
+res.set("Content-Type", "image/png");
+res.send(buffer)
+``` 
 <br>
 
