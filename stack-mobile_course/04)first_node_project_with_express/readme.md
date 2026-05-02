@@ -53,7 +53,7 @@ app.listen(3000, () => {
 ### Comando para rodar
 
 - Prompt: `> node index.js`;
-- Node é um programa, ele precisa estar instalado. Tanto local quanto servidor precisam dele
+- Node é um programa, ele precisa estar instalado. Tanto local quanto servidor precisam dele;
 - Servidor é só outra máquina rodando seu código e hospedar é deixar esse processo rodando sempre;
 - Você vai ver que nos próximos projetos que integrar o node, você irá tanto abrir o front quanto colocar o servidor para rodar no Node, fazendo ele ouvir e responder os pedidos.
 
