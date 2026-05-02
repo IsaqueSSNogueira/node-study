@@ -102,4 +102,4 @@ Quando alguém acessa ao servidor:
 ## 🔍 Biblioteca VS Framework
 
 - Biblioteca = Conjunto de funções que você usa quando quiser. Você decide estrutura, fluxo, organização;
-- Framework = Também oferece recursos, mas define o fluxo e a estrutura da aplicação. Já tem um “esqueleto”, você encaixa seu código dentro. Ela define quando seu código roda, onde ele fica ecomo ele se organiza.
+- Framework = Também oferece recursos, mas define o fluxo e a estrutura da aplicação. Já tem um “esqueleto”, você encaixa seu código dentro. Ela define quando seu código roda, onde ele fica e como ele se organiza.
