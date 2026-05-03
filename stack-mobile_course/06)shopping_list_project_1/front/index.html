@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de compras</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
+</head>
+
+<body>
+
+  <main id="mainContainer">
+    <table>
+      <caption id="containerTitle">Lista de compras</caption>
+
+      <!-- Cabeçalho -->
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Preço</th>
+          <th>Vendido a</th>
+          <th>Quantidade</th>
+          <th>Valor final</th>
+        </tr>
+      </thead>
+
+      <!-- Itens -->
+      <tbody id="contentContainer">
+       <!-- serão carregados com js vindo do do servidor -->
+      </tbody>
+
+    </table>
+
+    <p id="finalString">Valor final: <span id="finalValueString"></span></p>
+
+  </main>
+
+</body>
+
+</html>

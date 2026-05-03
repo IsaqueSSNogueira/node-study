@@ -1,0 +1,47 @@
+
+/* reset */
+* {padding: 0; margin: 0; box-sizing:border-box; font-size:100%;}
+a {color:black; font-style: none}
+
+
+body {
+	width:100%;
+	height:100%;
+	padding:30px;
+}
+
+#mainContainer {
+	padding: 20px;
+	border:1px solid black;
+	width:500px;
+}
+
+
+/* table */
+
+
+table {
+	width: 100%;
+	height: 100%;
+}
+
+#containerTitle {
+	text-align: center;
+	font-weight:bold;
+	padding: 5px;
+	font-size:1.2rem;
+}
+
+th, td {
+	border:1px solid black;
+	padding:5px;
+}
+
+td {
+	text-align: center;
+}
+
+
+#finalString {
+	margin: 10px 0px 0px;
+}
