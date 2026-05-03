@@ -1,7 +1,7 @@
 
 # Sobre
 
-- Esse projeto não está incluso nas aulas, mas é algo a parte que estou montando na intenção de treinar de forma prática o que está sendo estudado. Na aula passada estava o conteúdo em si, aqui irei anotar sobre o projeto e conteúdo a mais que vale a pena comentar.
+- Esse projeto não está incluso nas aulas, mas é algo a parte que estou montando na intenção de treinar de forma prática o que está sendo estudado. Na aula passada está o conteúdo aprendido, aqui irei montar e anotar sobre o projete, além de incrementar conteúdos a mais que vale a pena comentar.
 
 
 ## O projeto
