@@ -1,24 +1,28 @@
 
-# Sobre
+# 😎 Sobre
 
 - Esse projeto não está incluso nas aulas, mas é algo a parte que estou montando na intenção de treinar de forma prática o que está sendo estudado. Na aula passada está o conteúdo aprendido... já aqui irei montar e anotar sobre o projeto, além de incrementar conteúdos a mais que vale a pena comentar.
 
 
-## O projeto
+## 📰 O projeto
 
-- Esse projeto contempla o primeiro uso prático de integração de um `servidor local + frontend` em algo interessante, sendo uma lista de supermercado que recebe dados do servidor e os renderiza. Essa é a primeira versão, posterioremente irei criar outra com base nesta, mas integrada com outros métodos HTTP para gerar mais funcionalidades a ela, como adicionar, editar e apagar itens. Foco aqui não é em beleza e nem entrega de produto, mas aprender e aplicar de forma engajante o que venho aprendendo.
-
-
-### Para rodar ele em sua máquina
+- Esse projeto contempla o primeiro uso prático de integração de um `servidor local + frontend` em algo interessante, sendo uma lista de supermercado que recebe dados do servidor e os renderiza. Essa é a primeira versão, posterioremente irei criar outra usando esta como base, mas integrada com outros métodos HTTP para gerar mais funcionalidades a ela, como adicionar, editar e apagar itens. Foco aqui não é em beleza e nem entrega de produto, mas aprender e aplicar de forma engajante o que venho aprendendo.
 
 
-```
+### 📥 Para rodar ele em sua máquina
 
 
 ```
 
 
-### CORS
+```
+
+
+<br>
+
+## 🧩 Conteúdo a mais
+
+### 🕵️‍ CORS
 
 - Durante o projeto, a requisição não estava sendo bem-sucedida, pois o navegador bloqueava o acesso à API quando o frontend era executado localmente (file://);
 - Para resolver isso, é possível rodar o frontend em um servidor (ex: Live Server) ou habilitar o CORS no backend.
@@ -35,18 +39,14 @@ app.use(express.json())
 app.use(cors())
 ```
 
-<br>
 
-## Conteúdo a mais
-
-
-### Pontos
+### 🔍 Pontos
 
 - Códigos dentro de uma `função async` muitas vezes só são rodados quando a promessa retorna, podendo travar os debaixo.
 
 <br>
 
-### Relembrando
+### 🧠 Relembrando
 
 - (html) Tabelas:
 1. table;
