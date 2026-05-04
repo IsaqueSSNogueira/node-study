@@ -49,12 +49,13 @@ app.use(cors())
 ### 🧠 Relembrando
 
 - (html) Tabelas:
+```
 1. table;
 2. caption;
 3. thead, tbody, tfoot (se tentar envolver com div, ele quebra);
 4. tr (linha);
 5. (células) - th (para titulos), td (conteúdo, rodapé).
-
+``` 
 
 - (js) createElement/appendChild:
 
