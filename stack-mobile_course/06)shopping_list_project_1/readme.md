@@ -9,14 +9,30 @@
 - Esse projeto contempla o primeiro uso prático de integração de um `servidor local + frontend` em algo interessante, sendo uma lista de supermercado que recebe dados do servidor e os renderiza. Essa é a primeira versão, posterioremente irei criar outra usando esta como base, mas integrada com outros métodos HTTP para gerar mais funcionalidades a ela, como adicionar, editar e apagar itens. Foco aqui não é em beleza e nem entrega de produto, mas aprender mais e aplicar de forma engajante o que venho estudado.
 
 
-### 📥 Para rodar ele em sua máquina
-
-
-```
-
+### 📥 Para rodar o projeto na sua máquina
 
 ```
+1. Clone o repositório:
+>> git clone https://github.com/IsaqueSSNogueira/node-study.git
 
+2. Acesse a pasta do projeto:
+>> cd Node.js\stack-mobile_course\06)shopping_list_project_1\back
+
+3. Instale as dependências do backend:
+>> npm install
+
+4. Inicie o servidor:
+>> node server.js
+
+5. Abra o frontend:
+- Abra o arquivo HTML com o Live Server (recomendado)
+ou
+- Abra manualmente no navegador
+
+6. Acesse no navegador:
+O frontend irá consumir a API em:
+http://localhost:3000
+```
 
 <br>
 
@@ -61,5 +77,18 @@ app.use(cors())
 
 ### JS 
 
-- createElement/appendChild:
-- `toFixed()` :
+- createElement/appendChild (exemplo):
+```
+data.forEach((item) => {
+	const row = document.createElement("tr")
+	row.innerHTML = `
+		<td>${item.nome}</td>
+		<td>${item.valor} reais</td>
+		<td>${item.vendidoA}</td>
+		<td>${quantily}</td>
+		<td>${valueTotal} reais</td>
+	`
+	contentContainer.appendChild(row)
+})
+```
+- `toFixed(X)` : Força ter "X" casa decimais. 

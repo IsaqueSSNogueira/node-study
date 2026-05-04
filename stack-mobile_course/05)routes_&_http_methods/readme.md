@@ -1,7 +1,7 @@
 
 # Sobre essa aula
 
-
+Aprenderemos sobre a base de Rotas e dos métodos http.
 
 ## ROTAS
 
@@ -48,11 +48,12 @@ async function getProfile() {
   console.log(data);
 }
 ```
-- `async` e `await`:
+- `async` : Define que a função será assíncrona (ela sempre vai retornar um Promisse);
+- `await` : Faz esperar a resposta pra depois continuar rodando o código da função. O await não trava o programa inteiro, ele só pausa dentro da função async (o código continua rodando fora, só a função async "espera"). Isso deixa o código mais legível que `.then()`;
 - Fluxo: function > res > data > renderização.
 
 
-### Login
+### Login (exemplo)
 
 ```
 async function login() {
@@ -82,7 +83,7 @@ async function login() {
 ## Aplicações
 
 
-### Coletar algo da requisição 
+### Coletar algo da requisição (node.js)
 
 ```
 // precisa de aplicar o metódo
