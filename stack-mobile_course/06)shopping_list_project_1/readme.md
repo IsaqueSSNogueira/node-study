@@ -46,9 +46,11 @@ app.use(cors())
 
 <br>
 
-### 🧠 Relembrando
+## 🧠 Relembrando
 
-- (html) Tabelas:
+### HTML 
+
+- Tabelas:
 ```
 1. table;
 2. caption;
@@ -57,6 +59,7 @@ app.use(cors())
 5. (células) - th (para titulos), td (conteúdo, rodapé).
 ``` 
 
-- (js) createElement/appendChild:
+### JS 
 
-- (js) `toFixed()` :
+- createElement/appendChild:
+- `toFixed()` :
