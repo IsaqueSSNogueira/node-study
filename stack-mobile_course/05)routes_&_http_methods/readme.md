@@ -53,7 +53,17 @@ async function getProfile() {
 - Fluxo: function > res > data > renderização.
 
 
-### Login (exemplo)
+### Diferença entre métodos na sintaxe
+
+- `get` : Só coleta dados, não possui o `body`, mas sempre carrega o `res` e `data` (curiosidade, é o valor padrão);
+- `post` : É definido o método, o headers e possui o body;
+- `put` : É definido o método, o headers e possui o body, geralmente é enviado id via url para marcar qual item será atualizado;
+- `delete` : Não precisa de body, apenas do método e é capturado via url qual item será dleetado; 
+
+
+### Exemplos
+
+### Login
 
 ```
 async function login() {
@@ -74,9 +84,39 @@ async function login() {
 ```
 
 - Isso chama -> `app.post("/login", ...)`;
+- `headers: {}` : São informações sobre os dados, enquanto o `body` são os dados em si. Tipo receber uma encomenda, a encomenda é o body, enquanto etiqueta sobre é os headers. São necessários no `POST` e `PUT` 
 - Se tiver isso no front `headers: {"Content-Type": "application/json"}`, no back precisa `app.use(express.json())`.
 
 
+#### Atualizar item
+
+```
+async function updateItem(id) {
+  await fetch(`http://localhost:3000/${id}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      nome: item.value,
+      valor: Number(preco.value),
+      vendidoA: vendidoA.value,
+      quantidade: Number(quantidade.value)
+    })
+  })
+}
+```
+
+
+#### Deletar item
+
+```
+async function deleteItem(id) {
+  await fetch(`http://localhost:3000/${id}`, {
+    method: "DELETE"
+  })
+}
+```
 
 <br>
 

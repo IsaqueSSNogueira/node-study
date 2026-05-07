@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de compras</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" type="module"></script>
+</head>
+
+<body>
+
+  <main id="mainContainer">
+      <h1 class="containerTitle">Lista de compras</h1>
+
+    <table>
+
+      <!-- Cabeçalho -->
+      <thead>
+        <tr>
+          <th>Numº</th>
+          <th>Item</th>
+          <th>Preço</th>
+          <th>Vendido a</th>
+          <th>Quantidade</th>
+          <th>Valor final</th>
+        </tr>
+      </thead>
+
+      <!-- Itens -->
+      <tbody id="contentContainer">
+       <!-- serão carregados com js vindo do do servidor -->
+      </tbody>
+
+    </table>
+
+    <p id="finalString">Valor final: <span id="finalValueString"></span></p>
+
+  </main>
+
+
+  <!-- add -->
+  <div id="actionBox">
+    <table>
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Preço</th>
+          <th>Vendido a</th>
+          <th>Quantidade</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><input type="text" data-type="inputItem"></td>
+          <td><input type="number" data-type="inputPreco"></td>
+          <td>
+            <select data-type="inputVendidoA">
+              <option value="kg">Kg</option>
+              <option value="un" selected>Unidade</option>
+              <option value="duzia">Duzia</option>
+            </select>
+          </td>
+          <td><input type="number" data-type="inputQuantidade"></td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <div id="containerActions">
+      <!-- ref -->
+      <div id="containerRef">
+        <p>Ref (numº)</p>
+        <input type="number" id="inputRef" min="0" max="100">
+      </div>
+      <!-- buttons -->
+      <div id="containerButtons">
+          <button class="actionButton" id="clearButton">Clear</button>
+          <button class="actionButton" id="deleteButton">Delete</button>
+          <button class="actionButton" id="editButton">Edit</button>
+          <button class="actionButton" id="addButton">Add</button>
+      </div>
+    </div>
+  
+  </div>
+
+
+</body>
+
+</html>

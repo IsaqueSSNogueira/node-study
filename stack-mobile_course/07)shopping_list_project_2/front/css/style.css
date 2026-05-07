@@ -1,0 +1,93 @@
+
+/* reset */
+* {padding: 0; margin: 0; box-sizing:border-box; font-size:100%;}
+a {color:black; font-style: none}
+
+
+body {
+	width:100%;
+	height:100%;
+	padding:30px;
+}
+
+#mainContainer {
+	width: 500px;
+	min-height: 300px;
+	padding: 20px;
+	border:1px solid black;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+
+/* table */
+
+table {
+}
+
+.containerTitle {
+	text-align: center;
+	font-weight:bold;
+	font-size:1.2rem;
+}
+
+tr {
+	position: relative;
+}
+
+th, td {
+	border:1px solid black;
+	padding:5px;
+	max-width: 100px;
+}
+
+td {
+	text-align: center;
+}
+
+#finalString {
+	padding: 10px;
+}
+
+
+/*extern table*/
+
+#actionBox {
+	border:1px solid black;
+	padding: 10px;
+	position: absolute;
+	bottom: 30px;
+	right: 30px;
+	display: flex;
+	flex-direction: column;
+
+}
+
+input {
+	max-width: 100%;
+	text-align: center;
+}
+
+#containerActions {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px 0;
+}
+
+#containerRef {
+	display: flex;
+	gap:5px;
+	align-items: center;
+}
+
+#inputRef {
+	width: 50px;
+}
+
+.actionButton {
+	width: 50px;
+}
