@@ -6,7 +6,7 @@
 
 ## 📰 O projeto
 
-- Esse projeto contempla o primeiro uso prático de integração de um `servidor local + frontend` em algo interessante, sendo uma lista de supermercado que recebe dados do servidor e os renderiza. Essa é a primeira versão, posterioremente irei criar outra usando esta como base, mas integrada com outros métodos HTTP para gerar mais funcionalidades a ela, como adicionar, editar e apagar itens. Foco aqui não é em beleza e nem entrega de produto, mas aprender mais e aplicar de forma engajante o que venho estudado.
+- Esse projeto aprimora o primeiro projeto, que é a lista de supermercado que recebe dados do servidor e renderiza. NEsta versão é incluida mais funcionalidades a ela, como adicionar, editar e apagar itens. Foco aqui não é em beleza, mas aplicar de forma engajante o que venho estudado, mas diferente da anterior, possui um toque de entrega de produto com soluções completas;
 
 
 ### 📥 Para rodar o projeto na sua máquina
@@ -36,10 +36,6 @@ http://localhost:3000
 
 <br>
 
-## 🧩 Conteúdo 
-
-- Try e catch
-
 ### 🔍 Pontos
 
 - Numa requisição, sempre tem que haver uma resposta ao cliente `res`;
@@ -51,12 +47,9 @@ http://localhost:3000
 
 ## 🧠 Relembrando
 
-### HTML 
-
-
 
 ### JS 
 
 - Sobre variaveis dentro de funções, utiliades interessantes
-- sobre querySelector com atributos, como `data's`;
-- `.map((item) => {})` não salva por cima do array. Salve ele em uma variável ou diretamente na que está sendo fatorada.
+- Sobre querySelector com atributos, como `data's` `document.querySelector("tag[data-type=valor]")`;
+- `.map((item) => {})` não salva por cima do array. Salve ele em uma variável ou diretamente na que está sendo fatorada (`itens = itens.map((item) => {...})`).
