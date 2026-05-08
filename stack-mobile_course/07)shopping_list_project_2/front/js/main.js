@@ -69,8 +69,8 @@ addButton.addEventListener("click", async () => {
 		return
 	}
 	else{
-		addItem()	
-		getData()
+		await addItem()	
+		await update()	
 	}
 
 })
@@ -81,15 +81,15 @@ editButton.addEventListener("click", async () => {
 		return
 	}
 	else{
-		await editItem()	
-		await getData()
+		await editItem()
+		await update()	
 	}
 })
 
 
 deleteButton.addEventListener("click", async () => {
 	await deleteItem()
-	await getData()
+	await update()	
 })
 
 clearButton.addEventListener("click", () => {
