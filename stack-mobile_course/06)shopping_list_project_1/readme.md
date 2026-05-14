@@ -38,6 +38,16 @@ http://localhost:3000
 
 ## 🧩 Conteúdo a mais
 
+- `forEach` não funciona em `async/await`, ele não espera. Utilize loop `for`:
+
+```
+for (const item of itens) {
+	const res = await fetch("...")
+	const data = await res.json()
+	...
+}
+```
+
 ### 🕵️‍ CORS
 
 - Durante o projeto, a requisição não estava sendo bem-sucedida, pois o navegador bloqueava o acesso à API quando o frontend era executado localmente (file://);
