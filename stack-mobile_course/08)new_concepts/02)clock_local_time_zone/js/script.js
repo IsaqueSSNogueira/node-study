@@ -1,9 +1,9 @@
 
 const urlBase = "https://api.api-ninjas.com/v1/worldtime?timezone="
 const urlParams = ["America/Sao_Paulo", "America/New_York","Europe/London", "Asia/Tokyo"]
-const apiKey = "HqKkzWfLhs07O2oMzWMhNx2Ur6JNhdMV4rrW6SgV"
+const apiKey = "Px9VzvQomaVrRRxc84c2xUXwwLuOs1oIWuc6EC7s";
 
-```
+/*
 Vou manter a apiKey exposta porque:
 - é projeto de estudo 
 - API gratuita 
@@ -11,13 +11,33 @@ Vou manter a apiKey exposta porque:
 - sem cobrança 
 
 ...mas sei da importância de preserva-la em certos contextos 👍
-```
+*/
 
 const clocks = {
-  "America/Sao_Paulo": document.getElementById("clock-sp"),
-  "America/New_York": document.getElementById("clock-ny"),
-  "Europe/London": document.getElementById("clock-lon"),
-  "Asia/Tokyo": document.getElementById("clock-tok"),
+  "America/Sao_Paulo": {
+  	item:document.getElementById("clock-sp"),
+  	hour:0,
+  	minute:0,
+  	second:0,
+	},
+  "America/New_York": {
+  	item:document.getElementById("clock-ny"),
+  	hour:0,
+  	minute:0,
+  	second:0,
+  },
+  "Europe/London": {
+  	item:document.getElementById("clock-lon"),
+  	hour:0,
+  	minute:0,
+  	second:0,
+  },
+  "Asia/Tokyo": {
+  	item: document.getElementById("clock-tok"),
+  	hour:0,
+  	minute:0,
+  	second:0,
+  }
 };
 
 // clockTime.textContent = `${}`;
@@ -31,6 +51,10 @@ const getTimeZone = async () => {
 	.catch(err => console.error(err))
 	*/
 
+	// block temporário	
+	if(1 > 0) return
+
+
 	for (const timezone in clocks){
 		if (!clocks[timezone]) {
 		  console.warn(`Elemento não encontrado para ${timezone}`);
@@ -40,7 +64,9 @@ const getTimeZone = async () => {
 			const res = await fetch(`${urlBase}${timezone}`, {headers: {"X-Api-Key": apiKey}})
 			const data = await res.json()
 			console.log(data)
-			clocks[timezone].textContent = `${String(data.hour).padStart(2, "0")}:${String(data.minute).padStart(2, "0")}:${String(data.second).padStart(2, "0")}`
+			clocks[timezone].hour = data.hour
+			clocks[timezone].minute = data.minute
+			clocks[timezone].second = data.second
 
 		} catch(error){
 			console.error("error:", error)
@@ -50,10 +76,36 @@ const getTimeZone = async () => {
 
 }
 
-// em teoria era pra funcionar, mas a API tem limite de requisições e já estourou 😂. Eu poderia fazer manual, porém o foco era receber a requisição. Creio que para a proposta dele esse projeto foi bem útil
-// Em produção, o ideal é usar cache ou atualizar localmente, mas para a ideia do projeto isso está ok, dessa vez o foco não é deixar ela usável (diferente de todos que eu faço), mas aprender, por ser uma API externa e com limites, se eu tentar deixar ele perfeito irei travar e perder o proósito, que seria aprender
+const updateClock = () => {
+
+	for(const timezone in clocks){
+		
+		const clock = clocks[timezone];
+
+		if(!clock) continue
+
+			clock.second++
+
+		if(clock.second >= 60){
+			clock.second = 0
+			clock.minute++
+		}
+
+		if(clock.minute >= 60){
+			clock.minute = 0
+			clock.hour++ 
+		}
+
+		if(clock.hour >= 24){
+			clock.hour = 0
+		}
+
+		clocks[timezone].item.textContent = `${String(clock.hour).padStart(2, "0")}:${String(clock.minute).padStart(2, "0")}:${String(clock.second).padStart(2, "0")}`
+	}
+}
+
 setInterval(() => {
-	getTimeZone()
+	updateClock()
 }, 1000)
 
 getTimeZone()

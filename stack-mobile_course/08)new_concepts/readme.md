@@ -7,7 +7,7 @@
 - Agora que estou de fato aprendendo backend, tenho base e consigo compreender melhor o que está acontecendo por "de trás dos panos". Poderia simplesmente pular essa parte e já focar na implementação de servidor em banco de dados externo, fazer hospedagem, mas achei importante voltar a base, entender conceitos fundamentais e experimentar fazer projetos mais simples em construção, mas cada um com propósito;
 - Esse projetos não focam em lógica complexa e nem UI, mas em saber bem receber dados de uma API e os utiliza-los de uma forma eficiente e produtiva. São projetos rápidos para experimentação. Projetos:
 1. Visualizador de imagens de gatos. Vindas de uma API, troca a imagem quando é clicado no botão "Change IMG 🧡";
-2. Relógios digitais. Busca horários de países definidos e renderiza fuso-horário local "ao vivo".
+2. Relógios digitais. Busca horários de países definidos e renderiza fuso-horário local "ao vivo". Sei que é tranquilo montar puxando do próprio navegador esses dados do relógio, mas aqui o foco é ter a base vinda de uma API.
 
 
 <br>
