@@ -51,8 +51,6 @@ const getTimeZone = async () => {
 	.catch(err => console.error(err))
 	*/
 
-	// block temporário	
-	if(1 > 0) return
 
 
 	for (const timezone in clocks){
@@ -63,6 +61,7 @@ const getTimeZone = async () => {
 		try {
 			const res = await fetch(`${urlBase}${timezone}`, {headers: {"X-Api-Key": apiKey}})
 			const data = await res.json()
+			if(!data.hour || !data.minute || !data.second) continue
 			console.log(data)
 			clocks[timezone].hour = data.hour
 			clocks[timezone].minute = data.minute
@@ -82,9 +81,8 @@ const updateClock = () => {
 		
 		const clock = clocks[timezone];
 
-		if(!clock) continue
 
-			clock.second++
+		clock.second++
 
 		if(clock.second >= 60){
 			clock.second = 0
@@ -100,7 +98,7 @@ const updateClock = () => {
 			clock.hour = 0
 		}
 
-		clocks[timezone].item.textContent = `${String(clock.hour).padStart(2, "0")}:${String(clock.minute).padStart(2, "0")}:${String(clock.second).padStart(2, "0")}`
+		clock.item.textContent = `${String(clock.hour).padStart(2, "0")}:${String(clock.minute).padStart(2, "0")}:${String(clock.second).padStart(2, "0")}`
 	}
 }
 
