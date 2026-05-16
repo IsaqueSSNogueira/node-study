@@ -1,0 +1,118 @@
+
+* {margin:0; padding:0; box-sizing: border-box; font-size:100%;}
+
+body {
+	width:100vw; 
+	height: 100vh; 
+	display:flex; 
+	align-items:center; 
+	justify-content:center;
+}
+
+
+/* main */
+#appContainer {
+	width: 450px;
+	height: 450px;
+	border:1px solid black;
+	border-radius:10px;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	position: relative;
+}
+
+h1 {
+	text-align: center;
+	font-size: 2rem;
+	padding: 10px;
+}
+
+
+
+
+/* Auth Screen */
+
+/*autentificação (duplo container, escondidos pelo hidden do pai e movimentados pelo js) */
+#authScreen {
+	display: flex;
+	width: 200%;
+	height: 100%;
+	transition: all 1s linear;
+}
+
+
+/* default for containers */
+.contentBox {
+	width: 450px;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.contentBox h2 {
+	font-size: 1.5rem;
+	padding: 20px;
+	margin-top: 30px;
+}
+
+.authForm {
+	display: flex;
+	flex-direction: column;
+	gap:15px;
+}
+
+.formInput {
+	font-size: 0.9rem;
+	padding: 8px;
+	border-radius: 3px;
+	border: 1px solid black;
+}
+
+.formInput:focus {
+	outline: none;	
+}
+
+.authButton:hover {
+	cursor:pointer;
+}
+
+#registerScreen {
+	display: ;
+}
+
+
+/*tab switcher*/
+#tabList {
+	position: absolute;
+	bottom: 15px;
+	right:30px;
+	border:1px solid black;
+	border-radius: 8px;
+	padding: 5px;
+	display: flex;
+	gap:10px;
+}
+
+#tabList:hover, #tabList button {
+	cursor:pointer;
+}
+
+#tabList::before {
+	content: "";
+	width: 50%;
+	height: 100%;
+	background: rgba(52, 177, 235, 0.8);
+	position: absolute;
+	top:0;
+	left:0;
+	border-radius: 8px;
+	border: 1px solid black;
+	z-index: -1;
+}
+
+#tabList button {
+	background: none;
+	border:none;
+}

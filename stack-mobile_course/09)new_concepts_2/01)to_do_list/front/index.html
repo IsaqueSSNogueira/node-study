@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+ <head>
+ 	<meta charset="UTF-8">
+ 	<title>To Do List (Node.js)</title>
+ 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 	<link rel="stylesheet" href="css/style.css">
+ 	<script src="js/script.js" defer></script>
+ </head>
+
+ <body>
+
+ 	<!-- base -->
+ 	<main id="appContainer">
+
+ 		<h1>To do List</h1>
+
+ 		<!-- Authentication Screen -->
+ 		<div id="authScreen">
+
+ 			<!-- login -->
+ 			<div id="loginScreen" class="contentBox">
+ 				<h2>Login</h2>
+
+ 				<form class="authForm">
+ 					<input type="text" class="formInput" placeholder="User">
+ 					<input type="password" class="formInput" minlength="5" maxlength="30" placeholder="Password">
+ 					<p>Esqueceu sua senha? <a href="/">Clique aqui</a></p>
+ 					<button class="authButton" id="signInButton">Entrar</button>
+ 				</form>
+ 				
+ 			</div>
+
+
+ 			<!-- register -->
+ 			<div id="registerScreen" class="contentBox">
+ 				<h2>Registrar</h2>
+
+ 				<form class="authForm">
+ 					<input type="text" class="formInput" placeholder="User">
+ 					<input type="password" class="formInput" minlength="5" maxlength="30" placeholder="Password">
+ 					<button class="authButton" id="signUpButton">Cadastrar</button>
+ 				</form>
+ 			</div>
+
+
+ 			<!-- tab switcher (abas) -->
+			<div role="tablist" id="tabList">
+			  <button role="tab">Sign In</button>
+			  <button role="tab">Sign Up</button>
+			</div>
+
+ 		</div>
+
+ 	</main>
+
+ </body>
+
+</html>
