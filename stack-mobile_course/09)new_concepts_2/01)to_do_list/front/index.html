@@ -7,15 +7,24 @@
  	<title>To Do List (Node.js)</title>
  	<meta name="viewport" content="width=device-width, initial-scale=1.0">
  	<link rel="stylesheet" href="css/style.css">
- 	<script src="js/script.js" defer></script>
+ 	<script src="js/main.js" type="module"></script>
+ 	<script src="https://kit.fontawesome.com/2dce24cdd9.js" crossorigin="anonymous"></script>
  </head>
 
  <body>
 
  	<!-- base -->
  	<main id="appContainer">
+		
+		<!-- header -->
+		<header>
+			<div id="containerIcon">
+				<i class="fa-regular fa-clipboard" id="icon"></i>
+			</div>
+ 			<h1>To do <span>List</span></h1>
+ 		</header>
 
- 		<h1>To do List</h1>
+
 
  		<!-- Authentication Screen -->
  		<div id="authScreen">
@@ -24,35 +33,43 @@
  			<div id="loginScreen" class="contentBox">
  				<h2>Login</h2>
 
- 				<form class="authForm">
- 					<input type="text" class="formInput" placeholder="User">
- 					<input type="password" class="formInput" minlength="5" maxlength="30" placeholder="Password">
- 					<p>Esqueceu sua senha? <a href="/">Clique aqui</a></p>
+ 				<!-- form -->
+ 				<form class="authForm" autocomplete="off">
+ 					<input type="text" class="formInput" placeholder="Usuário" id="userInputLogin">
+ 					<input type="password" class="formInput" minlength="5" maxlength="30" placeholder="Senha" id="passwordInputLogin">
  					<button class="authButton" id="signInButton">Entrar</button>
  				</form>
- 				
- 			</div>
 
+ 				<!-- tab switcher -->
+ 				<div class="tabSwitcherContainer">
+			  		Não possui conta?
+			  		<button class="tabSwitcherButton" data-mode="register">Registar</button>
+			  	</div>
+ 			</div>
 
  			<!-- register -->
  			<div id="registerScreen" class="contentBox">
  				<h2>Registrar</h2>
 
- 				<form class="authForm">
- 					<input type="text" class="formInput" placeholder="User">
- 					<input type="password" class="formInput" minlength="5" maxlength="30" placeholder="Password">
- 					<button class="authButton" id="signUpButton">Cadastrar</button>
+ 				<!-- form -->
+ 				<form class="authForm" autocomplete="off">
+ 					<input type="text" class="formInput" placeholder="Usuário" id="userInputRegister">
+ 					<input type="password" class="formInput" minlength="5" maxlength="30" placeholder="Senha" id="passwordInputRegister">
+ 					<button class="authButton" id="signUpButton">Login</button>
  				</form>
+
+ 				<!-- tab switcher -->
+ 				<div class="tabSwitcherContainer">
+ 					Já possui conta?
+					<button class="tabSwitcherButton" data-mode="login">Login</button>
+				</div>
  			</div>
-
-
- 			<!-- tab switcher (abas) -->
-			<div role="tablist" id="tabList">
-			  <button role="tab">Sign In</button>
-			  <button role="tab">Sign Up</button>
-			</div>
-
  		</div>
+
+
+
+ 		<!-- user list screen -->
+
 
  	</main>
 
