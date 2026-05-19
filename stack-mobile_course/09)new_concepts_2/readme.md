@@ -86,6 +86,15 @@ app.listen(3000, () => console.log('Servidor rodando'));
 ### Service
 
 
-
-
 <br>
+
+
+## Respostas HTTP
+
+1) `209`: Criação de registro;
+2) `200`: Login;
+3) `404`: Usuário não existe;
+4) `409`: Conflito de dados (usuário já existe).
+
+
+- *Nunca envie a senha para o frontend*.

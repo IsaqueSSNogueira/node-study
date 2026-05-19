@@ -19,18 +19,17 @@ let users = [
 	{user: "Isaque", password:"123456"}
 ]
 
+console.log(users)
 
 // routes
 
-app.get("/register", (req, res) => {
 
-})
-
+// register
 app.post("/register", (req, res) => {
-	const {user, password} = req.body
+	const {inputUser, inputPassword} = req.body
 	
 	const existUser = users.some((item) => {
-		return item.user === user
+		return item.user === inputUser
 	})
 
 	if(existUser){
@@ -38,13 +37,30 @@ app.post("/register", (req, res) => {
 			message: "Usuário já existe"
 		})
 	}
-
 	// if everything goes well
-	users.push({user, password})
+	users.push({user: inputUser, password:inputPassword})
 	return res.status(201).json({
 		message: "Usuário criado"
 	})
+})
 
+
+// login
+app.post("/login", (req, res) => {
+	const {inputUser, inputPassword} = req.body;
+	const foundUser = users.find((item) => {
+		return item.user === inputUser || item.password === inputPassword
+	})
+
+	if(!foundUser){
+		return res.status(404).json({
+			message:"Usuário ou senha incorretos"
+		})
+	}
+	return res.status(200).json({
+		message: "Login efetuado",
+		user:foundUser.user,
+	})
 })
 
 

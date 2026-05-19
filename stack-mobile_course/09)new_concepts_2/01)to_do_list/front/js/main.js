@@ -1,8 +1,8 @@
 
-import {moveAuthScreen, authRegister, authLogin} from './authScreen.js'
-
+import {authRegister, authLogin} from './auth/auth.js'
+import {moveAuthScreen} from './utils/form.js'
 
 // auth screen
-moveAuthScreen()
 authRegister()
 authLogin()
+moveAuthScreen()
