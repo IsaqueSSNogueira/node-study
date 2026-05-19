@@ -15,6 +15,37 @@ const verifyMinInputConditions = (element) => {
 };
 
 
+// try sign up
+const trySignUp = async (user, password) => {
+
+	console.log(user.value, password.value)
+	try{
+		const res =	await fetch("http://localhost:3000/register", {
+				method: "POST", 
+				headers:{"Content-Type": "application/json"}, 
+				body: JSON.stringify({user:user.value, password:password.value})
+		})
+		const data = await res.json();
+
+		// error
+		if (!res.ok) {
+			alert(data.message || "Erro ao cadastrar");
+			return;
+		}
+
+		// sucess
+		alert("Cadastrado com sucesso!");
+		clearInputs();
+
+	} catch(err){
+		console.log(err)
+		alert("Erro de conexão com o servidor");
+	}
+}
+
+
+
+
 /* base functions */
 
 // auth register
@@ -33,8 +64,8 @@ export const authRegister = () => {
 			alert("Dados incompletos")
 		}
 		else {
-			alert("Cadastrado")
-		}
+			trySignUp(userInputRegister, passwordInputRegister)
+			}
 	})
 
 }
@@ -57,7 +88,7 @@ export const authLogin = () => {
 			alert("Dados incompletos")
 		}
 		else {
-			alert("Cadastrado")
+			alert("Login efetuado")
 		}
 	})
 }
