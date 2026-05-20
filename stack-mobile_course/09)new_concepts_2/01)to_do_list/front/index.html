@@ -30,7 +30,7 @@
  		<div id="authScreen">
 
  			<!-- login -->
- 			<div id="loginScreen" class="contentBox">
+ 			<div id="loginScreen" class="authContentBox">
  				<h2>Login</h2>
 
  				<!-- form -->
@@ -48,7 +48,7 @@
  			</div>
 
  			<!-- register -->
- 			<div id="registerScreen" class="contentBox">
+ 			<div id="registerScreen" class="authContentBox">
  				<h2>Registrar</h2>
 
  				<!-- form -->
@@ -68,8 +68,43 @@
 
 
 
- 		<!-- user list screen -->
+ 		<!-- user tasks screen -->
 
+ 		<div id="taskScreen"  class="hidden">
+
+ 			<!-- task tab -->
+		 	<div id="taskTabContainer">
+				<div class="taskTabArea selectTab">
+					<button>To Do</button>
+				</div>
+				<div class="taskTabArea">
+					<button>Done</button>
+				</div>
+			</div>
+
+ 			<!-- tasks container -->
+ 			<div id="taskContainer">
+
+ 				<!-- example -->
+ 				<div class="taskBox">
+ 					<input type="checkbox" class="checkboxTask">
+ 					<input type="text" class="inputTask" placeholder="task" disabled>
+ 					<button>
+ 						<i class="fa-solid fa-ellipsis-vertical"></i>
+ 					</button>
+ 				</div>
+
+ 			</div>
+
+ 			<!-- add task -->
+ 			<div id="addTaskContainer">
+ 				<input type="text" id="newTaskInput" placeholder="Nova tarefa" autocomplete="off">
+ 				<button id="newTaskButton">
+ 					<i class="fa-solid fa-circle-chevron-up" id="icon"></i>	
+ 				</button>
+ 			</div>
+
+ 		</div>
 
  	</main>
 
