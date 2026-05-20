@@ -27,7 +27,7 @@
 
 
  		<!-- Authentication Screen -->
- 		<div id="authScreen">
+ 		<div id="authScreen" class="hidden">
 
  			<!-- login -->
  			<div id="loginScreen" class="authContentBox">
@@ -70,22 +70,31 @@
 
  		<!-- user tasks screen -->
 
- 		<div id="taskScreen"  class="hidden">
+ 		<div id="taskScreen">
 
  			<!-- task tab -->
 		 	<div id="taskTabContainer">
-				<div class="taskTabArea selectTab">
-					<button>To Do</button>
-				</div>
-				<div class="taskTabArea">
-					<button>Done</button>
-				</div>
+		 		<div id="taskTabWrapper">
+					<div class="taskTab selectTab">
+						<button>To Do</button>
+					</div>
+					<div class="taskTab">
+						<button>Done</button>
+					</div>
+		 		</div>
 			</div>
 
  			<!-- tasks container -->
  			<div id="taskContainer">
 
  				<!-- example -->
+ 				<div class="taskBox">
+ 					<input type="checkbox" class="checkboxTask">
+ 					<input type="text" class="inputTask" placeholder="task" disabled>
+ 					<button>
+ 						<i class="fa-solid fa-ellipsis-vertical"></i>
+ 					</button>
+ 				</div>
  				<div class="taskBox">
  					<input type="checkbox" class="checkboxTask">
  					<input type="text" class="inputTask" placeholder="task" disabled>

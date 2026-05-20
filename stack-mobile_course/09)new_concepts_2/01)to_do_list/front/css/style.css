@@ -189,31 +189,50 @@ h1::after {
 /*task tab*/
 #taskTabContainer{
 	width: 100%;
-	display: flex;
-}
-
-
-.taskTabArea {
-	width: 50%;
+	border-radius: 5px;
 	display: flex;
 	justify-content: center;
-	border:1px solid black;
 }
 
-.taskTabArea button {
-	background: rgba(0,0,0,0);
+#taskTabWrapper {
+	width: 93%;
+	display: flex;
+	border-radius: 5px;
+	overflow: hidden;
+}
+
+.taskTab {
+	width: 50%;
+	height: 30px;
+	display: flex;
+	justify-content: center;
+	border:1px solid rgba(0,0,0,0.1);
+}
+
+.taskTab button {
+	background: none;
 	border: none;
 	width: 100%;
 	cursor: pointer;
+	font-size: 0.8rem;
+	font-weight: bold;
+	color:rgba(0,0,0,0.5);
 }
 
-.taskTabArea button:hover {
-	background: rgba(0,0,0,0.1);
+.taskTab button:hover {
+	background: rgba(0,0,0,0.05);
 }
 
 .selectTab {
-	background: rgba(0, 110, 255, 0.2);
+	background: rgba(0, 110, 255, 0.1);
+	color:rgba(0, 110, 255, 0.15);
 }
+
+.selectTab button {
+	color:rgba(0, 110, 255);
+}
+
+
 
 
 /*task container*/
@@ -233,12 +252,16 @@ h1::after {
 	display: flex;
 	gap:15px;
 	justify-content: center;
+	box-shadow: 0 0 3px rgba(0,0,0,0.3);
+	padding: 15px;
+	border-radius: 5px;
 }
 
 .taskBox input, .taskBox button {
 	background: none;
 	border: none;
 	outline: none;
+	font-size: 0.9rem;
 }
 
 .inputTask {
