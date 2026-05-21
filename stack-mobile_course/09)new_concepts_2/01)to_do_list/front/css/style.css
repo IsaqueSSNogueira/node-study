@@ -19,7 +19,7 @@ body {
 /* main */
 #appContainer {
 	width: 350px;
-	height: 450px;
+	height: 500px;
 	border-radius:10px;
 	display: flex;
 	flex-direction: column;
@@ -195,7 +195,7 @@ h1::after {
 }
 
 #taskTabWrapper {
-	width: 93%;
+	width: 95%;
 	display: flex;
 	border-radius: 5px;
 	overflow: hidden;
@@ -203,7 +203,7 @@ h1::after {
 
 .taskTab {
 	width: 50%;
-	height: 30px;
+	height: 35px;
 	display: flex;
 	justify-content: center;
 	border:1px solid rgba(0,0,0,0.1);
@@ -217,21 +217,42 @@ h1::after {
 	font-size: 0.8rem;
 	font-weight: bold;
 	color:rgba(0,0,0,0.5);
+	display: flex;
+	gap:5px;
+	justify-content: center;
+	align-items: center;
 }
 
 .taskTab button:hover {
 	background: rgba(0,0,0,0.05);
 }
 
-.selectTab {
-	background: rgba(0, 110, 255, 0.1);
+.activeTab {
+	background: rgba(0, 110, 255, 0.05);
 	color:rgba(0, 110, 255, 0.15);
+	border-bottom: 3px solid rgba(0, 110, 255, 0.5);
 }
 
-.selectTab button {
+.activeTab button {
 	color:rgba(0, 110, 255);
+	width: 100%;
+	height: 100%;
 }
 
+.taskCount {
+	width: 20px;
+	height: 18px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+	font-size: 0.7rem;
+	background: rgba(0,0,0,0.05);
+}
+
+.activeTab .taskCount {
+	background: rgba(0, 110, 255, 0.1);
+}
 
 
 
@@ -242,7 +263,7 @@ h1::after {
 	display: flex;
 	flex-direction: column;
 	gap:20px;
-	padding: 15px;
+	padding: 15px 10px;
 	overflow: auto;
 }
 
@@ -252,7 +273,7 @@ h1::after {
 	display: flex;
 	gap:15px;
 	justify-content: center;
-	box-shadow: 0 0 3px rgba(0,0,0,0.3);
+	box-shadow: 0 1px 4px rgba(0,0,0,0.1);
 	padding: 15px;
 	border-radius: 5px;
 }
@@ -261,7 +282,12 @@ h1::after {
 	background: none;
 	border: none;
 	outline: none;
-	font-size: 0.9rem;
+	font-size: 0.9rem;	
+}
+
+.taskBox input:disabled, .taskBox input::placeholder {
+	color: black;
+	opacity: 1;
 }
 
 .inputTask {
@@ -280,18 +306,21 @@ h1::after {
 
 /*add taks area*/
 #addTaskContainer {
-	padding: 15px 25px;
+	padding: 20px 15px;
 	display: flex;
-	gap:15px;
-	border-top:1px solid 
+	gap:10px;
+	background: rgba(0, 110, 255, 0.01);
+	border-top:1px solid rgba(0,0,0,0.05);
 }
 
 #newTaskInput {
-	width: 80%;
+	width: 100%;
 	padding: 7px 10px;
-	border-radius:5px 0 0 5px;
-	border:1px solid black;
-	font-size: 0.9rem;
+	border-radius:5px;
+	border:none;
+	box-shadow: 0 0 4px rgba(0,0,0,0.2);
+	font-size: 0.8rem;
+	color:gray;
 }
 
 #newTaskInput:focus {
@@ -304,15 +333,17 @@ h1::after {
 	cursor: pointer;
 }
 
-#newTaskButton #icon {
-	color:rgba(0, 110, 255, 0.5);
-	width: 30px;
-	height: 30px;
+#newTaskButton {
+	background: rgba(0, 110, 255, 0.9);
+	color:white;
+	width: 45px;
+	height: 32px;
 	transition: all 0.5s ease;
+	border-radius: 3px;
 }
 
-#newTaskButton #icon:hover {
-	color:rgba(4, 90, 204, 0.6);
+#newTaskButton:hover {
+	background:rgba(4, 90, 204, 0.8);
 }
 
 

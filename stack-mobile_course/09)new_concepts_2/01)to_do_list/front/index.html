@@ -75,11 +75,19 @@
  			<!-- task tab -->
 		 	<div id="taskTabContainer">
 		 		<div id="taskTabWrapper">
-					<div class="taskTab selectTab">
-						<button>To Do</button>
+					<div class="taskTab activeTab">
+						<button>
+							<i class="fa-brands fa-flipboard"></i>
+							To Do
+							<span class="taskCount">2</span>
+						</button>
 					</div>
 					<div class="taskTab">
-						<button>Done</button>
+						<button>
+							<i class="fa-regular fa-circle-check"></i>
+							Done
+							<span class="taskCount">0</span>
+						</button>
 					</div>
 		 		</div>
 			</div>
@@ -107,9 +115,9 @@
 
  			<!-- add task -->
  			<div id="addTaskContainer">
- 				<input type="text" id="newTaskInput" placeholder="Nova tarefa" autocomplete="off">
+ 				<input type="text" id="newTaskInput" placeholder="Nova tarefa..." autocomplete="off">
  				<button id="newTaskButton">
- 					<i class="fa-solid fa-circle-chevron-up" id="icon"></i>	
+ 					+
  				</button>
  			</div>
 
