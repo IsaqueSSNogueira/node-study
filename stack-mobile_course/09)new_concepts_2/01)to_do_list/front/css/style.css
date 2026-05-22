@@ -111,12 +111,11 @@ h1::after {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	justify-content: center;
 }
 
 .authContentBox h2 {
 	font-size: 1.3rem;
-	padding: 20px;
-	margin-top: 20px;
 }
 
 .authForm {
@@ -124,6 +123,7 @@ h1::after {
 	flex-direction: column;
 	gap:15px;
 	width: 80%;
+	padding: 20px 0 5px;
 }
 
 .formInput {
@@ -362,7 +362,7 @@ h1::after {
 /*footer*/
 
 /*add taks area*/
-footer {
+#taskScreenFooter {
 	padding:15px;
 	display: flex;
 	flex-direction: column;
