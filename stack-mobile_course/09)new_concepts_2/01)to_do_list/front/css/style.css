@@ -19,8 +19,8 @@ body {
 /* main */
 #appContainer {
 	width: 350px;
-	height: 500px;
-	border-radius:10px;
+	height: 520px;
+	border-radius:15px;
 	display: flex;
 	flex-direction: column;
 	overflow: hidden;
@@ -128,7 +128,7 @@ h1::after {
 
 .formInput {
 	font-size: 0.9rem;
-	padding: 8px;
+	padding: 9px;
 	border-radius: 3px;
 	border: 1px solid black;
 	width:100%;
@@ -142,7 +142,7 @@ h1::after {
 	background: rgba(0, 110, 255, 0.5);
 	border:none;
 	padding:8px;
-	border-radius:5px;
+	border-radius:6px;
 	color:white;
 	font-size: 0.9rem;
 }
@@ -271,46 +271,110 @@ h1::after {
 /*task box*/
 .taskBox {
 	display: flex;
+	align-items: flex-start;
 	gap:15px;
-	justify-content: center;
 	box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-	padding: 15px;
+	padding: 10px;
 	border-radius: 5px;
 }
 
-.taskBox input, .taskBox button {
-	background: none;
-	border: none;
-	outline: none;
-	font-size: 0.9rem;	
+.infoTaskContainer {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	width: 100%;
+	gap:5px;
 }
 
-.taskBox input:disabled, .taskBox input::placeholder {
-	color: black;
-	opacity: 1;
+.inputTaskContainer {
+	display: flex;
+	align-items: center;
+}
+
+.inputTaskContainer .icon {
+	width: 10px;
+	height: 10px;
+	opacity: 0.85;
 }
 
 .inputTask {
 	width: 100%;
+	font-size: 0.7rem;
+	font-weight: bold;
+	padding: 0 5px;
+}
+
+.inputTask:disabled, .inputTask::placeholder {
+	color: black;
+	opacity: 0.85;
+}
+
+.descriptionTaskButton {
+	border:none;
+	background: rgba(0, 110, 255, 0.05);
+	font-size: 0.5rem;
+	width: 60px;
+	height: 15px;
+	border-radius: 7px;
+	color:rgba(0,0,0,0.7);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap:4px;
+	cursor: pointer;
+}
+
+.descriptionTaskButton .icon {
+	width: 8px;
+	height: 8px;
+	opacity: 0.8;
+}
+
+.inputTask, .moreActionsTaskButton {
+	background: none;
+	border: none;
+	outline: none;
+}
+
+.moreActionsTaskButton {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 15px;
+	height: 15px;
+	cursor: pointer;
+}
+.moreActionsTaskButton .icon {
+	width: 12px;
+	height: 12px;
 }
 
 
-
-/*
 .checkboxTask {
+	margin-top: 3px;
+	/*
   appearance: none;
   -webkit-appearance: none;
+  */
 }
-*/
 
+
+/*footer*/
 
 /*add taks area*/
+footer {
+	padding:15px;
+	display: flex;
+	flex-direction: column;
+	gap:10px;
+	background: rgba(0, 110, 255, 0.02);
+	border-top:1px solid rgba(0,0,0,0.05);
+}
+
 #addTaskContainer {
-	padding: 20px 15px;
 	display: flex;
 	gap:10px;
-	background: rgba(0, 110, 255, 0.01);
-	border-top:1px solid rgba(0,0,0,0.05);
+
 }
 
 #newTaskInput {
@@ -337,16 +401,27 @@ h1::after {
 	background: rgba(0, 110, 255, 0.9);
 	color:white;
 	width: 45px;
-	height: 32px;
+	height: 35px;
 	transition: all 0.5s ease;
-	border-radius: 3px;
+	border-radius: 5px;
 }
 
 #newTaskButton:hover {
 	background:rgba(4, 90, 204, 0.8);
 }
 
+#footerPhase {
+	font-size: 0.55rem;
+	display: flex;
+	justify-content: center;
+	gap:5px;
+	align-items: center;
+	color:rgba(0,0,0,0.7);
+}
 
+#footerPhase .icon {
+	color:rgba(4, 90, 204, 0.8);
+}
 
 
 /*js*/
