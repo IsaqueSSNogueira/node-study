@@ -1,6 +1,7 @@
 
-
-import {clearInputs} from './../utils/form.js'
+// imports
+import {clearInputs} from "./../utils/form.js"
+import {renderTaskScreen} from "./../tasks/tasks.js"
 
 // try sign up
 export const trySignUp = async (user, password) => {
@@ -47,8 +48,9 @@ export const trySignIn = async (user, password) => {
 			alert(data.message || "Erro ao efetuar login")
 			return;
 		}
-		console.log(data)
 		alert("Login efetuado")
+		console.log(data)
+		renderTaskScreen(data.id)
 	}catch(err){
 		console.log(err)
 		alert("Erro ao fazer login")

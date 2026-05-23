@@ -1,6 +1,6 @@
 
 import {verifyMinInputConditions} from './../utils/form.js'
-import {trySignUp, trySignIn} from './api.js'
+import {trySignUp, trySignIn} from './authApi.js'
 
 /* base functions */
 

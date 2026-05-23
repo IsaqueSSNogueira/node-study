@@ -2,6 +2,9 @@
 // import
 import express from "express"
 import cors from "cors"
+import { v4 as uuidv4 } from 'uuid'; // id
+
+
 // initialization
 const app = express()
 app.use(cors());
@@ -16,7 +19,16 @@ app.get("/", (req, res) => {
 
 // users
 let users = [
-	{user: "Isaque", password:"123456"}
+	{
+	 id:uuidv4(), // crypto.randomUUID();
+	 user: "Isaque", 
+	 password:"123456",
+	 tasks:[
+	 	{id:uuidv4(), text:"Correr", description:"Correr as 7h da manhã",status:false},
+	 	{id:uuidv4(), text:"Estudar", description:"Ao menos 1h diária",status:false},
+	 	{id:uuidv4(), text:"Trabalhar", description:"Sair as 13:30",status:false},
+	 ]
+	}
 ]
 
 console.log(users)
@@ -38,7 +50,7 @@ app.post("/register", (req, res) => {
 		})
 	}
 	// if everything goes well
-	users.push({user: inputUser, password:inputPassword})
+	users.push({id:uuidv4(), user: inputUser, password:inputPassword})
 	return res.status(201).json({
 		message: "Usuário criado"
 	})
@@ -58,9 +70,25 @@ app.post("/login", (req, res) => {
 		})
 	}
 	return res.status(200).json({
-		message: "Login efetuado",
-		user:foundUser.user,
+		message: "Login efetuado",		
+		id:foundUser.id,
 	})
+})
+
+
+
+
+
+// get data
+app.get("/data/:id", (req, res) => {
+
+	const id = req.params.id
+	const userData = users.find(item => item.id = id)
+	const returnData = {user:userData.user, tasks:userData.tasks}
+	if(returnData){
+		res.json(returnData)
+	}
+
 })
 
 
