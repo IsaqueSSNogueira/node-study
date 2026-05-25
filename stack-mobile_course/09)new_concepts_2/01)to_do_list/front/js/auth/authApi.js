@@ -23,8 +23,9 @@ export const trySignUp = async (user, password) => {
 
 		// sucess
 		alert("Cadastrado com sucesso!", data);
+		// login imediato
+		await trySignIn(user, password)
 		clearInputs();
-
 	} catch(err){
 		console.log(err)
 		alert("Erro de conexão com o servidor");

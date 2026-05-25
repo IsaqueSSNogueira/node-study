@@ -75,18 +75,18 @@
  			<!-- task tab -->
 		 	<div id="taskTabContainer">
 		 		<div id="taskTabWrapper">
-					<div class="taskTab activeTab">
-						<button>
+					<div class="taskTab activeTab" id="tabToDo">
+						<button class="buttonTaskTab" data-type="toDo">
 							<i class="fa-brands fa-flipboard"></i>
 							To Do
-							<span class="taskCount">2</span>
+							<span class="taskCount" id="toDoCount">0</span>
 						</button>
 					</div>
-					<div class="taskTab">
-						<button>
+					<div class="taskTab" id="tabDone">
+						<button class="buttonTaskTab" data-type="done">
 							<i class="fa-regular fa-circle-check"></i>
 							Done
-							<span class="taskCount">0</span>
+							<span class="taskCount" id="doneCount">0</span>
 						</button>
 					</div>
 		 		</div>
@@ -97,10 +97,7 @@
 
  				<!-- example
  				<div class="taskBox">
- 					// status task
  					<input type="checkbox" class="checkboxTask">
-
- 					// info task
  					<div class="infoTaskContainer">
  						<div class="inputTaskContainer">
 	 						<input type="text" class="inputTask" value="task" disabled>
@@ -110,15 +107,11 @@
  							Descrição
  						</button>
  					</div>
- 					
- 					// more actions
  					<button class="moreActionsTaskButton">
  						<i class="fa-solid fa-ellipsis-vertical icon"></i>
  					</button>
  				</div> 
  				-->
-
-
 
  			</div>
 

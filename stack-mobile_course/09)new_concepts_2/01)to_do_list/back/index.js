@@ -24,11 +24,21 @@ let users = [
 	 user: "Isaque", 
 	 password:"123456",
 	 tasks:[
-	 	{id:uuidv4(), text:"Correr", description:"Correr as 7h da manhã",status:false},
-	 	{id:uuidv4(), text:"Estudar", description:"Ao menos 1h diária",status:false},
-	 	{id:uuidv4(), text:"Trabalhar", description:"Sair as 13:30",status:false},
+	 	{id:uuidv4(), text:"Correr", description:"Correr as 7h da manhã",completed:false},
+	 	{id:uuidv4(), text:"Estudar", description:"Ao menos 1h diária",completed:false},
+	 	{id:uuidv4(), text:"Trabalhar", description:"Sair as 13:30",completed:false},
 	 ]
-	}
+	},
+	{
+	 id:uuidv4(), // crypto.randomUUID();
+	 user: "Vitor", 
+	 password:"12345",
+	 tasks:[
+	 	{id:uuidv4(), text:"Programar", description:"Backend",completed:false},
+	 	{id:uuidv4(), text:"Assistir um anime", description:"Rockie No Bockie",completed:false},
+	 	{id:uuidv4(), text:"Ir para escola", description:"Bocchi The Rock!",completed:true},
+	 ]
+	},
 ]
 
 console.log(users)
@@ -61,7 +71,7 @@ app.post("/register", (req, res) => {
 app.post("/login", (req, res) => {
 	const {inputUser, inputPassword} = req.body;
 	const foundUser = users.find((item) => {
-		return item.user === inputUser || item.password === inputPassword
+		return item.user === inputUser && item.password === inputPassword
 	})
 
 	if(!foundUser){
@@ -83,7 +93,7 @@ app.post("/login", (req, res) => {
 app.get("/data/:id", (req, res) => {
 
 	const id = req.params.id
-	const userData = users.find(item => item.id = id)
+	const userData = users.find(item => item.id === id)
 	const returnData = {user:userData.user, tasks:userData.tasks}
 	if(returnData){
 		res.json(returnData)

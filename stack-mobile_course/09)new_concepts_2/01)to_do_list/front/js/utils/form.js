@@ -1,7 +1,12 @@
 
 // verify minimum input conditions
-export const verifyMinInputConditions = (element) => {
-		return element.value.trim().length >= 5;;
+export const verifyMinInputConditions = (element, type) => {
+    if(type === "user"){
+        return element.value.trim().length >= 2;
+    }
+    else if(type === "password"){
+        return element.value.trim().length >= 5;
+    }
 };
 
 

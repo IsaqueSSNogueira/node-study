@@ -13,8 +13,8 @@ export const authRegister = () => {
 	// sign up button
 	signUpButton.addEventListener("click", (event) => {
 		event.preventDefault()
-		const userVerify = verifyMinInputConditions(userInputRegister)
-		const passwordVerify = verifyMinInputConditions(passwordInputRegister)
+		const userVerify = verifyMinInputConditions(userInputRegister, "user")
+		const passwordVerify = verifyMinInputConditions(passwordInputRegister, "password")
 
 		if(!userVerify || !passwordVerify){
 			alert("Dados incompletos")
@@ -35,8 +35,8 @@ export const authLogin = () => {
 
 	signInButton.addEventListener("click", (event) => {
 		event.preventDefault()
-		const userVerify = verifyMinInputConditions(userInputLogin)
-		const passwordVerify = verifyMinInputConditions(passwordInputLogin)
+		const userVerify = verifyMinInputConditions(userInputLogin, "user")
+		const passwordVerify = verifyMinInputConditions(passwordInputLogin, "password")
 
 		if(!userVerify || !passwordVerify){
 			alert("Dados incompletos")
