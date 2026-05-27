@@ -125,6 +125,37 @@ app.post("/tasks/:id", (req, res) => {
 })
 
 
+
+// checked
+app.put("/tasks/:id", (req, res) => {
+
+	const id = req.params.id;
+	const { idTask, isChecked } = req.body
+
+	const user = users.find(user => user.id === id)
+
+	if(!user){
+		return res.status(404).json("Usuário não encontrado")
+	}
+
+	const task = user.tasks.find(item => item.id === idTask)
+
+	if(!task){
+		return res.status(404).json({ message: "Tarefa não encontrada"})
+	}
+
+	task.completed = isChecked;
+	const messageReturn = isChecked ? "marcada" : "desmarcada"
+	return res.status(201).json({
+		message: `Tarefa ${messageReturn}`,
+		status:true,
+		task 
+	})
+
+
+})
+
+
 app.listen(3000, () => {
 	console.log("Funcionando ;)")
 })

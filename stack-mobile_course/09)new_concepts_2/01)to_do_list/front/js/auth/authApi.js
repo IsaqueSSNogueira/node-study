@@ -17,7 +17,7 @@ export const trySignUp = async (user, password) => {
 
 		// error
 		if (!res.ok) {
-			alert(data.message || "Erro ao cadastrar");
+			throw new Error(data?.message || "Erro ao cadastrar");
 			return;
 		}
 
@@ -27,7 +27,7 @@ export const trySignUp = async (user, password) => {
 		await trySignIn(user, password)
 		clearInputs();
 	} catch(err){
-		console.log(err)
+		console.error(err)
 		alert("Erro de conexão com o servidor");
 	}
 }
@@ -46,14 +46,14 @@ export const trySignIn = async (user, password) => {
 
 		const data = await res.json()
 		if(!res.ok){
-			alert(data.message || "Erro ao efetuar login")
+			throw new Error(data?.message || "Erro ao efetuar login")
 			return;
 		}
 		alert("Login efetuado")
 		console.log(data)
 		renderTaskScreen(data.id)
 	}catch(err){
-		console.log(err)
+		console.error(err)
 		alert("Erro ao fazer login")
 	}
 

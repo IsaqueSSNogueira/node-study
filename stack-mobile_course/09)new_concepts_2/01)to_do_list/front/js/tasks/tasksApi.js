@@ -32,6 +32,30 @@ export const createNewTask = async (id, value) => {
 	} catch(err) {
 			console.error(err)
 			alert("Erro ao criar a tarefa")
-			throw err
+	}
+}
+
+
+// toggle status task (do/done)
+
+export const toggleStatusTask = async (idUser, idTask, isChecked) => {
+
+	try{
+		const res = await fetch(`http://localhost:3000/tasks/${idUser}`, {
+			method:"PUT",
+			headers: {"Content-Type": "application/json"},
+			body: JSON.stringify({idTask: idTask, isChecked:isChecked})
+		})
+		const data = await res.json()
+
+		if(!res.ok){
+			throw new Error("Erro ao marcar/desmarcar tarefa")
+		}
+		console.log(data)
+		return data;
+
+	} catch(err){
+		console.log(err)
+		alert(err.message || "Falha na requisição")
 	}
 }

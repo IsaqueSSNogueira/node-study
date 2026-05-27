@@ -91,10 +91,12 @@ app.listen(3000, () => console.log('Servidor rodando'));
 
 ## Respostas HTTP
 
-1) `209`: Criação de registro;
-2) `200`: Login;
-3) `404`: Usuário não existe;
-4) `409`: Conflito de dados (usuário já existe).
+1) `201` (Created): Sucesso na requisição da criação de um novo recurso (como um novo usuário, arquivo ou registro em banco de dados);
+2) `209`: Criação de registro;
+3) `200`: Login;
+4) `404`: Usuário/item não existe;
+5) `409`: Conflito de dados (usuário já existe).
+
 
 
 - *Nunca envie a senha para o frontend*.

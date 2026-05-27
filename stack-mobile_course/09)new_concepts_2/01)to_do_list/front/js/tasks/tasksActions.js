@@ -1,7 +1,7 @@
 
 // import 
-import {renderTasks} from "./tasks.js"
-import {createNewTask} from "./tasksApi.js"
+import { renderTasks } from "./tasks.js"
+import { createNewTask, toggleStatusTask } from "./tasksApi.js"
 
 
 // toggle tab (do / done)
@@ -59,10 +59,13 @@ export const newTask = async (id) => {
 	})
 }
 
+
 // toggle status task (do/done)
+export const checkboxTaskAction = async (idUser, idTask, isChecked) => {
 
-export const toggleStatusTask = async (idUser, idTask) => {
-
-	alert(`${idUser} e ${idTask}`)
-
+	const success = await toggleStatusTask(idUser, idTask, isChecked)
+	console.log(success)
+	if (success.status) {
+		renderTasks(idUser)
+	}
 }

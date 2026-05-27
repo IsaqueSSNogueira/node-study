@@ -1,6 +1,6 @@
 
 import {getTasks} from "./tasksApi.js"
-import {buttonsToggleTasksTab, newTask, toggleStatusTask} from "./tasksActions.js"
+import {buttonsToggleTasksTab, newTask, checkboxTaskAction} from "./tasksActions.js"
 
 
 
@@ -16,7 +16,7 @@ const createTaskBox = (task, taskContainer, id) => {
 	const checkboxTask = document.createElement("input")
 	checkboxTask.type = "checkbox"
 	checkboxTask.classList.add("checkboxTask")
-	checkboxTask.addEventListener("click", () => {toggleStatusTask(id, task.id)})
+	checkboxTask.addEventListener("change", (event) => {checkboxTaskAction(id, task.id, event.currentTarget.checked)})
 
 	// info task container 
 	const infoTaskContainer = document.createElement("div")
