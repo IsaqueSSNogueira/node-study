@@ -58,3 +58,11 @@ export const newTask = async (id) => {
 		}					
 	})
 }
+
+// toggle status task (do/done)
+
+export const toggleStatusTask = async (idUser, idTask) => {
+
+	alert(`${idUser} e ${idTask}`)
+
+}

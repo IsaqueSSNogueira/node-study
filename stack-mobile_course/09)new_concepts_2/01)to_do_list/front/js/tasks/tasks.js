@@ -1,10 +1,10 @@
 
 import {getTasks} from "./tasksApi.js"
-import {buttonsToggleTasksTab, newTask} from "./tasksActions.js"
+import {buttonsToggleTasksTab, newTask, toggleStatusTask} from "./tasksActions.js"
 
 
 
-const createTaskBox = (task, taskContainer) => {
+const createTaskBox = (task, taskContainer, id) => {
 
 	/*create & render*/
 
@@ -16,6 +16,7 @@ const createTaskBox = (task, taskContainer) => {
 	const checkboxTask = document.createElement("input")
 	checkboxTask.type = "checkbox"
 	checkboxTask.classList.add("checkboxTask")
+	checkboxTask.addEventListener("click", () => {toggleStatusTask(id, task.id)})
 
 	// info task container 
 	const infoTaskContainer = document.createElement("div")
@@ -77,11 +78,11 @@ export const renderTasks = async (id, tab = "toDo") => {
 			// count task
 			toDoCount++
 			// render
-			if(tab === "toDo") createTaskBox(task, taskContainer)
+			if(tab === "toDo") createTaskBox(task, taskContainer, id)
 		}
 		else if(task.completed){
 			doneCount++
-			if(tab === "done") createTaskBox(task, taskContainer)
+			if(tab === "done") createTaskBox(task, taskContainer, id)
 		}
 	})
 	// renderizar quantidade
