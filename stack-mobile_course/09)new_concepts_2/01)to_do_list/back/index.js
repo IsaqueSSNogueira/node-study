@@ -43,15 +43,14 @@ let users = [
 
 console.log(users)
 
-// routes
-
-
+/* routes */
+ 
 // register
 app.post("/register", (req, res) => {
 	const {inputUser, inputPassword} = req.body
 	
-	const existUser = users.some((item) => {
-		return item.user === inputUser
+	const existUser = users.some((user) => {
+		return user.user === inputUser
 	})
 
 	if(existUser){
@@ -86,21 +85,44 @@ app.post("/login", (req, res) => {
 })
 
 
-
-
-
 // get data
 app.get("/data/:id", (req, res) => {
 
 	const id = req.params.id
-	const userData = users.find(item => item.id === id)
+	const userData = users.find(user => user.id === id)
 	const returnData = {user:userData.user, tasks:userData.tasks}
 	if(returnData){
 		res.json(returnData)
 	}
-
 })
 
+
+// new task
+app.post("/tasks/:id", (req, res) => {
+
+  const id = req.params.id
+  const newTask = req.body
+
+
+  const user = users.find(user => user.id === id)
+
+  if (!user) {
+    return res.status(404).json({ message: "Usuário não encontrado" })
+  }
+
+  const task = {
+    id: uuidv4(),
+    text: newTask.value,
+    description: "",
+    completed: false
+  }
+  user.tasks.push(task)
+
+  return res.status(201).json({
+    message: "Tarefa criada",
+    task
+  })
+})
 
 
 app.listen(3000, () => {

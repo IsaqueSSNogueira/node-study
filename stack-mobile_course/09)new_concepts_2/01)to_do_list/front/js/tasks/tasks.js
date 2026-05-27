@@ -1,61 +1,61 @@
 
 import {getTasks} from "./tasksApi.js"
+import {buttonsToggleTasksTab, newTask} from "./tasksActions.js"
 
 
 
 const createTaskBox = (task, taskContainer) => {
 
-	// render
-	taskContainer.innerHTML += `
-	  <div class="taskBox">
-	    <input type="checkbox" class="checkboxTask">
-	    <div class="infoTaskContainer">
-	      <div class="inputTaskContainer">
-	        <input type="text" class="inputTask" value="${task.text}" disabled>
-	      </div>
-	      <button class="descriptionTaskButton">
-	        <i class="fa-solid fa-circle-info icon"></i>
-	        Descrição
-	      </button>
-	    </div>
-	    <button class="moreActionsTaskButton">
-	      <i class="fa-solid fa-ellipsis-vertical icon"></i>
-	    </button>
-	  </div>
-	`
+	/*create & render*/
+
+	// base
+	const taskBox = document.createElement("taskBox")
+	taskBox.classList.add("taskBox")
+
+	// checkbox
+	const checkboxTask = document.createElement("input")
+	checkboxTask.type = "checkbox"
+	checkboxTask.classList.add("checkboxTask")
+
+	// info task container 
+	const infoTaskContainer = document.createElement("div")
+	infoTaskContainer.classList.add("infoTaskContainer")
+	
+	// input task container
+	const inputTaskContainer = document.createElement("div")
+	inputTaskContainer.classList.add("inputTaskContainer")
+	// input task
+	const inputTask = document.createElement("input")
+	inputTask.type = "text"
+	inputTask.disabled = true;
+	inputTask.value = task.text
+	inputTask.classList.add("inputTask")
+
+	// description button
+	const descriptionTaskButton = document.createElement("button")
+	descriptionTaskButton.classList.add("descriptionTaskButton")
+	descriptionTaskButton.innerHTML = `<i class="fa-solid fa-circle-info icon"></i>Descrição`
+
+	// more actions
+	const moreActionsTaskButton = document.createElement("button")
+	moreActionsTaskButton.classList.add("moreActionsTaskButton")
+	moreActionsTaskButton.innerHTML = `<i class="fa-solid fa-ellipsis-vertical icon"></i>`
+
+	// appendChild
+	inputTaskContainer.appendChild(inputTask)
+	infoTaskContainer.appendChild(inputTaskContainer)
+	infoTaskContainer.appendChild(descriptionTaskButton)
+	taskBox.appendChild(checkboxTask)
+	taskBox.appendChild(infoTaskContainer)
+	taskBox.appendChild(moreActionsTaskButton)
+
+	taskContainer.appendChild(taskBox)
+
 }
 
-const buttonsToggleTasksTab = (tab, id) => {
-
-	const buttonTaskTab = document.querySelectorAll(".buttonTaskTab")
-	const tabToDo = document.querySelector("#tabToDo")
-	const tabDone = document.querySelector("#tabDone")
-
-
-	buttonTaskTab.forEach((item) => {
-		item.addEventListener("click", (event) => {
-
-			// toggle main var
-			tab = event.currentTarget.dataset.type
-			
-			// style tabs
-			if(tab === "done"){
-				tabDone.classList.add("activeTab")
-				tabToDo.classList.remove("activeTab")
-			}
-			// default
-			else {
-				tabToDo.classList.add("activeTab")
-				tabDone.classList.remove("activeTab")
-			}
-		
-			renderTasks(id, tab)
-		})
-	})
-}
 
 // quando renderiza a tela, chama essa função
-const renderTasks = async (id, tab) => {
+export const renderTasks = async (id, tab = "toDo") => {
 
 	// data
 	const dataUser = await getTasks(id)
@@ -102,6 +102,7 @@ export const renderTaskScreen = async (id) => {
 		authScreen.classList.add("hidden")
 		taskScreen.classList.remove("hidden")
 		renderTasks(id, tab)
+		newTask(id)
 	}
 	else{
 		authScreen.classList.remove("hidden")
