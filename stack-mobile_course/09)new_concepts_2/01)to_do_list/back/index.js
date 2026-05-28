@@ -127,10 +127,10 @@ app.post("/tasks/:id", (req, res) => {
 
 
 // checked
-app.put("/tasks/:id", (req, res) => {
+app.patch("/tasks/:id", (req, res) => {
 
 	const id = req.params.id;
-	const { idTask, isChecked } = req.body
+	const { idTask, text, description, isChecked } = req.body
 
 	const user = users.find(user => user.id === id)
 
@@ -144,15 +144,20 @@ app.put("/tasks/:id", (req, res) => {
 		return res.status(404).json({ message: "Tarefa não encontrada"})
 	}
 
-	task.completed = isChecked;
+
+	if(text !== undefined) task.text = text;
+	if(description !== undefined) task.description = description;
+	if(isChecked !== undefined) task.completed = isChecked;
+
+
+
+
 	const messageReturn = isChecked ? "marcada" : "desmarcada"
 	return res.status(201).json({
 		message: `Tarefa ${messageReturn}`,
 		status:true,
 		task 
 	})
-
-
 })
 
 

@@ -23,11 +23,11 @@ app.get("/profile", (req, res) => {
 ```
 
 
-## 🌐 GET, POST, PULL, DELETE
+## 🌐 GET, POST, PATCH/PULL, DELETE
 
 1. GET > Busca de dados (listar, pegar info);
 2. POST > Enviar algo (login, cadastro);
-3. PUT/PATCH > Atualizar dados existentes (editar perfil)
+3. PATCH/PULL > Atualizar dados existentes, sendo PATCH para atualizar parte dos dados e pull para reescrever/substituir total (editar perfil)
 4. DELETE > Deletar dados
 
 🧠 Insight chave de funcionamento

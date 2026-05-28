@@ -1,7 +1,11 @@
 
 import {getTasks} from "./tasksApi.js"
-import {buttonsToggleTasksTab, newTask, checkboxTaskAction} from "./tasksActions.js"
+import {buttonsToggleTasksTab, newTask, checkboxTaskAction, toggleMoreActionsContainer} from "./tasksActions.js"
 
+// mini useState
+export const states = {
+	currentTab: "toDo", // "toDo" or "done"
+}
 
 
 const createTaskBox = (task, taskContainer, id) => {
@@ -15,6 +19,7 @@ const createTaskBox = (task, taskContainer, id) => {
 	// checkbox
 	const checkboxTask = document.createElement("input")
 	checkboxTask.type = "checkbox"
+	checkboxTask.checked = task.completed;
 	checkboxTask.classList.add("checkboxTask")
 	checkboxTask.addEventListener("change", (event) => {checkboxTaskAction(id, task.id, event.currentTarget.checked)})
 
@@ -29,6 +34,7 @@ const createTaskBox = (task, taskContainer, id) => {
 	const inputTask = document.createElement("input")
 	inputTask.type = "text"
 	inputTask.disabled = true;
+	inputTask.placeholder = "Escreva algo"
 	inputTask.value = task.text
 	inputTask.classList.add("inputTask")
 
@@ -42,6 +48,25 @@ const createTaskBox = (task, taskContainer, id) => {
 	moreActionsTaskButton.classList.add("moreActionsTaskButton")
 	moreActionsTaskButton.innerHTML = `<i class="fa-solid fa-ellipsis-vertical icon"></i>`
 
+	// more actions container
+	const containerMoreActions = document.createElement("div")
+	containerMoreActions.classList.add("containerMoreActions")
+	containerMoreActions.classList.add("hidden")
+	const editTaskButton = document.createElement("button")
+	editTaskButton.textContent = "Edit"
+	editTaskButton.classList.add("moreActionstaskButtons")
+	const deleteTaskButton = document.createElement("button")
+	deleteTaskButton.textContent = "Delete"
+	deleteTaskButton.classList.add("moreActionstaskButtons")
+
+	containerMoreActions.appendChild(editTaskButton)
+	containerMoreActions.appendChild(deleteTaskButton)
+
+	const isOpenMoreActions = {status: false}
+	moreActionsTaskButton.addEventListener("click", () => {toggleMoreActionsContainer(isOpenMoreActions, containerMoreActions)})
+
+
+
 	// appendChild
 	inputTaskContainer.appendChild(inputTask)
 	infoTaskContainer.appendChild(inputTaskContainer)
@@ -49,6 +74,8 @@ const createTaskBox = (task, taskContainer, id) => {
 	taskBox.appendChild(checkboxTask)
 	taskBox.appendChild(infoTaskContainer)
 	taskBox.appendChild(moreActionsTaskButton)
+	taskBox.appendChild(containerMoreActions)
+
 
 	taskContainer.appendChild(taskBox)
 
@@ -56,11 +83,10 @@ const createTaskBox = (task, taskContainer, id) => {
 
 
 // quando renderiza a tela, chama essa função
-export const renderTasks = async (id, tab = "toDo") => {
+export const renderTasks = async (id) => {
 
 	// data
 	const dataUser = await getTasks(id)
-	console.log(dataUser)
 
 	// elementos
 	const toDoCountE = document.querySelector("#toDoCount")
@@ -78,11 +104,11 @@ export const renderTasks = async (id, tab = "toDo") => {
 			// count task
 			toDoCount++
 			// render
-			if(tab === "toDo") createTaskBox(task, taskContainer, id)
+			if(states.currentTab === "toDo") createTaskBox(task, taskContainer, id)
 		}
 		else if(task.completed){
 			doneCount++
-			if(tab === "done") createTaskBox(task, taskContainer, id)
+			if(states.currentTab === "done") createTaskBox(task, taskContainer, id)
 		}
 	})
 	// renderizar quantidade
@@ -96,13 +122,12 @@ export const renderTaskScreen = async (id) => {
 
 	const authScreen = document.querySelector("#authScreen")
 	const taskScreen = document.querySelector("#taskScreen")
-	let tab = "toDo" // "toDo" or "done"
-	buttonsToggleTasksTab(tab, id)
+	await buttonsToggleTasksTab(id)
 
 	if(id){
 		authScreen.classList.add("hidden")
 		taskScreen.classList.remove("hidden")
-		renderTasks(id, tab)
+		renderTasks(id)
 		newTask(id)
 	}
 	else{

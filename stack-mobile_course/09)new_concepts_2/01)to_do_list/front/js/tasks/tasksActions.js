@@ -1,35 +1,39 @@
 
 // import 
-import { renderTasks } from "./tasks.js"
+import { renderTasks, states } from "./tasks.js"
 import { createNewTask, toggleStatusTask } from "./tasksApi.js"
 
 
-// toggle tab (do / done)
-export const buttonsToggleTasksTab = (tab, id) => {
 
-	const buttonTaskTab = document.querySelectorAll(".buttonTaskTab")
+const renderTab = (id) => {
+
 	const tabToDo = document.querySelector("#tabToDo")
 	const tabDone = document.querySelector("#tabDone")
+	
+	// style tabs
+	if(states.currentTab === "done"){
+		tabDone.classList.add("activeTab")
+		tabToDo.classList.remove("activeTab")
+	}
+	// default
+	else {
+		tabToDo.classList.add("activeTab")
+		tabDone.classList.remove("activeTab")
+	}
 
+	renderTasks(id)
+}
+
+// toggle tab (do / done)
+export const buttonsToggleTasksTab = (id) => {
+
+	const buttonTaskTab = document.querySelectorAll(".buttonTaskTab")
 
 	buttonTaskTab.forEach((item) => {
 		item.addEventListener("click", (event) => {
-
 			// toggle main var
-			tab = event.currentTarget.dataset.type
-			
-			// style tabs
-			if(tab === "done"){
-				tabDone.classList.add("activeTab")
-				tabToDo.classList.remove("activeTab")
-			}
-			// default
-			else {
-				tabToDo.classList.add("activeTab")
-				tabDone.classList.remove("activeTab")
-			}
-		
-			renderTasks(id, tab)
+			states.currentTab = event.currentTarget.dataset.type
+			renderTab(id)
 		})
 	})
 }
@@ -66,6 +70,20 @@ export const checkboxTaskAction = async (idUser, idTask, isChecked) => {
 	const success = await toggleStatusTask(idUser, idTask, isChecked)
 	console.log(success)
 	if (success.status) {
-		renderTasks(idUser)
+		renderTab(idUser)
 	}
+}
+
+
+export const toggleMoreActionsContainer = (isOpenMoreActions, containerMoreActions) => {
+
+	isOpenMoreActions.status = !isOpenMoreActions.status
+	
+	if(isOpenMoreActions.status){
+		containerMoreActions.classList.remove("hidden")
+	}
+	else{
+		containerMoreActions.classList.add("hidden")
+	}
+
 }

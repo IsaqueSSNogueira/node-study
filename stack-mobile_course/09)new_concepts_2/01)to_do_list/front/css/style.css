@@ -275,8 +275,9 @@ h1::after {
 	align-items: flex-start;
 	gap:15px;
 	box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-	padding: 10px;
+	padding: 12px 10px;
 	border-radius: 5px;
+	position: relative;
 }
 
 .infoTaskContainer {
@@ -305,8 +306,12 @@ h1::after {
 	padding: 0 5px;
 }
 
-.inputTask:disabled, .inputTask::placeholder {
+.inputTask:disabled, {
 	color: black;
+	opacity: 0.85;
+}
+
+.inputTask::placeholder {
 	opacity: 0.85;
 }
 
@@ -357,6 +362,29 @@ h1::after {
   appearance: none;
   -webkit-appearance: none;
   */
+}
+
+.containerMoreActions {
+	position: absolute;
+	top:15px;
+	right:25px;
+	display: flex;
+	flex-direction: column;
+	box-shadow: 0px 0px 5px rgba(0,0,0,0.2);
+	border-radius: 5px 0px 5px 5px;
+}
+
+.moreActionstaskButtons {
+	font-size: 0.5rem;
+	border:none;
+	outline: none;
+	background: none;
+	padding: 5px;
+	cursor: pointer;
+}
+
+.moreActionstaskButtons:hover {
+	background: rgba(0,0,0,0.1);
 }
 
 

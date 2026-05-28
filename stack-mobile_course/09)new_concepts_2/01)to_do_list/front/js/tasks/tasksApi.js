@@ -42,7 +42,7 @@ export const toggleStatusTask = async (idUser, idTask, isChecked) => {
 
 	try{
 		const res = await fetch(`http://localhost:3000/tasks/${idUser}`, {
-			method:"PUT",
+			method:"PATCH",
 			headers: {"Content-Type": "application/json"},
 			body: JSON.stringify({idTask: idTask, isChecked:isChecked})
 		})
@@ -51,7 +51,6 @@ export const toggleStatusTask = async (idUser, idTask, isChecked) => {
 		if(!res.ok){
 			throw new Error("Erro ao marcar/desmarcar tarefa")
 		}
-		console.log(data)
 		return data;
 
 	} catch(err){
