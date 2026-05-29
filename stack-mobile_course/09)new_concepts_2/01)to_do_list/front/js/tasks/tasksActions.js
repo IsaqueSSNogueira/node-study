@@ -77,13 +77,25 @@ export const checkboxTaskAction = async (idUser, idTask, isChecked) => {
 
 export const toggleMoreActionsContainer = (isOpenMoreActions, containerMoreActions) => {
 
-	isOpenMoreActions.status = !isOpenMoreActions.status
-	
-	if(isOpenMoreActions.status){
+	isOpenMoreActions.boxStatus = !isOpenMoreActions.boxStatus
+
+	if(isOpenMoreActions.boxStatus){
 		containerMoreActions.classList.remove("hidden")
 	}
 	else{
 		containerMoreActions.classList.add("hidden")
 	}
 
+}
+
+export const editTask = (isOpenMoreActions, inputTask) => {
+
+	isOpenMoreActions.editTask = !isOpenMoreActions.editTask
+	if(isOpenMoreActions.editTask){
+		inputTask.disabled = false
+		inputTask.focus()
+	}
+	else{
+		inputTask.disabled = true
+	}
 }

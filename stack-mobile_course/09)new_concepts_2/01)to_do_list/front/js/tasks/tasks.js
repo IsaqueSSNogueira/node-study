@@ -1,6 +1,6 @@
 
 import {getTasks} from "./tasksApi.js"
-import {buttonsToggleTasksTab, newTask, checkboxTaskAction, toggleMoreActionsContainer} from "./tasksActions.js"
+import {buttonsToggleTasksTab, newTask, checkboxTaskAction, toggleMoreActionsContainer, editTask} from "./tasksActions.js"
 
 // mini useState
 export const states = {
@@ -62,9 +62,9 @@ const createTaskBox = (task, taskContainer, id) => {
 	containerMoreActions.appendChild(editTaskButton)
 	containerMoreActions.appendChild(deleteTaskButton)
 
-	const isOpenMoreActions = {status: false}
+	const isOpenMoreActions = {boxStatus: false, editTask: false,}
 	moreActionsTaskButton.addEventListener("click", () => {toggleMoreActionsContainer(isOpenMoreActions, containerMoreActions)})
-
+	editTaskButton.addEventListener("click", () => {editTask(isOpenMoreActions, inputTask)})
 
 
 	// appendChild

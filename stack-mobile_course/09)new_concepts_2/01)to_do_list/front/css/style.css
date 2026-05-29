@@ -304,11 +304,11 @@ h1::after {
 	font-size: 0.7rem;
 	font-weight: bold;
 	padding: 0 5px;
+	color: rgba(0,0,0,0.7);
 }
 
-.inputTask:disabled, {
-	color: black;
-	opacity: 0.85;
+.inputTask:disabled {
+	color: rgb(0,0,0);
 }
 
 .inputTask::placeholder {
