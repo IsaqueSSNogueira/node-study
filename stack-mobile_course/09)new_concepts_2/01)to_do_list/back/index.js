@@ -138,11 +138,11 @@ app.patch("/tasks/:id/:idTask", (req, res) => {
 		return res.status(404).json("Usuário não encontrado")
 	}
 
-	const task = user.tasks.find(item => item.id === idTask)
+	const task = user.tasks.find(item => item.id === idTask) 
 
 	if(!task){
 		return res.status(404).json({ message: "Tarefa não encontrada"})
-	}
+	} 
 
 
 	if(text !== undefined) task.text = text;
