@@ -126,11 +126,11 @@ app.post("/tasks/:id", (req, res) => {
 
 
 
-// checked
-app.patch("/tasks/:id", (req, res) => {
+// update
+app.patch("/tasks/:id/:idTask", (req, res) => {
 
-	const id = req.params.id;
-	const { idTask, text, description, isChecked } = req.body
+	const {id, idTask} = req.params;
+	const { text, description, isChecked } = req.body
 
 	const user = users.find(user => user.id === id)
 
@@ -150,11 +150,21 @@ app.patch("/tasks/:id", (req, res) => {
 	if(isChecked !== undefined) task.completed = isChecked;
 
 
+	// return
+	let messageReturn = ""
+	if(text !== undefined){
+		messageReturn = `Nome tarefa atualizado: ${text}`
+	}
+	else if(description !== undefined){
+		messageReturn = `Descrição atualizada ${description}`
+	}
+	else if(isChecked !== undefined){
+		messageReturn = isChecked ? "Tarefa marcada" : "Tarefa desmarcada"
+	}
 
 
-	const messageReturn = isChecked ? "marcada" : "desmarcada"
-	return res.status(201).json({
-		message: `Tarefa ${messageReturn}`,
+	return res.status(200).json({
+		message: `${messageReturn}`,
 		status:true,
 		task 
 	})
