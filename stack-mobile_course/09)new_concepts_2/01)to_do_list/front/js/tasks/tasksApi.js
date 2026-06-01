@@ -58,3 +58,25 @@ export const toggleStatusTask = async (idUser, idTask, isChecked) => {
 		alert(err.message || "Falha na requisição")
 	}
 }
+
+
+// delete task
+
+export const deleteTask = async (idUser, taskId) => {
+
+	try{
+		const res = await fetch(`http://localhost:3000/tasks/${idUser}/${taskId}`, {
+			method: "DELETE"
+		})
+		const data = await res.json()
+		if(!res.ok){
+			throw new Error("Erro ao deletar tarefa")
+		}
+
+		return data;
+
+
+	} catch(err){
+		console.log(err.message || "Falha na requisição")
+	}
+}

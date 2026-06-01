@@ -1,7 +1,7 @@
 
 // import 
 import { renderTasks, states } from "./tasks.js"
-import { createNewTask, toggleStatusTask } from "./tasksApi.js"
+import { createNewTask, toggleStatusTask, deleteTask } from "./tasksApi.js"
 
 
 
@@ -97,5 +97,15 @@ export const editTask = (isOpenMoreActions, inputTask) => {
 	}
 	else{
 		inputTask.disabled = true
+	}
+}
+
+export const deleteTaskAction = async (idUser, taskId) => {
+
+	const data = await deleteTask(idUser, taskId)
+
+	if(data){
+		console.log(data)
+		renderTab(idUser)
 	}
 }

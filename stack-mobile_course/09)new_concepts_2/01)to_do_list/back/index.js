@@ -161,6 +161,25 @@ app.patch("/tasks/:id", (req, res) => {
 })
 
 
+// delete
+app.delete("/tasks/:id/:idTask", (req, res) => {
+
+	const {id, idTask} = req.params
+
+	const user = users.find(item => item.id === id)
+
+	if(!user) return res.status(404).json({ message: "Usuário não encontrado" })
+
+	const taskIndex = user.tasks.findIndex(item => item.id === idTask)
+
+	if (taskIndex === -1) {return res.status(404).json({ message: "Tarefa não encontrada" })}
+
+	user.tasks.splice(taskIndex, 1)
+
+ 	return res.json({message:"Tarefa deleta com sucesso"})
+})
+
+
 app.listen(3000, () => {
 	console.log("Funcionando ;)")
 })
