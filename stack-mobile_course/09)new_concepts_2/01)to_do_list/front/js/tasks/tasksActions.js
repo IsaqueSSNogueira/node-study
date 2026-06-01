@@ -93,7 +93,7 @@ export const editTask = (isOpenMoreActions, inputTask) => {
 	isOpenMoreActions.editTask = !isOpenMoreActions.editTask
 	if(isOpenMoreActions.editTask){
 		inputTask.disabled = false
-		inputTask.focus()
+		inputTask.focus() 
 	}
 	else{
 		inputTask.disabled = true
