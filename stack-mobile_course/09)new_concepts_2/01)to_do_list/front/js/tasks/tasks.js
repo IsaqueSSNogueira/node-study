@@ -6,6 +6,8 @@ import {
 	checkboxTaskAction, 
 	toggleMoreActionsContainer, 
 	editTask, 
+	cancelEditAction,
+	approveEditAction,
 	deleteTaskAction
 		} from "./tasksActions.js"
 
@@ -50,6 +52,7 @@ const createTaskBox = (task, taskContainer, id) => {
 	descriptionTaskButton.classList.add("descriptionTaskButton")
 	descriptionTaskButton.innerHTML = `<i class="fa-solid fa-circle-info icon"></i>Descrição`
 
+
 	// more actions
 	const moreActionsTaskButton = document.createElement("button")
 	moreActionsTaskButton.classList.add("moreActionsTaskButton")
@@ -61,18 +64,39 @@ const createTaskBox = (task, taskContainer, id) => {
 	containerMoreActions.classList.add("hidden")
 	const editTaskButton = document.createElement("button")
 	editTaskButton.textContent = "Edit"
-	editTaskButton.classList.add("moreActionstaskButtons")
+	editTaskButton.classList.add("moreActionsTaskButtons")
 	const deleteTaskButton = document.createElement("button")
 	deleteTaskButton.textContent = "Delete"
-	deleteTaskButton.classList.add("moreActionstaskButtons")
+	deleteTaskButton.classList.add("moreActionsTaskButtons")
 
+	// actions edit input
+	const actionsInputBox = document.createElement("div")
+	actionsInputBox.classList.add("actionsInputBox")
+	actionsInputBox.classList.add("hidden")
+	const cancelEditInputButton = document.createElement("button")
+	cancelEditInputButton.innerHTML = `<i class="fa-solid fa-x iconsInputActions"></i>`
+	cancelEditInputButton.classList.add("cancelEditInputButton")
+	const approveEditButton = document.createElement("button")
+	approveEditButton.innerHTML = `<i class="fa-solid fa-check iconsInputActions"></i>`
+	approveEditButton.classList.add("approveEditButton")
+
+
+	actionsInputBox.appendChild(cancelEditInputButton)
+	actionsInputBox.appendChild(approveEditButton)
 	containerMoreActions.appendChild(editTaskButton)
 	containerMoreActions.appendChild(deleteTaskButton)
 
+	// actions events
 	const isOpenMoreActions = {boxStatus: false, editTask: false,}
 	moreActionsTaskButton.addEventListener("click", () => {toggleMoreActionsContainer(isOpenMoreActions, containerMoreActions)})
-	editTaskButton.addEventListener("click", () => {editTask(isOpenMoreActions, inputTask)})
+	
+	editTaskButton.addEventListener("click", () => {editTask(isOpenMoreActions, inputTask, containerMoreActions, moreActionsTaskButton, actionsInputBox)})
+	cancelEditInputButton.addEventListener("click", () => {cancelEditAction(id)})
+	approveEditButton.addEventListener("click", () => {approveEditAction(id, task.id, inputTask)})
+	
 	deleteTaskButton.addEventListener("click", () => {deleteTaskAction(id, task.id)})
+
+
 
 	// appendChild
 	inputTaskContainer.appendChild(inputTask)
@@ -82,6 +106,7 @@ const createTaskBox = (task, taskContainer, id) => {
 	taskBox.appendChild(infoTaskContainer)
 	taskBox.appendChild(moreActionsTaskButton)
 	taskBox.appendChild(containerMoreActions)
+	taskBox.appendChild(actionsInputBox)
 
 
 	taskContainer.appendChild(taskBox)
@@ -142,3 +167,18 @@ export const renderTaskScreen = async (id) => {
 		taskScreen.classList.add("hidden")
 	}
 }
+
+
+export const descriptionButtonsActions = () => {
+
+	const descriptionBackdrop = document.querySelector(".descriptionBackdrop")
+	const descriptionButtons = document.querySelectorAll(".descriptionButtonsActions")
+
+	descriptionButtons.forEach((item) => {
+		item.addEventListener(() => {
+			descriptionBackdrop.classList.add("hidden")
+		})
+	})
+}
+
+

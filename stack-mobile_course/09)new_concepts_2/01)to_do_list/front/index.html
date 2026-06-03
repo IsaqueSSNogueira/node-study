@@ -17,7 +17,7 @@
  	<main id="appContainer">
 		
 		<!-- header -->
-		<header>
+		<header id="header">
 			<div id="containerIcon">
 				<i class="fa-regular fa-clipboard" id="icon"></i>
 			</div>
@@ -95,6 +95,7 @@
  			<!-- tasks container -->
  			<div id="taskContainer">
 
+
  				<!-- example
  				<div class="taskBox">
  					<input type="checkbox" class="checkboxTask">
@@ -113,6 +114,24 @@
  				</div> 
  				-->
 
+
+ 			</div>
+
+ 			<!-- tasks description screen --> 
+ 			<div id="descriptionBackdrop">
+ 				<div id="descriptionBox">
+ 					<header id="descriptionBoxHeader">
+	 					<h2>Descrição</h2>
+	 					<button id="closeDescriptionBoxButton" class="descriptionButtons">
+	 						<i class="fa-solid fa-x icon"></i>
+	 					</button>
+ 					</header>
+	 				<textarea id="descriptionTextarea" placeholder="Digite uma descrição para a tarefa..."></textarea>
+	 				<div id="containerDescriptionButtons">
+		 				<button class="descriptionButtons" id="cancelDescription">Cancelar</button>
+		 				<button class="descriptionButtons" id="saveDescription">Salvar</button>
+	 				</div>
+ 				</div>
  			</div>
 
  			<!-- task screen footer -->

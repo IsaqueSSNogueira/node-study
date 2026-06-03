@@ -41,10 +41,10 @@ export const createNewTask = async (id, value) => {
 export const toggleStatusTask = async (idUser, idTask, isChecked) => {
 
 	try{
-		const res = await fetch(`http://localhost:3000/tasks/${idUser}`, {
+		const res = await fetch(`http://localhost:3000/tasks/${idUser}/${idTask}`, {
 			method:"PATCH",
 			headers: {"Content-Type": "application/json"},
-			body: JSON.stringify({idTask: idTask, isChecked:isChecked})
+			body: JSON.stringify({isChecked:isChecked})
 		})
 		const data = await res.json()
 
@@ -56,6 +56,28 @@ export const toggleStatusTask = async (idUser, idTask, isChecked) => {
 	} catch(err){
 		console.log(err)
 		alert(err.message || "Falha na requisição")
+	}
+}
+
+
+export const approveEdit = async (idUser, idTask, text) => {
+
+	try{
+		const res = await fetch(`http://localhost:3000/tasks/${idUser}/${idTask}`, {
+			method: "PATCH",
+			headers:{"Content-Type": "application/json"},
+			body: JSON.stringify({text:text})
+		})
+
+		const data = await res.json()
+		if(!res.ok){
+			throw new Error("Erro ao atualizar título tarefa")
+		}
+
+		return data;
+
+	} catch(err){
+		console.log(err)
 	}
 }
 

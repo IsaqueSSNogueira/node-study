@@ -1,7 +1,8 @@
 
 // import 
 import { renderTasks, states } from "./tasks.js"
-import { createNewTask, toggleStatusTask, deleteTask } from "./tasksApi.js"
+import { createNewTask, toggleStatusTask, approveEdit, deleteTask } from "./tasksApi.js"
+
 
 
 
@@ -88,16 +89,44 @@ export const toggleMoreActionsContainer = (isOpenMoreActions, containerMoreActio
 
 }
 
-export const editTask = (isOpenMoreActions, inputTask) => {
+export const editTask = (isOpenMoreActions, inputTask, containerMoreActions, moreActionsTaskButton, actionsInputBox) => {
 
 	isOpenMoreActions.editTask = !isOpenMoreActions.editTask
 	if(isOpenMoreActions.editTask){
 		inputTask.disabled = false
 		inputTask.focus() 
+		inputTask.classList.add("inputFocus")
+		actionsInputBox.classList.remove("hidden")
+		moreActionsTaskButton.classList.add("hidden")
 	}
 	else{
 		inputTask.disabled = true
 	}
+
+	toggleMoreActionsContainer(isOpenMoreActions, containerMoreActions)
+}
+
+
+export const cancelEditAction = (id) => {
+	renderTab(id)
+}
+
+export const approveEditAction = async (idUser, idTask, inputTask) => {
+
+	const text = inputTask.value;
+
+	if(text.lenght < 1){
+		alert("Insira um título para a tarefa")
+		return;
+	}
+
+	const data = await approveEdit(idUser, idTask, text) 
+
+	if(data){
+		console.log(data)
+		renderTab(idUser)
+	}
+
 }
 
 export const deleteTaskAction = async (idUser, taskId) => {
