@@ -436,7 +436,7 @@ h1::after {
 	padding: 5px 15px 10px;
 }
 
-#cancelDescription, #saveDescription  {
+#cancelDescriptionButton, #saveDescriptionButton  {
 	border:none;
 	outline:none;
 	font-size: 0.6rem;
@@ -449,21 +449,21 @@ h1::after {
 	transition: all 0.2s ease;
 }
 
-#cancelDescription:hover {
+#cancelDescriptionButton:hover {
 
 }
 
-#saveDescription:hover {
+#saveDescriptionButton:hover {
 
 }
 
 
-#cancelDescription {
+#cancelDescriptionButton {
 	border:1px solid rgba(0,0,55,0.2);
 	background: rgba(0,0,55,0.005);
 }
 
-#saveDescription {
+#saveDescriptionButton {
 	background: linear-gradient(to bottom, rgb(92, 107, 247), rgba(63, 78, 212));
 	color:rgba(255,255,255,0.9);
 }

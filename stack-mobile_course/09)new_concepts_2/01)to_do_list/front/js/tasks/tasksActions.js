@@ -1,7 +1,7 @@
 
 // import 
 import { renderTasks, states } from "./tasks.js"
-import { createNewTask, toggleStatusTask, approveEdit, deleteTask } from "./tasksApi.js"
+import { createNewTask, toggleStatusTask, approveEdit, deleteTask, saveDescription } from "./tasksApi.js"
 
 
 
@@ -76,6 +76,40 @@ export const checkboxTaskAction = async (idUser, idTask, isChecked) => {
 }
 
 
+/*description*/
+export const descriptionButtonsActions = () => {
+
+	const descriptionBackdrop = document.querySelector("#descriptionBackdrop") // fundo
+	const descriptionButtons = document.querySelectorAll(".descriptionButtons") // todos botões
+	const descriptionTextarea = document.querySelector("#descriptionTextarea") // textarea
+	const saveDescriptionButton = document.querySelector("#saveDescriptionButton") // salvar
+
+	descriptionButtons.forEach((item) => {
+		item.addEventListener("click",() => {
+			descriptionBackdrop.classList.add("hidden")
+		})
+	})
+
+	saveDescriptionButton.addEventListener("click", async () => {
+		const data = await saveDescription(states.idUser, states.currentIdTask, descriptionTextarea.value)
+		if(data){
+			renderTasks(states.idUser)
+			console.log(data)
+		}
+	})
+}
+
+export const openDescriptionBox = (task, id) => {
+	const descriptionBackdrop = document.querySelector("#descriptionBackdrop")
+	const descriptionTextarea = document.querySelector("#descriptionTextarea")
+	
+	descriptionBackdrop.classList.remove("hidden")
+	descriptionTextarea.value = task.description
+	states.currentIdTask = task.id
+}
+
+
+/*more actions (edit/delete task) */
 export const toggleMoreActionsContainer = (isOpenMoreActions, containerMoreActions) => {
 
 	isOpenMoreActions.boxStatus = !isOpenMoreActions.boxStatus

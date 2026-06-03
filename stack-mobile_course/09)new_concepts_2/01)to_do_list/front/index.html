@@ -117,8 +117,8 @@
 
  			</div>
 
- 			<!-- tasks description screen --> 
- 			<div id="descriptionBackdrop">
+ 			<!-- tasks description screen (definido fora porque é reutilizavél e precisa da referência do elemento pai) --> 
+ 			<div id="descriptionBackdrop" class="hidden">
  				<div id="descriptionBox">
  					<header id="descriptionBoxHeader">
 	 					<h2>Descrição</h2>
@@ -128,8 +128,8 @@
  					</header>
 	 				<textarea id="descriptionTextarea" placeholder="Digite uma descrição para a tarefa..."></textarea>
 	 				<div id="containerDescriptionButtons">
-		 				<button class="descriptionButtons" id="cancelDescription">Cancelar</button>
-		 				<button class="descriptionButtons" id="saveDescription">Salvar</button>
+		 				<button class="descriptionButtons" id="cancelDescriptionButton">Cancelar</button>
+		 				<button class="descriptionButtons" id="saveDescriptionButton">Salvar</button>
 	 				</div>
  				</div>
  			</div>

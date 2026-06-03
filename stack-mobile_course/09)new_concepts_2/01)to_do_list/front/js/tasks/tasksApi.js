@@ -102,3 +102,23 @@ export const deleteTask = async (idUser, taskId) => {
 		console.log(err.message || "Falha na requisição")
 	}
 }
+
+
+//  salve description
+export const saveDescription = async (idUser, currentIdTask, description) => {
+		try{
+			const res = await fetch(`http://localhost:3000/tasks/${idUser}/${currentIdTask}`, {
+				method: "PATCH",
+				headers:{"Content-Type": "application/json"},
+				body: JSON.stringify({description: description})
+			})
+			const data = await res.json()
+			if(!res.ok){
+				throw new Error("Erro ao atualizar descrição da tarefa")
+			}
+			return data;
+
+		}catch(err){
+			console.log(err)
+		}
+}

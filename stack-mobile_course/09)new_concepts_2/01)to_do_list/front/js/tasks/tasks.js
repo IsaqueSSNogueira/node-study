@@ -8,12 +8,15 @@ import {
 	editTask, 
 	cancelEditAction,
 	approveEditAction,
-	deleteTaskAction
+	deleteTaskAction,
+	openDescriptionBox
 		} from "./tasksActions.js"
 
 // mini useState
 export const states = {
 	currentTab: "toDo", // "toDo" or "done"
+	idUser: "",
+	currentIdTask: ""
 }
 
 
@@ -51,7 +54,8 @@ const createTaskBox = (task, taskContainer, id) => {
 	const descriptionTaskButton = document.createElement("button")
 	descriptionTaskButton.classList.add("descriptionTaskButton")
 	descriptionTaskButton.innerHTML = `<i class="fa-solid fa-circle-info icon"></i>Descrição`
-
+	descriptionTaskButton.title = task.description;
+	descriptionTaskButton.addEventListener("click", () => {openDescriptionBox(task, id)})
 
 	// more actions
 	const moreActionsTaskButton = document.createElement("button")
@@ -159,6 +163,7 @@ export const renderTaskScreen = async (id) => {
 	if(id){
 		authScreen.classList.add("hidden")
 		taskScreen.classList.remove("hidden")
+		states.idUser = id
 		renderTasks(id)
 		newTask(id)
 	}
@@ -167,18 +172,3 @@ export const renderTaskScreen = async (id) => {
 		taskScreen.classList.add("hidden")
 	}
 }
-
-
-export const descriptionButtonsActions = () => {
-
-	const descriptionBackdrop = document.querySelector(".descriptionBackdrop")
-	const descriptionButtons = document.querySelectorAll(".descriptionButtonsActions")
-
-	descriptionButtons.forEach((item) => {
-		item.addEventListener(() => {
-			descriptionBackdrop.classList.add("hidden")
-		})
-	})
-}
-
-
