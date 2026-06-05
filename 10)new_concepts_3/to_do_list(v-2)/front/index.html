@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+ <head>
+ 	<meta charset="UTF-8">
+ 	<title>To Do List (Node.js)</title>
+ 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 	<link rel="stylesheet" href="css/style.css">
+ 	<script src="js/main.js" type="module"></script>
+ 	<script src="https://kit.fontawesome.com/2dce24cdd9.js" crossorigin="anonymous"></script>
+ </head>
+
+ <body>
+
+ 	<!-- base -->
+ 	<main id="appContainer">
+		
+		<!-- header -->
+		<header id="header">
+			<div id="containerIcon">
+				<i class="fa-regular fa-clipboard" id="icon"></i>
+			</div>
+ 			<h1>To do <span>List</span></h1>
+ 		</header>
+
+
+
+ 		<!-- Authentication Screen -->
+ 		<div id="authScreen">
+
+ 			<!-- login -->
+ 			<div id="loginScreen" class="authContentBox">
+ 				<h2>Login</h2>
+
+ 				<!-- form -->
+ 				<form class="authForm" autocomplete="off">
+ 					<input type="text" class="formInput" placeholder="Usuário" id="userInputLogin">
+ 					<input type="password" class="formInput" minlength="5" maxlength="30" placeholder="Senha" id="passwordInputLogin">
+ 					<button class="authButton" id="signInButton">Entrar</button>
+ 				</form>
+
+ 				<!-- tab switcher -->
+ 				<div class="tabSwitcherContainer">
+			  		Não possui conta?
+			  		<button class="tabSwitcherButton" data-mode="register">Registar</button>
+			  	</div>
+ 			</div>
+
+ 			<!-- register -->
+ 			<div id="registerScreen" class="authContentBox">
+ 				<h2>Registrar</h2>
+
+ 				<!-- form -->
+ 				<form class="authForm" autocomplete="off">
+ 					<input type="text" class="formInput" placeholder="Usuário" id="userInputRegister">
+ 					<input type="password" class="formInput" minlength="5" maxlength="30" placeholder="Senha" id="passwordInputRegister">
+ 					<button class="authButton" id="signUpButton">Registrar</button>
+ 				</form>
+
+ 				<!-- tab switcher -->
+ 				<div class="tabSwitcherContainer">
+ 					Já possui conta?
+					<button class="tabSwitcherButton" data-mode="login">Login</button>
+				</div>
+ 			</div>
+ 		</div>
+
+
+
+ 		<!-- user tasks screen -->
+
+ 		<div id="taskScreen"  class="hidden">
+
+ 			<!-- task tab -->
+		 	<div id="taskTabContainer">
+		 		<div id="taskTabWrapper">
+					<div class="taskTab activeTab" id="tabToDo">
+						<button class="buttonTaskTab" data-type="toDo">
+							<i class="fa-brands fa-flipboard"></i>
+							To Do
+							<span class="taskCount" id="toDoCount">0</span>
+						</button>
+					</div>
+					<div class="taskTab" id="tabDone">
+						<button class="buttonTaskTab" data-type="done">
+							<i class="fa-regular fa-circle-check"></i>
+							Done
+							<span class="taskCount" id="doneCount">0</span>
+						</button>
+					</div>
+		 		</div>
+			</div>
+
+ 			<!-- tasks container -->
+ 			<div id="taskContainer">
+
+
+ 				<!-- example
+ 				<div class="taskBox">
+ 					<input type="checkbox" class="checkboxTask">
+ 					<div class="infoTaskContainer">
+ 						<div class="inputTaskContainer">
+	 						<input type="text" class="inputTask" value="task" disabled>
+ 						</div>
+ 						<button class="descriptionTaskButton">
+							<i class="fa-solid fa-circle-info icon"></i>
+ 							Descrição
+ 						</button>
+ 					</div>
+ 					<button class="moreActionsTaskButton">
+ 						<i class="fa-solid fa-ellipsis-vertical icon"></i>
+ 					</button>
+ 				</div> 
+ 				-->
+
+
+ 			</div>
+
+ 			<!-- tasks description screen (definido fora porque é reutilizavél e precisa da referência do elemento pai) --> 
+ 			<div id="descriptionBackdrop" class="hidden">
+ 				<div id="descriptionBox">
+ 					<header id="descriptionBoxHeader">
+	 					<h2>Descrição</h2>
+	 					<button id="closeDescriptionBoxButton" class="descriptionButtons">
+	 						<i class="fa-solid fa-x icon"></i>
+	 					</button>
+ 					</header>
+	 				<textarea id="descriptionTextarea" placeholder="Digite uma descrição para a tarefa..."></textarea>
+	 				<div id="containerDescriptionButtons">
+		 				<button class="descriptionButtons" id="cancelDescriptionButton">Cancelar</button>
+		 				<button class="descriptionButtons" id="saveDescriptionButton">Salvar</button>
+	 				</div>
+ 				</div>
+ 			</div>
+
+ 			<!-- task screen footer -->
+ 			<footer id="taskScreenFooter">
+	 			<!-- add task -->
+	 			<div id="addTaskContainer">
+	 				<input type="text" id="newTaskInput" placeholder="Nova tarefa..." autocomplete="off">
+	 				<button id="newTaskButton">
+	 					+
+	 				</button>
+	 			</div>
+	 			<p id="footerPhase">
+	 				<i class="fa-solid fa-wand-magic-sparkles icon"></i>
+	 				Organize suas tarefas. Conquiste seus objetivos.
+	 			</p>
+ 			</footer>
+ 		</div>
+
+ 	</main>
+
+ </body>
+
+</html>
