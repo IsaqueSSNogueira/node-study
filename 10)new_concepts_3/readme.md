@@ -115,11 +115,12 @@ export default router; // por ser default, ele pode ser chamado como taskRoutes 
 
 - Url atrelada já foi definida no app.js, aqui é uma segunda triagem;
 - Tipo como em um hospital:
-1) `server` seria a entrada;
-2) `app` seria a primeira triagem, dividida para tipo de paciente (clinico, pediatrico) que seria a url;
-3) E direciona para tal médico que com a análise feita (métodos http, get, post, patch, put, delete) direciona para o especialista, que é o `controls`;
-4) Controls não tem responsabilidade de resolver o problema, mas mostrar soluções, dar a avaliação de retorno, etc... 
-5) O problema é resolvido com os tratamentos, que seria os `services`, os quais o controls indica e recebe o "feedback" se o tratamento está funcionando ou não (os return `status()`);
+1) 🚪 `server` seria a entrada;
+2) 🧭 `app` seria a primeira triagem, dividida para tipo de paciente (clinico, pediatrico) que seria a url;
+3) 📋 E direciona para tal médico que com a análise feita (métodos http, get, post, patch, put, delete - ou o próprio `routes`);
+4) ↩ Routes faz a segunda triagem e direciona para o especialista conforme o método, que é o `controls`;
+5) 👨‍⚕️ Controls não tem responsabilidade de resolver o problema, mas mostrar soluções, dar a avaliação de retorno, etc... (recebem req, chamam service, retornam res);
+6) 💊 O problema é resolvido com os tratamentos, que seria os `services`, os quais o controls indica e recebe o "feedback" se o tratamento está funcionando ou não (os return `status()`). Ele contêm a regra de negócio;
 
 
 <br>
