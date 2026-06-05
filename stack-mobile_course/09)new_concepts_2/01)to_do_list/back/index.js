@@ -159,7 +159,7 @@ app.patch("/tasks/:id/:idTask", (req, res) => {
 		messageReturn = `Descrição atualizada: ${description}`
 	}
 	else if(isChecked !== undefined){
-		messageReturn = isChecked ? "Tarefa marcada" : "Tarefa desmarcada"
+		messageReturn = isChecked ? "Tarefa marcada" : "Tarefa desmarcada" 
 	}
 
 
