@@ -10,14 +10,6 @@
 - Métodos;
 
 
-## 🗃 Organização dos arquivos
-
-- routes
-- controllers;
-- middleware básico:
-
-
-
 
 ### 🛣 Routes
 
@@ -79,16 +71,6 @@ app.listen(3000, () => console.log('Servidor rodando'));
 
 <br>
 
-### Controls
-
-
-<br>
-
-### Service
-
-
-<br>
-
 
 ## Respostas HTTP
 
@@ -101,3 +83,27 @@ app.listen(3000, () => console.log('Servidor rodando'));
 
 
 - *Nunca envie a senha para o frontend*.
+
+
+
+## 🗃 Organização dos arquivos
+
+- routes
+- controllers;
+- middleware básico:
+
+
+## Routes
+
+
+### Controls
+
+
+<br>
+
+### Service
+
+
+<br>
+
+
