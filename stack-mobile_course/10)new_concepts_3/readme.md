@@ -1,39 +1,52 @@
 
 # 🌆 Novos conceitos 3 (BACKEND - parte 2)
 
-- Ação técnica, tratativas, aplicações e banco de dados.
+- Foco em separação de arquivo, melhor estruturação e recursos conforme o projeto escala.
 
 
+## 🗃 Organização dos arquivos
+
+- routes
+- controllers;
+- middleware básico:
 
 
-## try / catch
+### 🗂 Separação 
+```
+src/
+│
+├── server.js          // ponto de entrada
+├── app.js             // configurações do express
+│
+├── routes/
+│   └── taskRoutes.js
+│
+├── controllers/
+│   └── taskController.js
+│
+├── services/
+│   └── taskService.js
+│
+├── models/
+│   └── taskModel.js   // (se usar banco)
+│
+├── middlewares/
+│   └── errorMiddleware.js
+│
+└── utils/
+```
+
+## Routes
 
 
-
-## Status HTTP
-
-- `200`:
-- `201`: 
-- `400`: 
-- `404`: `return res.status(404).json({ error: "User not found" })`;
-- `500`:
+### Controls
 
 
-## JSON
+<br>
+
+### Service
 
 
-- Objetos e arrays;
-- Métodos (`.find`, `.map`, `.filter`):
-- Tranformação de dados:
+<br>
 
 
-## Validação básica
-
-
-
-## Banco de dados (pincelada)
-
-- CRUD completo;
-- Entender tabela/coleção;
-- Relacionamento básico (mesmo que simples);
-- Queries básicas.

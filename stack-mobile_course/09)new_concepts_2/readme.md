@@ -1,7 +1,7 @@
 
 # 🌆 Novos conceitos 2 (BACKEND - parte 1)
 
-- Foco em separação de arquivo, melhor estruturação e recursos conforme o projeto escala.
+- Foco em consolidar e expandir conceitos aprendido, utilizando um projeto maior para isso. Posteriormente irei focar na separação de arquivos do servidor (server, routes, controlls, services, models, etc...) e na integração a um banco de dados e na hospedagem do projeto (`10)new_concepts_3`)  
 
 
 ## ➡ Fluxo completo
@@ -13,7 +13,7 @@
 
 ### 🛣 Routes
 
-- "O que acontece se alguém acessa tal url";
+- Rota: "O que acontece se alguém acessa tal url";
 - Combina os metódos HTTP (get, post, put, delete) com uma url (endpoint).
 
 #### Ações
@@ -85,25 +85,5 @@ app.listen(3000, () => console.log('Servidor rodando'));
 - *Nunca envie a senha para o frontend*.
 
 
-
-## 🗃 Organização dos arquivos
-
-- routes
-- controllers;
-- middleware básico:
-
-
-## Routes
-
-
-### Controls
-
-
 <br>
-
-### Service
-
-
-<br>
-
 
