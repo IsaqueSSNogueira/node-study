@@ -77,6 +77,7 @@ export default app;
 
 ### 🔀 O que é `app.use()` ?
 
+(base)
 - Ele conecta algo no fluxo da requisição;
 - Pode ser middleware ou um conjunto de rotas;
 -  O que acontece aqui `app.use("/tasks", taskRoutes)` - Significa: “Toda requisição que começar com /tasks, manda pro taskRoutes”;
@@ -87,7 +88,7 @@ export default app;
 3) taskRoutes → router.get("/") ;
 4) controller;
 
-
+(final)
 - **Usado para middlewares e agrupamento de rotas, ele define "toda requisição que passar por aqui, executa isso".**;
 - **Agrupando rotas, ele define "executa esse agrupamento de rotas se a requisição partir da url "X" (/tasks, por exemplo)**;
 - **Já se for métodos específicos, como `app.get`, (para ilustração) ele primeiramente só vai escutar requisições com esse método, pra a partir daí ver qual é a url especifica. Se a url bater, ele executa conforme (na prática é url > metódo, mas o foco é "os dois estão alinhados? url e método?")**.
@@ -96,17 +97,35 @@ export default app;
 
 ## Routes
 
+- Só define qual controller será chamado confome o método;
+
 ```
+import express from "express";
+import { getTasks, createTask } from "../controllers/taskController.js";
+
 const router = express.Router();
 
 router.get("/", getTasks);
 router.post("/", createTask);
 
-export default router;
+export default router; // por ser default, ele pode ser chamado como taskRoutes no app.js
 ```
 
+<br>
 
-### Controls
+- Url atrelada já foi definida no app.js, aqui é uma segunda triagem;
+- Tipo como em um hospital:
+1) `server` seria a entrada;
+2) `app` seria a primeira triagem, dividida para tipo de paciente (clinico, pediatrico) que seria a url;
+3) E direciona para tal médico que com a análise feita (métodos http, get, post, patch, put, delete) direciona para o especialista, que é o `controls`;
+4) Controls não tem responsabilidade de resolver o problema, mas mostrar soluções, dar a avaliação de retorno, etc... 
+5) O problema é resolvido com os tratamentos, que seria os `services`, os quais o controls indica e recebe o "feedback" se o tratamento está funcionando ou não (os return `status()`);
+
+
+<br>
+
+
+## Controls
 
 
 <br>
