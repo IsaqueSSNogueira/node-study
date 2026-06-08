@@ -5,16 +5,16 @@ import express from "express"
 import cors from "cors"
 
 // routes
-import registerRoutes from "src/routes/registerRoutes"
-import loginRoutes from "src/routes/loginRoutes"
-import usersRoutes from "src/routes/userRoutes"
+//import registerRoutes from "./src/routes/registerRoutes.js"
+import loginRoutes from "./src/routes/loginRoutes.js"
+//import usersRoutes from "./src/routes/userRoutes.js"
 
 const app = express()
 app.use(cors())
 app.use(express.json())
 
-// app.use("/register", registerRoutes)
-// app.use("/login", loginRoutes)
+//app.use("/register", registerRoutes)
+app.use("/login", loginRoutes)
 // app.use("users", usersRoutes)
 app.use("/", () => console.log("HI"))
 

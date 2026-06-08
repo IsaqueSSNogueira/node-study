@@ -2,7 +2,7 @@
 import { v4 as uuidv4 } from "uuid"
 
 // users
-export let users = [
+let users = [
 	{
 	 id:uuidv4(), // crypto.randomUUID();
 	 user: "Isaque", 
@@ -24,3 +24,5 @@ export let users = [
 	 ]
 	},
 ]
+
+export default users;

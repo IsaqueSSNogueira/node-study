@@ -1,7 +1,7 @@
 
 // chama o app e coloca os servidor para escutar as requisições
 
-import app from "app.js"
+import app from "./app.js"
 
 const PORT = 3000;
 
