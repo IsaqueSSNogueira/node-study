@@ -108,7 +108,7 @@ export default app;
 - Só define qual controller será chamado confome o método;
 - Define o `router` a partir do `express.Router()` (assim como cria o app como instância do servidor);
 - Nele que é definido o método, caminho pode ser `/` pq é relativo de quem repassa a requisição (no caso, `app.use("/tasks", taskRoutes)`);
-- Nele é importado e repassado os respectivos controls pra cada chamado, assim como a url define quais conjunto de rotas será chamado, os métodos definem quais controls irão dar seguimento daqui pra frente;
+- Nele é importado e repassado os respectivos controllers pra cada chamado, assim como a url define quais conjunto de rotas será chamado, os métodos definem quais controls irão dar seguimento daqui pra frente;
 - Aliás, em termos de construção da aplicação, após aqui não há retorno vindo pra esses arquivos, eles são "selados" após a requisição chegar na etapas dos controls, os quais irão fechar a requisição enviando o `response`;
 
 ```

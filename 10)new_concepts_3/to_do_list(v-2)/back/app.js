@@ -1,21 +1,21 @@
-
-// cria a instância do servidor e define middlewares e as rotas a partir do app.use(url, agrupamento de rotas)
+// app - cria a instância do servidor e define middlewares e as rotas a partir do app.use(url, agrupamento de rotas)
 
 import express from "express"
 import cors from "cors"
+import users from './src/data/users.js'
 
-// routes
-//import registerRoutes from "./src/routes/registerRoutes.js"
+// importar rotasroutes
 import loginRoutes from "./src/routes/loginRoutes.js"
-//import usersRoutes from "./src/routes/userRoutes.js"
 
+
+// inicialização
 const app = express()
 app.use(cors())
 app.use(express.json())
+console.log(users)
 
-//app.use("/register", registerRoutes)
+// rotas
 app.use("/login", loginRoutes)
-// app.use("users", usersRoutes)
-app.use("/", () => console.log("HI"))
+
 
 export default app;
