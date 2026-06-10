@@ -2,7 +2,7 @@
 import * as loginService from "../services/loginService.js";
 
 
-export const signIn =  (req, res) => {
+const signIn =  (req, res) => {
 
 	const {inputUser, inputPassword} = req.body;
 

@@ -6,7 +6,8 @@ import users from './src/data/users.js'
 
 // importar rotasroutes
 import loginRoutes from "./src/routes/loginRoutes.js"
-
+import registerRoutes from './src/routes/registerRoutes.js'
+import dataRoutes from "./src/routes/dataRoutes.js"
 
 // inicialização
 const app = express()
@@ -16,6 +17,9 @@ console.log(users)
 
 // rotas
 app.use("/login", loginRoutes)
+app.use("/register", registerRoutes)
+app.use("/data", dataRoutes)
+
 
 
 export default app;
