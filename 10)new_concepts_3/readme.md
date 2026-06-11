@@ -105,7 +105,7 @@ export default app;
 
 ## Routes
 
-- Só define qual controller será chamado confome o método;
+- Ele define qual controller será chamado confome o método;
 - Define o `router` a partir do `express.Router()` (assim como cria o app como instância do servidor);
 - Nele que é definido o método, caminho pode ser `/` pq é relativo de quem repassa a requisição (no caso, `app.use("/tasks", taskRoutes)`);
 - Nele é importado e repassado os respectivos controllers pra cada chamado, assim como a url define quais conjunto de rotas será chamado, os métodos definem quais controls irão dar seguimento daqui pra frente;
@@ -123,7 +123,9 @@ router.post("/", createTask);
 export default router; // por ser default, ele pode ser chamado como taskRoutes no app.js
 ```
 
-- Para diferenciar um parâmetro dinâmico de um parâmetro padrão, basta ter `/:`, tipo: `/:id/tasks/id` virá comoo `users/1234/tasks/9876`.
+- Para diferenciar um parâmetro dinâmico de um parâmetro padrão, basta ter `/:`, tipo: `/:id/tasks/id` virá comoo `users/1234/tasks/9876`;
+- Parâmetros são passados pelo `router` e não pelo `app`, o app define apenas a url base.
+
 
 <br>
 
@@ -147,6 +149,7 @@ export default router; // por ser default, ele pode ser chamado como taskRoutes 
 
 - Camada do meio;
 - Pega `req`, chama o `service`, devolve o `res`;
+- Define lógica de fluxo, mas não regra de negócio pesada (nisso é chamado o service);
 
 ```
 import * as userService from "../services/userService.js"
@@ -189,8 +192,9 @@ userService.createUser()
 
 ### Service
 
-- Onde a lógica real acontece;
+- Onde a lógica real acontece, a chamada regra de negócio;
 - Aqui você mexe nos dados (array, banco, etc);
+- Cálculos, validações, manipulação de dados, busca no banco ou array;
 - Baseado muito em return para o controller;
 
 ```

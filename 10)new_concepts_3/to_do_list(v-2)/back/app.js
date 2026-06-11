@@ -2,12 +2,12 @@
 
 import express from "express"
 import cors from "cors"
-import users from './src/data/users.js'
+import users from './src/data/usersData.js'
 
 // importar rotasroutes
 import loginRoutes from "./src/routes/loginRoutes.js"
 import registerRoutes from './src/routes/registerRoutes.js'
-import dataRoutes from "./src/routes/dataRoutes.js"
+import usersRoutes from "./src/routes/usersRoutes.js"
 
 // inicialização
 const app = express()
@@ -18,8 +18,7 @@ console.log(users)
 // rotas
 app.use("/login", loginRoutes)
 app.use("/register", registerRoutes)
-app.use("/data", dataRoutes)
-
+app.use("/users", usersRoutes)
 
 
 export default app;

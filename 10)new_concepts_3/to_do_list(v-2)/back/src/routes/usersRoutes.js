@@ -1,18 +1,21 @@
 
 import express from "express"
-
-import { getUser, getUserTasks, createTasks, updateTask, deleteTask } from "../controllers/usersController.js"
+import { getUserData, newTask, updateTaskData, deleteTask } from "../controllers/usersControllers.js"
 
 const router = express.Router()
 
-router.get("/:id", getUser)
+// methods
+router.get("/:id", getUserData)
 
-router.get("/:id/tasks", getUserTasks)
+// new task
+router.post("/:id/tasks", newTask)
 
-router.post("/:id/tasks", createTasks)
+// update data task
+router.patch("/:id/tasks/:taskId", updateTaskData)
 
-router.patch("/:id/tasks/:idTask", updateTask)
+// delete task
+router.delete("/:id/tasks/:taskId", deleteTask)
 
-router.delete("/:id/tasks/:idTask", deleteTask)
+
 
 export default router;

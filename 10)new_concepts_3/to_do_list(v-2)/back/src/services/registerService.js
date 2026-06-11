@@ -1,5 +1,5 @@
 
-import users from '../data/users.js'
+import users from '../data/usersData.js'
 import { v4 as uuidv4} from "uuid"
 
 export const existUser = (inputUser, inputPassword) => {

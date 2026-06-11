@@ -1,11 +1,12 @@
 
 // get tasks
-export const getTasks = async (id) => {
+export const getUserData = async (id) => {
 
 	try{
-		const res = await fetch(`http://localhost:3000/data/${id}`)
+		const res = await fetch(`http://localhost:3000/users/${id}`)
 		const data = await res.json()
-		return data;
+		console.log(data)
+		return data.userData;
 	} catch(err){
 		console.error(err)
 		alert("Erro ao buscar tarefas")
@@ -17,10 +18,10 @@ export const getTasks = async (id) => {
 export const createNewTask = async (id, value) => {
 
 	try{
-		const res = await fetch(`http://localhost:3000/tasks/${id}`, {
+		const res = await fetch(`http://localhost:3000/users/${id}/tasks`, {
 			method:"POST",
 			headers:{"Content-Type": "application/json"},
-			body: JSON.stringify({ value: value }),
+			body: JSON.stringify({ text: value }),
 		})
 		if (!res.ok) {
       		throw new Error("Erro na requisição")
@@ -36,34 +37,11 @@ export const createNewTask = async (id, value) => {
 }
 
 
-// toggle status task (do/done)
-
-export const toggleStatusTask = async (idUser, idTask, isChecked) => {
-
-	try{
-		const res = await fetch(`http://localhost:3000/tasks/${idUser}/${idTask}`, {
-			method:"PATCH",
-			headers: {"Content-Type": "application/json"},
-			body: JSON.stringify({isChecked:isChecked})
-		})
-		const data = await res.json()
-
-		if(!res.ok){
-			throw new Error("Erro ao marcar/desmarcar tarefa")
-		}
-		return data;
-
-	} catch(err){
-		console.log(err)
-		alert(err.message || "Falha na requisição")
-	}
-}
-
-
+// aprovar edição do título da tarefa
 export const approveEdit = async (idUser, idTask, text) => {
 
 	try{
-		const res = await fetch(`http://localhost:3000/tasks/${idUser}/${idTask}`, {
+		const res = await fetch(`http://localhost:3000/users/${idUser}/tasks/${idTask}`, {
 			method: "PATCH",
 			headers:{"Content-Type": "application/json"},
 			body: JSON.stringify({text:text})
@@ -82,12 +60,54 @@ export const approveEdit = async (idUser, idTask, text) => {
 }
 
 
-// delete task
+// toggle status task (do/done)
+export const toggleStatusTask = async (idUser, idTask, isChecked) => {
 
+	try{
+		const res = await fetch(`http://localhost:3000/users/${idUser}/tasks/${idTask}`, {
+			method:"PATCH",
+			headers: {"Content-Type": "application/json"},
+			body: JSON.stringify({ completed:isChecked })
+		})
+		const data = await res.json()
+
+		if(!res.ok){
+			throw new Error("Erro ao marcar/desmarcar tarefa")
+		}
+		return data;
+
+	} catch(err){
+		console.log(err)
+		alert(err.message || "Falha na requisição")
+	}
+}
+
+
+//  salve description
+export const saveDescription = async (idUser, currentIdTask, description) => {
+		try{
+			const res = await fetch(`http://localhost:3000/users/${idUser}/tasks/${currentIdTask}`, {
+				method: "PATCH",
+				headers:{"Content-Type": "application/json"},
+				body: JSON.stringify({description: description})
+			})
+			const data = await res.json()
+			if(!res.ok){
+				throw new Error("Erro ao atualizar descrição da tarefa")
+			}
+			return data;
+
+		}catch(err){
+			console.log(err)
+		}
+}
+
+
+// delete task
 export const deleteTask = async (idUser, taskId) => {
 
 	try{
-		const res = await fetch(`http://localhost:3000/tasks/${idUser}/${taskId}`, {
+		const res = await fetch(`http://localhost:3000/users/${idUser}/tasks/${taskId}`, {
 			method: "DELETE"
 		})
 		const data = await res.json()
@@ -103,22 +123,3 @@ export const deleteTask = async (idUser, taskId) => {
 	}
 }
 
-
-//  salve description
-export const saveDescription = async (idUser, currentIdTask, description) => {
-		try{
-			const res = await fetch(`http://localhost:3000/tasks/${idUser}/${currentIdTask}`, {
-				method: "PATCH",
-				headers:{"Content-Type": "application/json"},
-				body: JSON.stringify({description: description})
-			})
-			const data = await res.json()
-			if(!res.ok){
-				throw new Error("Erro ao atualizar descrição da tarefa")
-			}
-			return data;
-
-		}catch(err){
-			console.log(err)
-		}
-}

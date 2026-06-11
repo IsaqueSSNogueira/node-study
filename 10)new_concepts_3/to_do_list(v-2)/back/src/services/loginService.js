@@ -1,5 +1,5 @@
 
-import users from "../data/users.js"
+import users from "../data/usersData.js"
 
 
 export const foundUser = (inputUser, inputPassword) => {

@@ -1,5 +1,5 @@
 
-import {getTasks} from "./tasksApi.js"
+import { getUserData } from "./tasksApi.js"
 import {
 	buttonsToggleTasksTab, 
 	newTask, 
@@ -122,7 +122,7 @@ const createTaskBox = (task, taskContainer, id) => {
 export const renderTasks = async (id) => {
 
 	// data
-	const dataUser = await getTasks(id)
+	const dataUser = await getUserData(id)
 
 	// elementos
 	const toDoCountE = document.querySelector("#toDoCount")

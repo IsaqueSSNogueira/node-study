@@ -6,7 +6,6 @@ import {renderTaskScreen} from "./../tasks/tasks.js"
 // try sign up
 export const trySignUp = async (user, password) => {
 
-	console.log(user.value, password.value)
 	try{
 		const res =	await fetch("http://localhost:3000/register", {
 				method: "POST", 
