@@ -10,7 +10,7 @@ export const trySignUp = async (user, password) => {
 		const res =	await fetch("http://localhost:3000/register", {
 				method: "POST", 
 				headers:{"Content-Type": "application/json"}, 
-				body: JSON.stringify({inputUser:user.value, inputPassword:password.value})
+				body: JSON.stringify({inputUser:user, inputPassword:password})
 		})
 		const data = await res.json();
 
@@ -25,6 +25,7 @@ export const trySignUp = async (user, password) => {
 		// login imediato
 		await trySignIn(user, password)
 		clearInputs();
+
 	} catch(err){
 		console.error(err)
 		alert("Erro de conexão com o servidor");
@@ -36,11 +37,13 @@ export const trySignUp = async (user, password) => {
 
 export const trySignIn = async (user, password) => {
 
+	console.log(user, password)
+
 	try{
 		const res = await fetch("http://localhost:3000/login", {
 			method: "POST",
 			headers: {"Content-Type": "application/json"},
-			body: JSON.stringify({inputUser:user.value, inputPassword:password.value})
+			body: JSON.stringify({inputUser:user, inputPassword:password})
 		})
 
 		const data = await res.json()

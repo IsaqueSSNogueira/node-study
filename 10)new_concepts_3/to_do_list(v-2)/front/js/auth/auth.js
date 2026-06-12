@@ -20,7 +20,7 @@ export const authRegister = () => {
 			alert("Dados incompletos")
 		}
 		else {
-			trySignUp(userInputRegister, passwordInputRegister)
+			trySignUp(userInputRegister.value, passwordInputRegister.value)
 			}
 	})
 
@@ -42,7 +42,7 @@ export const authLogin = () => {
 			alert("Dados incompletos")
 		}
 		else {
-			trySignIn(userInputLogin, passwordInputLogin)
+			trySignIn(userInputLogin.value, passwordInputLogin.value)
 		}
 	})
 }

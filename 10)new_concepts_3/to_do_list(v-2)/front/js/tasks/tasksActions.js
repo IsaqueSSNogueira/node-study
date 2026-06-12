@@ -54,7 +54,6 @@ export const newTask = async (id) => {
 			const res = createNewTask(id, value)
 			if(res){
 				newTaskInput.value = ""				
-				alert("tarefa criada")
 				renderTasks(id)
 			}
 		}
@@ -162,6 +161,7 @@ export const approveEditAction = async (idUser, idTask, inputTask) => {
 	}
 
 }
+
 
 export const deleteTaskAction = async (idUser, taskId) => {
 

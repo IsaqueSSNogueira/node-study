@@ -31,7 +31,7 @@ export const createNewTask = (id, text) => {
 }
 
 
-// find task
+// find task for update
 export const findTask = (user, taskId) => {
 
 	return user.tasks.find((task) => {
