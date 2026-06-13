@@ -24,11 +24,12 @@ const users = [ ... ]
 
 ### 🗃 Com banco
 
-- Daods ficam **persistidos**;
+- Dados ficam **persistidos**;
 - Você separa responsabilidades;
 - Backend vira de verdade um serviço (se não for para haver um banco externo, não faz sentido construir um backend, iria trabalhar localmente).
 
 
+<br>
 
 <!-- 2 -->
 
@@ -46,6 +47,7 @@ const users = [ ... ]
 
 
 
+<br>
 
 <!-- 3 -->
 
@@ -70,11 +72,11 @@ const users = [ ... ]
 *Recomendação: Começar com MongoDB, vai bater mais com meu projeto atual*
 
 
+<br>
 
 <!-- 4 -->
 
-
-## 4) 🤓 O que você vai aprender
+## 4) 🤓 O que vou aprender
 
 Quando você implementar banco, você vai aprender:
 
@@ -85,9 +87,9 @@ Quando você implementar banco, você vai aprender:
 5) Erros reais (não mockados).
 
 
+<br>
 
 <!-- 5 -->
-
 
 ## 5) 👨‍💻´Como seu código vai mudar
 
@@ -108,6 +110,7 @@ export const getUserById = async (id) => {
 - Vira async;
 - Usa banco;
 - Pode falhar de verdade.
+<br>
 
 
 ## 6) 💯 New Layer - Model
@@ -140,8 +143,9 @@ Isso define:
 - Estrutura de dados.
 
 
+<br>
 
-<-- 7 -->
+<!-- 7 -->
 
 ## 7) 🌐 Conexão com banco
 
@@ -178,6 +182,7 @@ export const createNewTask = async (userId, text) => {
 
 ```
 
+<br>
 
 ## 8) 🔥 O que mais muda
  
@@ -196,6 +201,7 @@ try {
 }
 ```
 
+<br>
 
 ## 9) 🧠 Mudança de mentalidade
 
@@ -204,7 +210,7 @@ try {
 
 *👉 Isso é backend de verdade!*
 
-
+<br>
 
 ## 10) Ordem ideal pra você implementar
 
@@ -217,6 +223,7 @@ Segue EXATAMENTE isso:
 5) Refatorar Controllers (async + try/catch);
 7) Testar tudo (Postman / frontend.
 
+<br>
 
 
 ## 11) 😯 Bônus - Simplificando
@@ -262,13 +269,38 @@ user.tasks.push(...)
 await user.save()
 ```
 - O que acontece por trás:
-
-- 1) Ele guarda o estado original;
-- 2) Você modifica (push);
-- 3) Quando chama .save();
-- 4) Ele compara o que mudou;
-- 5) Atualiza o banco automaticamente
+	- Ele guarda o estado original;
+	- Você modifica (push);
+	- Quando chama .save();
+	- Ele compara o que mudou;
+	- Atualiza o banco automaticamente
 
 - Sim o Mongoose sabe exatamente o que mudou.
 
 
+8) 🧩 Schema + push 
+```
+// Schema:
+const userSchema = {
+  name: String,
+  tasks: [taskSchema]
+}
+```
+- Diz: “user tem um array de tasks”.
+
+- Quando vc faz:
+```
+user.tasks.push({
+  text: "Estudar",
+  completed: false
+})
+```
+- Você está apenas mexendo num array normal.
+- AMs qunado você faz:
+```
+await user.save()
+```
+- Aí o Mongoose **valida com o schema, transforma em formato do banco e salva**.
+
+
+_//_
