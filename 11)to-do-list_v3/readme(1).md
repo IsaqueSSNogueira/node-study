@@ -3,6 +3,7 @@
 
 - Foco em conexão com banco de dados. Devido a mudança que irá haver nos services e integração dos models, projeto se separou da parte 2 (que focava na separação do index.js em *arquitetura em camadas*).
 
+<br>
 
 <!-- 1 -->
 
