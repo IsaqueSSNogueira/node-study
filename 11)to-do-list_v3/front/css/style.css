@@ -1,0 +1,639 @@
+
+/*fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+/*base*/
+* {margin:0; padding:0; box-sizing: border-box; font-size:100%; font-family: "Roboto", sans-serif;}
+
+body {
+	width:100vw; 
+	height: 100vh; 
+	display:flex; 
+	align-items:center; 
+	justify-content:center;
+	background: rgba(0, 110, 255, 0.2);
+}
+
+
+/* main */
+#appContainer {
+	width: 350px;
+	height: 520px;
+	border-radius:15px;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	position: relative;
+	box-shadow: 0 0 55px rgba(0, 0, 20, 0.3);
+	background: rgb(255,255,255);
+}
+
+
+/* header */
+#header {
+	padding: 15px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#header #containerIcon {
+	width:50px;
+	height:50px;
+	background: rgba(0, 110, 255, 0.2);
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border:2px solid white;
+	box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+#header #containerIcon #icon {
+	width: 25px;
+	height: 25px;
+	color: rgba(0, 110, 255, 0.8);
+}
+
+h1 {
+	text-align: center;
+	font-size: 2rem;
+	padding: 10px;
+	position: relative;
+}
+
+h1 span {
+	color: rgb(0, 110, 255);
+}
+
+h1::before {
+	content:"";
+	position: absolute;
+	bottom: 0;
+	left:50%;
+	transform: translate(-50%, -50%);
+	width: 150px;
+	height: 1px;
+	background:rgba(0,0,0,0.3);
+}
+
+h1::after {
+	content: "";
+	position: absolute;
+	bottom: -22px;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 4px;
+	height: 4px;
+	background: rgba(0, 110, 255, 0.8);
+	border-radius: 50%;
+	border: 10px solid white;
+}
+
+
+/* Auth Screen */
+
+/*autentificação (duplo container, escondidos pelo hidden do pai e movimentados pelo js) */
+#authScreen {
+	display: flex;
+	width: 200%;
+	height: 100%;
+	transition: all 0.8s ease;
+	background: rgba(0,0,0,0.02);
+}
+
+
+/* default for containers */
+.authContentBox {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.authContentBox h2 {
+	font-size: 1.3rem;
+}
+
+.authForm {
+	display: flex;
+	flex-direction: column;
+	gap:15px;
+	width: 80%;
+	padding: 20px 0 5px;
+}
+
+.formInput {
+	font-size: 0.9rem;
+	padding: 9px;
+	border-radius: 3px;
+	border: 1px solid black;
+	width:100%;
+}
+
+.formInput:focus {
+	outline: none;	
+}
+
+.authButton {
+	background: rgba(0, 110, 255, 0.5);
+	border:none;
+	padding:8px;
+	border-radius:6px;
+	color:white;
+	font-size: 0.9rem;
+}
+
+.authButton:hover {
+	cursor:pointer;
+	background: rgb(4, 90, 204);
+}
+
+
+
+/* tab switcher */
+
+.tabSwitcherContainer {
+	margin-top: 20px;
+}
+
+.tabSwitcherButton {
+	background: none;
+	border: none;
+	color: rgba(0, 110, 255, 0.8);
+}
+
+.tabSwitcherButton:hover{
+	color:rgb(4, 90, 204);
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+
+
+
+/*task screen*/
+#taskScreen {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	height: 100%;
+	transition: all 0.8s ease;
+	background: rgba(0,0,0,0.02);
+}
+
+
+/*task tab*/
+#taskTabContainer{
+	width: 100%;
+	border-radius: 5px;
+	display: flex;
+	justify-content: center;
+}
+
+#taskTabWrapper {
+	width: 95%;
+	display: flex;
+	border-radius: 5px;
+	overflow: hidden;
+}
+
+.taskTab {
+	width: 50%;
+	height: 35px;
+	display: flex;
+	justify-content: center;
+	border:1px solid rgba(0,0,0,0.1);
+}
+
+.taskTab button {
+	background: none;
+	border: none;
+	width: 100%;
+	height: 100%;
+	cursor: pointer;
+	font-size: 0.8rem;
+	font-weight: bold;
+	color:rgba(0,0,0,0.5);
+	display: flex;
+	gap:5px;
+	justify-content: center;
+	align-items: center;
+}
+
+.taskTab button:hover {
+	background: rgba(0,0,0,0.05);
+}
+
+.activeTab {
+	background: rgba(0, 110, 255, 0.05);
+	color:rgba(0, 110, 255, 0.15);
+	border-bottom: 3px solid rgba(0, 110, 255, 0.5);
+}
+
+.activeTab button {
+	color:rgba(0, 110, 255);
+	width: 100%;
+	height: 100%;
+}
+
+.taskCount {
+	width: 20px;
+	height: 18px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+	font-size: 0.7rem;
+	background: rgba(0,0,0,0.05);
+}
+
+.activeTab .taskCount {
+	background: rgba(0, 110, 255, 0.1);
+}
+
+
+
+/*task container*/
+#taskContainer {
+	width: 100%;
+	height: 250px;
+	display: flex;
+	flex-direction: column;
+	gap:20px;
+	padding: 15px 10px;
+	overflow: auto;
+}
+
+
+/*task box*/
+.taskBox {
+	width: 100%;
+	display: flex;
+	align-items: flex-start;
+	gap:15px;
+	box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+	padding: 12px 10px;
+	border-radius: 5px;
+	position: relative;
+}
+
+.infoTaskContainer {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	width: 100%;
+	gap:5px;
+}
+
+.inputTaskContainer {
+	width: 100%;
+	display: flex;
+	align-items: center;
+}
+
+.inputTaskContainer .icon {
+	width: 10px;
+	height: 10px;
+	opacity: 0.85;
+}
+
+.inputTask {
+	width: 100%;
+	font-size: 0.7rem;
+	font-weight: bold;
+	padding: 0 5px;
+	color: rgba(0,0,0,0.7);
+}
+
+.inputTask:disabled {
+	color: rgb(0,0,0);
+}
+
+.inputTask::placeholder {
+	opacity: 0.85;
+}
+
+.inputFocus {
+	background: rgba(0,0,0,0.04) !important;
+}
+
+
+
+
+/*description*/
+
+.descriptionTaskButton {
+	border:none;
+	background: rgba(0, 110, 255, 0.05);
+	font-size: 0.5rem;
+	width: 60px;
+	height: 15px;
+	border-radius: 7px;
+	color:rgba(0,0,0,0.7);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap:4px;
+	cursor: pointer;
+}
+
+.descriptionTaskButton .icon {
+	width: 8px;
+	height: 8px;
+	opacity: 0.8;
+}
+
+/*description screen*/
+#descriptionBackdrop {
+	width:100%;
+	height: 100%;
+	background: rgba(0,0,55,0.3);
+	position: absolute;
+	top:0;
+	left:0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+}
+
+#descriptionBox {
+	width: 80%;
+	height: 40%;
+	border-radius: 10px;
+	background: rgb(252,252,255);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap:10px;
+	border:1px solid rgba(0,0,0,0.1);
+	box-shadow: 0 0 2px white;
+}
+
+#descriptionBoxHeader {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	padding: 15px 20px 5px 15px;
+}
+
+#descriptionBoxHeader h2 {
+	font-size: 0.8rem;
+	user-select: none;
+	padding: 0 0 4px 0;
+	position: relative;
+}
+
+#descriptionBoxHeader h2::before {
+	content:"";
+	width: 58px;
+	height: 2px;
+	background: blue;
+	position: absolute;
+	bottom:-3px;
+	left: 0;
+	opacity: 0.5;
+}
+
+#closeDescriptionBoxButton {
+	font-size: 0.8rem;
+	border:none;
+	background: none;
+	border-radius: 50%;
+	cursor: pointer;
+}
+
+#closeDescriptionBoxButton .icon {
+	width: 10px;
+	height: 10px;
+	opacity: 0.4;
+}
+
+#descriptionTextarea {
+	width: 90%;
+	height: 130px;
+	border: none;
+	outline: none;
+	border:1px solid rgba(0,0,0,0.1);
+	border-radius: 8px;
+	color: rgba(0,0,30,0.8);
+	resize: none;
+	font-size: 0.65rem;
+	padding:10px;
+}
+
+#containerDescriptionButtons {
+	width: 100%;
+	display: flex;
+	gap:10px;
+	justify-content: flex-end;
+	padding: 5px 15px 10px;
+}
+
+#cancelDescriptionButton, #saveDescriptionButton  {
+	border:none;
+	outline:none;
+	font-size: 0.6rem;
+	font-weight: bold;
+	color:rgba(0,0,55,0.7);
+	cursor: pointer;
+	width:70px;
+	height: 28px;
+	border-radius: 5px;
+	transition: all 0.2s ease;
+}
+
+#cancelDescriptionButton:hover {
+
+}
+
+#saveDescriptionButton:hover {
+
+}
+
+
+#cancelDescriptionButton {
+	border:1px solid rgba(0,0,55,0.2);
+	background: rgba(0,0,55,0.005);
+}
+
+#saveDescriptionButton {
+	background: linear-gradient(to bottom, rgb(92, 107, 247), rgba(63, 78, 212));
+	color:rgba(255,255,255,0.9);
+}
+
+
+
+/*moreActions*/
+
+.inputTask, .moreActionsTaskButton, .descriptionButtons {
+	background: none;
+	border: none;
+	outline: none;
+}
+
+.moreActionsTaskButton {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 15px;
+	height: 15px;
+	cursor: pointer;
+}
+.moreActionsTaskButton .icon {
+	width: 12px;
+	height: 12px;
+}
+
+
+.checkboxTask {
+	margin-top: 3px;
+	/*
+  appearance: none;
+  -webkit-appearance: none;
+  */
+}
+
+
+
+/*more options*/
+
+.containerMoreActions {
+	position: absolute;
+	top:15px;
+	right:25px;
+	display: flex;
+	flex-direction: column;
+	box-shadow: 0px 0px 5px rgba(0,0,0,0.2);
+	border-radius: 5px 0px 5px 5px;
+}
+
+.moreActionsTaskButtons {
+	font-size: 0.5rem;
+	border:none;
+	outline: none;
+	background: none;
+	padding: 5px;
+	cursor: pointer;
+}
+
+.moreActionsTaskButtons:hover { background: rgba(0,0,0,0.1); }
+
+
+/*input actions*/
+
+.actionsInputBox {
+	background: none;
+	position: absolute;
+	right: 15px;
+	display: flex;
+	gap:5px;
+}
+
+.cancelEditInputButton, .approveEditButton {
+	display: flex;
+	justify-content: center;
+	align-items: center;	
+	height: 15px;
+	width: 15px;
+	cursor: pointer;
+	background: none;
+	border: none;
+	transition: all 0.5s ease;
+	opacity: 0.8;
+}
+
+.cancelEditInputButton:hover { color:red; font-weight:bold; }
+
+.approveEditButton:hover { color:blue; font-weight:bold; }
+
+.iconsInputActions { width: 8px; height: 8px; }
+
+
+
+
+
+
+
+/*footer*/
+
+/*add taks area*/
+#taskScreenFooter {
+	padding:15px;
+	display: flex;
+	flex-direction: column;
+	gap:10px;
+	background: rgba(0, 110, 255, 0.02);
+	border-top:1px solid rgba(0,0,0,0.05);
+}
+
+#addTaskContainer {
+	display: flex;
+	gap:10px;
+
+}
+
+#newTaskInput {
+	width: 100%;
+	padding: 7px 10px;
+	border-radius:5px;
+	border:none;
+	box-shadow: 0 0 4px rgba(0,0,0,0.2);
+	font-size: 0.8rem;
+	color:gray;
+}
+
+#newTaskInput:focus {
+	outline: none;
+}
+
+#newTaskButton {
+	border:none;
+	background: none;
+	cursor: pointer;
+}
+
+#newTaskButton {
+	background: rgba(0, 110, 255, 0.9);
+	color:white;
+	width: 45px;
+	height: 35px;
+	transition: all 0.5s ease;
+	border-radius: 5px;
+}
+
+#newTaskButton:hover {
+	background:rgba(4, 90, 204, 0.8);
+}
+
+#footerPhase {
+	font-size: 0.55rem;
+	display: flex;
+	justify-content: center;
+	gap:5px;
+	align-items: center;
+	color:rgba(0,0,0,0.7);
+}
+
+#footerPhase .icon {
+	color:rgba(4, 90, 204, 0.8);
+}
+
+
+/*js*/
+.moveAuthScreen {
+	transform: translate(-50%, 0);
+}
+
+.hidden {
+	display:none !important;
+}
+
+
+
