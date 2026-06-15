@@ -1,5 +1,5 @@
 
-# 🌆 Conectando a um database externo (BACKEND - parte 3)
+# 🌆 Conectando a um database externo - Teoria
 
 - Foco em conexão com banco de dados. Devido a mudança que irá haver nos services e integração dos models, projeto se separou da parte 2 (que focava na separação do index.js em *arquitetura em camadas*).
 
@@ -37,14 +37,14 @@ const users = [ ... ]
 ## 2) Conceito principal
 
 
-- Antes:  `conttroler > mexe direto no array`;
-- Depois: `conttroler > service > database`
+- Antes:  `controller > mexe direto no array`;
+- Depois: `controller > service > database`
 
 
 
 ### 📌 Fluxo completo
 
-- `req > conttroler > service > database > service > controller > res`
+- `req > controller > service > database > service > controller > res`
 
 
 
@@ -84,7 +84,7 @@ Quando você implementar banco, você vai aprender:
 1) Modelagem de dados;
 2) Persistência;
 3) CRUD real;
-4) Assicronismo (`async/await`);
+4) Assícronismo (`async/await`);
 5) Erros reais (não mockados).
 
 
@@ -125,7 +125,7 @@ import mongoose from "mongoose"
 
 const taskSchema = new mongoose.Schema({
 	text: String,
-	description, String,
+	description: String,
 	completed: Boolean
 })
 
@@ -159,7 +159,7 @@ mongoose.connect("mongodb://localhost:27017/todolist")
 Seu service depois do banco:
 ```
 
-import user from "../model/User.js"
+import User from "../model/User.js"
 
 
 export const createNewTask = async (userId, text) => {
