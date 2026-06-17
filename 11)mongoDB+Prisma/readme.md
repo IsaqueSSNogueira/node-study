@@ -1,18 +1,17 @@
 
-# 👨‍💻 MongoDB + Prisma
+# 🗃 MongoDB + Prisma
+
+<br>
 
 
 ## 📈 Passo a passo (inicial)
 
 ### 1) 🌐 Crie uma conta no MongoDB;
 
-<br>
-
 
 
 ### 2) 🖥 Crie um cluster
 
-<br>
 
 #### O que é um cluster?
 
@@ -24,15 +23,11 @@
 - É onde seu banco "vive";
 - É chamado de cluster porque em sistemas reais não é só uma máquina rodando, é o servidor A, servidor B, servidor C, todos trabalhando juntos. Isso é um cluster.
 
-<br>
-
 
 #### Nome do cluster
 - Sobre o nome do cluster atual (cluster0): O nome do cluster tende a não ser tão importante, o que importa mesmo é a connection string e o nome do banco (ex: todolist);
 - Exemplo `mongodb+srv://user:pass@cluster0.xxxxx.mongodb.net/todolist`, aqui: "cluster0" é nome do cluster (quase irrelevante) e "todolist" seu banco (isso sim importa).
 - "Quando o nome do cluster importa?" Praticamente só quando você tem vários clusters ou/e em projeto grande / empresa. No meu caso, zero impacto;
-
-<br>
 
 
 #### Criação do cluster
