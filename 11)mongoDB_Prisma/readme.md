@@ -53,7 +53,7 @@
 <br>
 
 
-## 3) 🔃 Basa para conectar o banco de dados
+## 3) 🔃 Base para conectar o banco de dados
 
 ### 🌐 connect 
 
@@ -79,11 +79,11 @@
 
 ### Base
 
-- > nova pasta;
-- > npm init -y;
-- > npm install express;
-- > package.json > "type":"module";
-- > index.js
+> nova pasta;
+> npm init -y;
+> npm install express;
+> package.json > "type":"module";
+> index.js
 
 <br> 
 
