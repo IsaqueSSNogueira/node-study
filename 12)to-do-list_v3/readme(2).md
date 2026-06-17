@@ -1,5 +1,5 @@
 
-# 🌆 Conectando a um database externo - Prática 
+# 🌆 Conectando a um database externo - Base
 
 
 ## 🗃 MongoDB Atlas
