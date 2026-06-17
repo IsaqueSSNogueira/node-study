@@ -20,7 +20,7 @@ let users = [
 	 tasks:[
 	 	{id:uuidv4(), text:"Programar", description:"Backend",completed:false},
 	 	{id:uuidv4(), text:"Assistir um anime", description:"Rockie No Bockie",completed:false},
-	 	{id:uuidv4(), text:"Ir para escola", description:"Bocchi The Rock!",completed:true},
+	 	{id:uuidv4(), text:"Ir para escola", description:"",completed:true},
 	 ]
 	},
 ]
