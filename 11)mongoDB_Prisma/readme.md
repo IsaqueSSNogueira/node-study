@@ -90,7 +90,7 @@
 ### Códigos 
 
 ```
-// restart automatico
+// restart automatico do servidor
 npm install nodemon -D
 npx nodemon arquivo.js
 ```
@@ -99,7 +99,22 @@ npx nodemon arquivo.js
 
 <br> 
 
-### Prisma
+### 🔺 Prisma
+
+
+#### 🤔 O que é o prisma e para que serve?
+
+- Prisma é um ORM (Object-Relational Mapping);
+- Para fazer a conexão com o SGBD, o **próprio SGBD** fornece sua própria lib para fazer essa conexão. O prisma é como se fosse uma lib separada que você consegue fazer essa conexão aprendendo apenas uma sintaxe, sendo ele um meio de campo entre o backend e o banco de dados em si. Você utiliza apenas essa sintaxe para ambos os tipos de bancos, sem precisar aprender sintaxe por sintaxe de cada SGBD;
+
+
+```
+        | mongodb -
+Backend | pg      - - > SGBDs (sistemas de gerenciamento de dados)
+        | mysql   -
+```
+
+
 // prisma
 npm install prisma -D
 npm install @prisma/client
