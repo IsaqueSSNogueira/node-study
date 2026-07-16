@@ -1,26 +1,25 @@
 
-// const express = require("express")
-import express from "express";
+import express from "express"
 import cors from "cors"
 
-const app = express()
 
-// cors vem primeiro
+const app = express();
 app.use(cors())
 app.use(express.json())
 
-// itens
-const itens = [
-	{nome:"Arroz", valor:5, vendidoA:"kg", quantidade:2},
-	{nome:"Feijão", valor:8, vendidoA:"kg", quantidade:1},
-	{nome:"Ovo", valor:10, vendidoA:"duzia", quantidade:1},
-	{nome:"Carne", valor:35, vendidoA:"kg", quantidade:0.5},
+const items = [
+	{name:"Arroz", value:5, soldTo:"kg", quantily:2},
+	{name:"Feijão", value:8, soldTo:"kg", quantily:1},
+	{name:"Ovo", value:10, soldTo:"duzia", quantily:1},
+	{name:"Bife", value:35, soldTo:"kg", quantily:0.5},
 ]
 
 app.get("/", (req, res) => {
-	res.json(itens)
+	res.json(items)
 })
 
-app.listen(3000, () => {
-	console.log("Funcionando")
+// 
+const PORT = 3000;
+app.listen(PORT, () => {
+	console.log("Rodando...")
 })

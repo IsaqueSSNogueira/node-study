@@ -1,5 +1,6 @@
 let finalValue = 0
 
+
 async function getData() {
 
 	const contentContainer = document.querySelector("#contentContainer")
@@ -12,28 +13,28 @@ async function getData() {
 	data.forEach((item) => {
 
 		// quantidade
-		let quantily = "" 
-		if(item.vendidoA === "kg"){
-			quantily = item.quantidade < 1 
-				? `${item.quantidade * 1000} gramas` 
-				: `${item.quantidade} kg`
+		let quantily = 0; 
+		if(item.soldTo === "kg"){
+			quantily = item.quatily < 1 
+				? `${item.quantily * 1000} gramas` 
+				: `${item.quantily} kg`
 		} else {
-			quantily = `${item.quantidade} ${item.vendidoA}`
+			quantily = `${item.quantily} ${item.soldTo}`
 		}
 
 		// valor * quantidade
-		const valueTotal = (item.valor * item.quantidade).toFixed(2)
+		const totalValue = (item.value * item.quantily).toFixed(2)
 
 		// soma 
-		finalValue += item.valor * item.quantidade
+		finalValue += item.value * item.quantily
 
 		const row = document.createElement("tr")
 		row.innerHTML = `
-			<td>${item.nome}</td>
-			<td>${item.valor} reais</td>
-			<td>${item.vendidoA}</td>
+			<td>${item.name}</td>
+			<td>${item.value} reais</td>
+			<td>${item.soldTo}</td>
 			<td>${quantily}</td>
-			<td>${valueTotal} reais</td>
+			<td>${totalValue} reais</td>
 		`
 		contentContainer.appendChild(row)
 	})

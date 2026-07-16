@@ -9,7 +9,7 @@ Aprenderemos sobre a base de Rotas e dos métodos http.
 
 ```
 // Estrutura básica
-app.METODO("rota", (req, res) => {
+app.METODO(path, (req, res) => {
   // lógica
 })
 
@@ -58,7 +58,7 @@ async function getProfile() {
 - `get` : Só coleta dados, não possui o `body`, mas sempre carrega o `res` e `data` (curiosidade, é o valor padrão);
 - `post` : É definido o método, o headers e possui o body;
 - `put` : É definido o método, o headers e possui o body, geralmente é enviado id via url para marcar qual item será atualizado;
-- `delete` : Não precisa de body, apenas do método e é capturado via url qual item será dleetado; 
+- `delete` : Não precisa de body, apenas do método e é capturado via url qual item será deletado; 
 
 
 ### Exemplos
@@ -112,11 +112,18 @@ async function updateItem(id) {
 
 ```
 async function deleteItem(id) {
-  await fetch(`http://localhost:3000/${id}`, {
+  await fetch(`http://localhost:3000/users/${id}`, {
     method: "DELETE"
   })
 }
 ```
+
+
+app.delete("/users/:idUser/tasks/:idTask", (req, res) => {
+  const {idUser, idTask} = req.params
+  const 
+
+})
 
 <br>
 
@@ -153,4 +160,20 @@ app.get("/users/:id", (req, res) => {
 > Usuário 5
 ```
 
+- O backend não sabe o que é parâmetro ou não, você que informa isso utilizando o `:` no path. Isso torna um parâmetro dinâmico. Por exemplo:
 
+```
+// no front
+
+const res = await fetch(`http://localhost:3000/users/${idUser}/tasks/${idTask}`)
+...
+
+
+// no back
+app.get("/users/:idUser/tasks/:idTask", (req, res) => {
+
+  const {idUser, idTask} = req.params;
+  ...
+})
+
+```

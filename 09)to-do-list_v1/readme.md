@@ -76,14 +76,37 @@ app.listen(3000, () => console.log('Servidor rodando'));
 
 1) `201` (Created): Sucesso na requisição da criação de um novo recurso (como um novo usuário, arquivo ou registro em banco de dados);
 2) `209`: Criação de registro;
-3) `200`: Login/busca dados;
+3) `200`: Login/busca dados ou OK;
 4) `404`: Usuário/item não existe;
 5) `409`: Conflito de dados (usuário já existe).
 
+6) `400`: erro do cliente (dados inválidos);
+7) `401`: não autenticado;
+8) `403`: sem permissão;
+9) `404`: não encontrado;
+10) `500`: erro no servidor;
+11) `204`: Sucesso sem conteúdo (não pode ter body, usado o `.end()`);
 
+- Para enviar um status http na response, para encadear o `.status()` antes do `.json({})`/`.send()`. Exemplos: 
 
+`res.status(404).json({erro: "Usuário não encontrado"})` 
+`res.status(200).json({message:"Login efetuado"})`
+
+- Por padrão o backend envia status 200 (pode omitir se quiser);
+- Sempre use return em erros;
 - *Nunca envie a senha para o frontend*.
 
 
 <br>
 
+## A mais
+
+-  `res.status(204).end()` -> Encerra a requisição sem enviar dados ao cliente (não envia `body`);
+- Muito comum em API's REST (ex: em retorno de `delete`);
+- Retorno `204 No Content` = deu certo, mas não tem nada pra retornar;
+- Importante: Só se encerra uma vez, se o `res` foi chamado com um método de envio (send, json, end), entao a requisição é encerrada. A diferença é que em um é enviado dados e no outro se encerra apenas:
+```
+.json() → envia JSON e encerra
+.send() → envia dados e encerra
+.end() → só encerra
+```

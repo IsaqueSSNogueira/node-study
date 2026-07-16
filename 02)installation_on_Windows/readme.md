@@ -11,7 +11,7 @@
 ```
 
 // versão atual instalada do Node 
-> node- v
+> node -v
 . v20.16.0
 
 // versão npm
