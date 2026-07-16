@@ -9,7 +9,7 @@
 - Esse projeto contempla o primeiro uso prático de integração de um `servidor local + frontend` em algo interessante, sendo uma lista de supermercado que recebe dados do servidor e os renderiza. Essa é a primeira versão, posterioremente irei criar outra usando esta como base, mas integrada com outros métodos HTTP para gerar mais funcionalidades a ela, como adicionar, editar e apagar itens. Foco aqui não é em beleza e nem entrega de produto, mas aprender mais e aplicar de forma engajante o que venho estudado.
 
 <div style="display: flex; justify-content: center; width:500px">
-	<h3>Demonstrativo visual final do projeto</h1>
+	<h3 style="text-align: center;">Demonstrativo visual final do projeto</h1>
 	<img src="src/image.png" style="width:500px">
 </div>
 
