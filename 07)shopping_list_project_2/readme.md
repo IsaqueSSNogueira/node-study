@@ -8,6 +8,10 @@
 
 - Esse projeto aprimora o primeiro projeto, que é a lista de supermercado que recebe dados do servidor e renderiza. NEsta versão é incluida mais funcionalidades a ela, como adicionar, editar e apagar itens. Foco aqui não é em beleza, mas aplicar de forma engajante o que venho estudado, mas diferente da anterior, possui um toque de entrega de produto com soluções completas;
 
+### Demonstrativo visual final do projeto
+
+<img src="src/image.png" style="width:500px">
+
 
 ### 📥 Para rodar o projeto na sua máquina
 
@@ -16,7 +20,7 @@
 >> git clone https://github.com/IsaqueSSNogueira/node-study.git
 
 2. Acesse a pasta do projeto:
->> cd Node.js\stack-mobile_course\07)shopping_list_project_2\back
+>> cd Node.js\07)shopping_list_project_2\back
 
 3. Instale as dependências do backend:
 >> npm install

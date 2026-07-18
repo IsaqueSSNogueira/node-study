@@ -20,7 +20,7 @@
 >> git clone https://github.com/IsaqueSSNogueira/node-study.git
 
 2. Acesse a pasta do projeto:
->> cd Node.js\stack-mobile_course\06)shopping_list_project_1\back
+>> cd Node.js\06)shopping_list_project_1\back
 
 3. Instale as dependências do backend:
 >> npm install
@@ -56,7 +56,7 @@ for (const item of itens) {
 
 - Durante o projeto, a requisição não estava sendo bem-sucedida, pois o navegador bloqueava o acesso à API quando o frontend era executado localmente (file://);
 - Para resolver isso, é possível rodar o frontend em um servidor (ex: Live Server) ou habilitar o CORS no backend.
-- O CORS (Cross-Origin Resource Sharing) é um mecanismo de segurança implementado pelos navegadores que controla quais origens podem acessar recursos de uma API.
+- O CORS (Cross-Origin Resource Sharing) é um mecanismo de segurança implementado pelos navegadores que controla quais origens podem acessar recursos de uma API;
 - Para instalar, no projeto: `npm install cors`;
 - No backend:
 ```

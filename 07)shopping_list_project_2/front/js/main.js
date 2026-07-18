@@ -22,6 +22,7 @@ const update = () => {
 	preco.value = null
 	vendidoA.value = "un"
 	quantidade.value = null
+	inputRef.value = null
 }
 
 // verify
@@ -52,6 +53,7 @@ inputRef.addEventListener("input", async (event) => {
 
 	// conditional
 	if(Number.isNaN(valueRef) || valueRef > data.length || valueRef === 0 || !itemData){
+		update()
 		return
 	}
 	else{

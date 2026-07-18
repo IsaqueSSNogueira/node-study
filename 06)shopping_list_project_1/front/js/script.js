@@ -15,7 +15,7 @@ async function getData() {
 		// quantidade
 		let quantily = 0; 
 		if(item.soldTo === "kg"){
-			quantily = item.quatily < 1 
+			quantily = item.quantily < 1 
 				? `${item.quantily * 1000} gramas` 
 				: `${item.quantily} kg`
 		} else {
@@ -39,7 +39,7 @@ async function getData() {
 		contentContainer.appendChild(row)
 	})
 
-	finalValueString.innerHTML = `${finalValue.toFixed(2)} reais`
+	finalValueString.textContent = `${finalValue.toFixed(2)} reais`
 }
 
 getData()

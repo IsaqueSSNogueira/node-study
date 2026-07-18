@@ -11,7 +11,7 @@ app.use(express.json())
 
 // itens
 const itens = [
-	{nome:"Inicial", valor:0, vendidoA:"un", quantidade:0},
+	{nome:"Inicial", valor:0, vendidoA:"un", quantidade:0}, // forma simplificada de resolver problema visual e de lógica, esse item não consegue ser apagado e está como fantasma na aplicação, forçando na prática que o index iniciar com 0 não atrapalhe na experiência do usuário
 	{nome:"Arroz", valor:5, vendidoA:"kg", quantidade:2},
 	{nome:"Feijão", valor:8, vendidoA:"kg", quantidade:1},
 	{nome:"Ovo", valor:10, vendidoA:"duzia", quantidade:1},
@@ -25,14 +25,14 @@ app.get("/", (req, res) => {
 app.post("/", (req, res) => {
 	const content = req.body;
 	itens.push(content)
-	res.json({newItem: content})
+	return res.status(201).json({newItem: content})
 })
 
 app.put("/:id", (req, res) => {
 	const id = Number(req.params.id);
 	const data = req.body;
 	itens[id] = data;
-	res.send({message: "Item atualizado com sucesso", item: itens[id]})
+	return res.status(200).json({message: "Item atualizado com sucesso", item: itens[id]})
 	/* 
 		// controlado
 		itens[id] = {...item, nome:data.nome, valor:data.valor, vendidoA:data.vendidoA, quantidade:data.quantidade} 
@@ -54,6 +54,7 @@ app.delete("/:id", (req, res) => {
 	const id = req.params.id;
 	if(id > itens.length || id <= 0 || !id) return
 	itens.splice(id, 1)
+	return res.end()
 })
 
 app.listen(3000, () => {
