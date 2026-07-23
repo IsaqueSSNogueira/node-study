@@ -1,7 +1,10 @@
 
-
+/* functions */
 import { addItem, editItem, deleteItem } from './actions.js'
 import { getData } from './getData.js'
+
+/* elements */
+// buttons
 const clearButton = document.querySelector("#clearButton")
 const deleteButton = document.querySelector("#deleteButton")
 const editButton = document.querySelector("#editButton")
@@ -15,7 +18,7 @@ const quantidade = document.querySelector("[data-type=inputQuantidade]")
 const inputRef = document.querySelector("#inputRef")
 
 
-// clear
+// clear everything
 const update = () => {
 	getData()
 	item.value = ""
@@ -32,12 +35,9 @@ const verifyInput = () => {
 
 // capture updated date
 const captureUpdatedData = async () => {
-	const res = await fetch("http://localhost:3000/")
+	const res = await fetch("http://localhost:3000/user")
 	return await res.json() 
 }
-
-
-
 
 
 // events
@@ -52,53 +52,52 @@ inputRef.addEventListener("input", async (event) => {
 
 
 	// conditional
-	if(Number.isNaN(valueRef) || valueRef > data.length || valueRef === 0 || !itemData){
+	if(Number.isNaN(valueRef) || valueRef > data.length || valueRef <= 0 || !itemData){
 		update()
 		return
 	}
 	else{
-		item.value = itemData.nome
-		preco.value = itemData.valor
-		vendidoA.value = itemData.vendidoA
-		quantidade.value = itemData.quantidade
+		item.value = itemData.name
+		preco.value = itemData.value
+		vendidoA.value = itemData.soldTo
+		quantidade.value = itemData.quantily
 	}
 })
 
 addButton.addEventListener("click", async () => {
-	const isBlock = verifyInput
-	()
+	const isBlock = verifyInput()
 	if(isBlock){
 		return
 	}
 	else{
 		await addItem()	
-		await update()	
+		update()	
 	}
 
 })
 
 editButton.addEventListener("click", async () => {
 	const isBlock = verifyInput()
+	if(!inputRef.value) return
+
 	if(isBlock){
 		return
 	}
 	else{
 		await editItem()
-		await update()	
+		update()	
 	}
 })
 
 
 deleteButton.addEventListener("click", async () => {
+	if(!inputRef.value) return
 	await deleteItem()
-	await update()	
+	update()	
 })
 
 clearButton.addEventListener("click", () => {
 	update()
 })
-
-
-
 
 getData()

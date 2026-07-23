@@ -11,37 +11,52 @@ app.use(express.json())
 
 // itens
 const itens = [
-	{nome:"Inicial", valor:0, vendidoA:"un", quantidade:0}, // forma simplificada de resolver problema visual e de lógica, esse item não consegue ser apagado e está como fantasma na aplicação, forçando na prática que o index iniciar com 0 não atrapalhe na experiência do usuário
-	{nome:"Arroz", valor:5, vendidoA:"kg", quantidade:2},
-	{nome:"Feijão", valor:8, vendidoA:"kg", quantidade:1},
-	{nome:"Ovo", valor:10, vendidoA:"duzia", quantidade:1},
-	{nome:"Carne", valor:35, vendidoA:"kg", quantidade:0.5},
+	{name:"Inicial", value:0, soldTo:"un", quantily:0}, // forma simplificada de resolver problema visual e de lógica, esse item não consegue ser apagado e está como fantasma na aplicação, forçando na prática que o index iniciar com 0 não atrapalhe na experiência do usuário
+	{name:"Arroz", value:5, soldTo:"kg", quantily:2},
+	{name:"Feijão", value:8, soldTo:"kg", quantily:1},
+	{name:"Ovo", value:10, soldTo:"duzia", quantily:1},
+	{name:"Carne", value:35, soldTo:"kg", quantily:0.5},
 ]
 
-app.get("/", (req, res) => {
-	res.json(itens)
+
+// get
+app.get("/user", (req, res) => {
+	return res.status(200).json(itens)
 })
 
-app.post("/", (req, res) => {
-	const content = req.body;
+
+// post
+app.post("/user", (req, res) => {
+	const { name, value, soldTo, quantily } = req.body;
+	if(!name || !value, !soldTo, !quantily){
+		return res.status(400).json({erro:"Erro ao adicionar itens, dados incompletos"})
+	}
+
+	const content = {name, value, soldTo, quantily}
 	itens.push(content)
-	return res.status(201).json({newItem: content})
+	return res.status(201).json({message: "Novo item adicionado com sucesso", newItem: content})
 })
 
-app.put("/:id", (req, res) => {
-	const id = Number(req.params.id);
+
+// put
+app.put("/user/:id", (req, res) => {
+	
+	const {id} = req.params;
+	if(!id || id <= 0 || id > itens.leght) return
+
 	const data = req.body;
 	itens[id] = data;
+	
 	return res.status(200).json({message: "Item atualizado com sucesso", item: itens[id]})
 	/* 
 		// controlado
-		itens[id] = {...item, nome:data.nome, valor:data.valor, vendidoA:data.vendidoA, quantidade:data.quantidade} 
+		itens[id] = {...item, name:data.name, value:data.value, soldTo:data.soldTo, quantily:data.quantily} 
 
 
 		// map
 		itens = itens.map((item, index) => {
 			if(index === id){
-				return {...item, nome:data.nome, valor:data.valor, vendidoA:data.vendidoA, quantidade:data.quantidade} 
+				return {...item, name:data.name, value:data.value, soldTo:data.soldTo, quantily:data.quantily} 
 			}
 			else {
 				return item
@@ -50,11 +65,11 @@ app.put("/:id", (req, res) => {
 	*/
 })
 
-app.delete("/:id", (req, res) => {
-	const id = req.params.id;
-	if(id > itens.length || id <= 0 || !id) return
+app.delete("/user/:id", (req, res) => {
+	const {id} = req.params;
+	if(!id || id <= 0 || id > itens.length) return
 	itens.splice(id, 1)
-	return res.end()
+	return res.status(204).end()
 })
 
 app.listen(3000, () => {

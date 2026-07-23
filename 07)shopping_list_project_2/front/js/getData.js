@@ -1,51 +1,50 @@
+
 let finalValue = 0
-export let data = []
 
 export async function getData() {
 
 	const contentContainer = document.querySelector("#contentContainer")
 	const finalValueString = document.querySelector("#finalValueString")
 	contentContainer.innerHTML = ""
-
-	const res = await fetch("http://localhost:3000/")
-	data = await res.json() 
 	finalValue = 0
 
+	const res = await fetch("http://localhost:3000/user")
+	const data = await res.json() 	
 
 	data.forEach((item, index) => {
 
-		// item inicial
-		if(index === 0) return
+		// initial item
+		if(index === 0) return;
 
-		// quantidade
-		let quantily = "" 
-		if(item.vendidoA === "kg"){
-			quantily = item.quantidade < 1 
-				? `${item.quantidade * 1000} gramas` 
-				: `${item.quantidade} kg`
+		// quantily
+		let quantily = ""; 
+		if(item.soldTo === "kg"){
+			quantily = item.quantily < 1 
+				? `${item.quantily * 1000} gramas` 
+				: `${item.quantily} kg`
 		} else {
-			quantily = `${item.quantidade} ${item.vendidoA}`
+			quantily = `${item.quantily} ${item.soldTo}`
 		}
 
-		// valor * quantidade
-		const valueTotal = (item.valor * item.quantidade).toFixed(2)
+		// value * quantily
+		const totalValue = (item.value * item.quantily).toFixed(2)
 
-		// soma 
-		finalValue += item.valor * item.quantidade
+		// add up
+		finalValue += item.value * item.quantily
 
-		// row
+		// appendichild
 		const row = document.createElement("tr")
 		row.innerHTML = `
 			<td>${index}</td>
-			<td>${item.nome}</td>
-			<td>${item.valor} reais</td>
-			<td>${item.vendidoA}</td>
+			<td>${item.name}</td>
+			<td>${item.value} reais</td>
+			<td>${item.soldTo}</td>
 			<td>${quantily}</td>
-			<td>${valueTotal} reais</td>
+			<td>${totalValue} reais</td>
 		`
 		contentContainer.appendChild(row)
 	})
 
-	finalValueString.innerHTML = `${finalValue.toFixed(2)} reais`
+	finalValueString.textContent = `${finalValue.toFixed(2)} reais`
 }
 
