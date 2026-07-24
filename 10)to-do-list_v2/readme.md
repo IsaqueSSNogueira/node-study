@@ -3,6 +3,10 @@
 
 - Foco em separação de arquivo, melhor estruturação e recursos conforme o projeto escala.
 
+### Demonstrativo visual final do projeto
+
+<img src="src/project-image.png" style="width:500px">
+
 
 ## 🗃 Organização dos arquivos
 
