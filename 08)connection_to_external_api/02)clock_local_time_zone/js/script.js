@@ -1,7 +1,7 @@
 
 const urlBase = "https://api.api-ninjas.com/v1/worldtime?timezone="
-const urlParams = ["America/Sao_Paulo", "America/New_York","Europe/London", "Asia/Tokyo"]
 const apiKey = "Px9VzvQomaVrRRxc84c2xUXwwLuOs1oIWuc6EC7s";
+// const urlParams = ["America/Sao_Paulo", "America/New_York","Europe/London", "Asia/Tokyo"]
 
 /*
 Vou manter a apiKey exposta porque:

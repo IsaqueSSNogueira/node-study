@@ -4,6 +4,12 @@
 - Foco em consolidar e expandir conceitos aprendido, utilizando um projeto maior para isso. Posteriormente, irei focar na separação de arquivos do servidor (server, routes, controlls, services, models, etc...) e na integração a um banco de dados e na hospedagem do projeto (`10)new_concepts_3`).
 
 
+### Demonstrativo visual final do projeto
+
+<img src="src/project-image.png" style="width:500px">
+
+
+
 ## ➡ Fluxo completo
 
 - Request;
