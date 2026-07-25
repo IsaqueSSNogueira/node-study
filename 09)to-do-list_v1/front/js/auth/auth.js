@@ -21,7 +21,7 @@ export const authRegister = () => {
 		}
 		else {
 			trySignUp(userInputRegister, passwordInputRegister)
-			}
+		}
 	})
 
 }

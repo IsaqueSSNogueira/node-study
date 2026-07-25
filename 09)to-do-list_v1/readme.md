@@ -87,11 +87,11 @@ app.listen(3000, () => console.log('Servidor rodando'));
 5) `404`: Usuário/item não existe;
 6) `409`: Conflito de dados (usuário já existe).
 
-7) `400`: erro do cliente (dados inválidos);
-8) `401`: não autenticado;
-9) `403`: sem permissão;
-10) `404`: não encontrado;
-11) `500`: erro no servidor;
+7) `400`: Erro do cliente (dados inválidos);
+8) `401`: Não autenticado;
+9) `403`: Sem permissão;
+10) `404`: Não encontrado;
+11) `500`: Erro no servidor;
 
 
 - Para enviar um status http na response, para encadear o `.status()` antes do `.json({})`/`.send()`. Exemplos: 

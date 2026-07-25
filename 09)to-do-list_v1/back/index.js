@@ -10,13 +10,6 @@ const app = express()
 app.use(cors());
 app.use(express.json())
 
-
-// base
-app.get("/", (req, res) => {
-	res.send("Ok")
-})
-
-
 // users
 let users = [
 	{

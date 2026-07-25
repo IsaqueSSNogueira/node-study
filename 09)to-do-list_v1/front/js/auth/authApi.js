@@ -6,7 +6,6 @@ import {renderTaskScreen} from "./../tasks/tasks.js"
 // try sign up
 export const trySignUp = async (user, password) => {
 
-	console.log(user.value, password.value)
 	try{
 		const res =	await fetch("http://localhost:3000/register", {
 				method: "POST", 
@@ -52,6 +51,7 @@ export const trySignIn = async (user, password) => {
 		alert("Login efetuado")
 		console.log(data)
 		renderTaskScreen(data.id)
+		clearInputs();
 	}catch(err){
 		console.error(err)
 		alert("Erro ao fazer login")

@@ -15,7 +15,7 @@ body {
 	background: rgba(0, 110, 255, 0.2);
 }
 
-
+ 
 /* main */
 #appContainer {
 	width: 350px;
@@ -61,6 +61,7 @@ h1 {
 	font-size: 2rem;
 	padding: 10px;
 	position: relative;
+	user-select: none;
 }
 
 h1 span {
@@ -116,6 +117,7 @@ h1::after {
 
 .authContentBox h2 {
 	font-size: 1.3rem;
+	user-select: none;
 }
 
 .authForm {
@@ -145,6 +147,7 @@ h1::after {
 	border-radius:6px;
 	color:white;
 	font-size: 0.9rem;
+	transition: all 0.3s;
 }
 
 .authButton:hover {
