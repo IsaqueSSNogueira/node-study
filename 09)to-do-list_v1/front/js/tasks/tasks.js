@@ -2,7 +2,7 @@
 import {getTasks} from "./tasksApi.js"
 import {
 	buttonsToggleTasksTab, 
-	newTask, 
+	buttonNewTask, 
 	checkboxTaskAction, 
 	toggleMoreActionsContainer, 
 	editTask, 
@@ -25,7 +25,7 @@ const createTaskBox = (task, taskContainer, id) => {
 	/*create & render*/
 
 	// base
-	const taskBox = document.createElement("taskBox")
+	const taskBox = document.createElement("div")
 	taskBox.classList.add("taskBox")
 
 	// checkbox
@@ -165,7 +165,7 @@ export const renderTaskScreen = async (id) => {
 		taskScreen.classList.remove("hidden")
 		states.idUser = id
 		renderTasks(id)
-		newTask(id)
+		buttonNewTask(id)
 	}
 	else{
 		authScreen.classList.remove("hidden")

@@ -20,7 +20,7 @@
 ### 🛣 Routes
 
 - Rota: "O que acontece se alguém acessa tal url";
-- Combina os metódos HTTP (get, post, put, delete) com uma url (endpoint).
+- Combina os metódos HTTP (get, post, put, delete) com um o path.
 
 #### Ações
 

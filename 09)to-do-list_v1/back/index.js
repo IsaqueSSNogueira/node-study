@@ -79,9 +79,9 @@ app.post("/login", (req, res) => {
 
 
 // get data
-app.get("/data/:id", (req, res) => {
+app.get("/data/:id", (req, res) => { 
 
-	const id = req.params.id
+	const id = req.params.id;
 	const userData = users.find(user => user.id === id)
 	const returnData = {user:userData.user, tasks:userData.tasks}
 	if(returnData){

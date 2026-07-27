@@ -43,7 +43,7 @@ export const buttonsToggleTasksTab = (id) => {
 
 // new task
 
-export const newTask = async (id) => {
+export const buttonNewTask = async (id) => {
 
 	const newTaskButton = document.querySelector("#newTaskButton")
 	const newTaskInput = document.querySelector("#newTaskInput")
@@ -149,7 +149,7 @@ export const approveEditAction = async (idUser, idTask, inputTask) => {
 
 	const text = inputTask.value;
 
-	if(text.lenght < 1){
+	if(text.length < 1){
 		alert("Insira um título para a tarefa")
 		return;
 	}
