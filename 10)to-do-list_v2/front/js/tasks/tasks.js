@@ -1,8 +1,8 @@
 
 import { getUserData } from "./tasksApi.js"
 import {
-	buttonsToggleTasksTab, 
-	newTask, 
+	setupToggleTasksTab, 
+	setupNewTaskButton, 
 	checkboxTaskAction, 
 	toggleMoreActionsContainer, 
 	editTask, 
@@ -158,14 +158,14 @@ export const renderTaskScreen = async (id) => {
 
 	const authScreen = document.querySelector("#authScreen")
 	const taskScreen = document.querySelector("#taskScreen")
-	await buttonsToggleTasksTab(id)
+	await setupToggleTasksTab(id)
 
 	if(id){
 		authScreen.classList.add("hidden")
 		taskScreen.classList.remove("hidden")
 		states.idUser = id
 		renderTasks(id)
-		newTask(id)
+		setupNewTaskButton(id)
 	}
 	else{
 		authScreen.classList.remove("hidden")

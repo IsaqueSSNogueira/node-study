@@ -1,6 +1,7 @@
 
-import {verifyMinInputConditions} from './../utils/form.js'
+import {verifyMinInputConditions, clearInputs} from './../utils/form.js'
 import {trySignUp, trySignIn} from './authApi.js'
+
 
 /* base functions */
 
@@ -17,6 +18,7 @@ export const authRegister = () => {
 		const passwordVerify = verifyMinInputConditions(passwordInputRegister, "password")
 
 		if(!userVerify || !passwordVerify){
+			clearInputs()
 			alert("Dados incompletos")
 		}
 		else {
@@ -39,6 +41,7 @@ export const authLogin = () => {
 		const passwordVerify = verifyMinInputConditions(passwordInputLogin, "password")
 
 		if(!userVerify || !passwordVerify){
+			clearInputs()
 			alert("Dados incompletos")
 		}
 		else {

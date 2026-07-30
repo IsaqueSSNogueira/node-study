@@ -26,7 +26,7 @@ const renderTab = (id) => {
 }
 
 // toggle tab (do / done)
-export const buttonsToggleTasksTab = (id) => {
+export const setupToggleTasksTab = (id) => {
 
 	const buttonTaskTab = document.querySelectorAll(".buttonTaskTab")
 
@@ -43,7 +43,7 @@ export const buttonsToggleTasksTab = (id) => {
 
 // new task
 
-export const newTask = async (id) => {
+export const setupNewTaskButton = async (id) => {
 
 	const newTaskButton = document.querySelector("#newTaskButton")
 	const newTaskInput = document.querySelector("#newTaskInput")
