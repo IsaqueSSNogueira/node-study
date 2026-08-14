@@ -37,7 +37,7 @@
 
 
 
-## 💿 Backend com mongo
+## 💿 Backend com MongoDB
 
 * Arquivos:
 ```
@@ -73,16 +73,12 @@ app.listen(PORT, () => {
 * No server você importa para ser o ponto de inicialização o dotenv: `import "dotenv/config";`
 * Ele carrega as variáveis do arquivo **.env** e as disponibiliza em **process.env**.
 
-<br>
-
 
 
 ### 🔑 .env
 
 `MONGO_URI=mongodb+srv://usuario:senha@cluster.mongodb.net/taskApp
 PORT=3000`
-
-<br>
 
 
 
