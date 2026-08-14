@@ -67,7 +67,7 @@ app.listen(PORT, () => {
 ## 2) App.js
 
 - Configuração do Express;
-- Onde centraliza middlewares (exemplo: `express`, `cors`) e rotas:
+- Onde centraliza middlewares (exemplo: `express.json()`, `cors()`) e rotas:
 
 ```
 import express from "express"
