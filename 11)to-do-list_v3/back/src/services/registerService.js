@@ -1,19 +1,17 @@
 
-import users from '../data/usersData.js'
+import users from "../data/usersData.js"
 import { v4 as uuidv4} from "uuid"
+import User from "./../models/User.js"
 
-export const existUser = (inputUser, inputPassword) => {
+export const existUser = async (inputUser, inputPassword) => {
 
-	return users.find((item) => {
-		return item.user === inputUser 
-	})
+	return await Task.findOne({name:inputUser})
 }
 
-export const createNewUser = (inputUser, inputPassword) => {
-	users.push({
-		id:uuidv4(),
-		user:inputUser,
-		password:inputPassword,
-		tasks: []
+export const createNewUser = async (inputUser, inputPassword) => {
+	
+	await Task.create({
+		name:inputUser,
+		password:inputPassword
 	})
 }

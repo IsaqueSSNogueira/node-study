@@ -41,15 +41,16 @@
 
 * Arquivos:
 ```
-server.js
-app.js
-src/
-    .env
-    config/database.js
-    models/Task.js
-    services/
-    controllers/
-    routes/
+back/
+  server.js
+  app.js
+  .env
+  src/
+      config/database.js
+      models/Task.js
+      services/
+      controllers/
+      routes/
 ```
 
 
@@ -88,6 +89,7 @@ PORT=3000`
 import mongoose from "mongoose";
 
 const connectDatabase = async () => {
+
   await mongoose.connect(process.env.MONGO_URI);
 
   console.log("MongoDB conectado!");
@@ -97,7 +99,10 @@ export default connectDatabase;
 ```
 
 * `process.env`: O **.env** mantém oculta as variaveis dentro dele. **process.env** é o objeto/ambiente do processo Node onde essas configurações ficam disponíveis e aqui estamos acessando a variável **MONGO_URI**;
-* Não esqueça de instalar o **mongoose**: > `npm install mongoose`.  
+* Não esqueça de instalar o: 
+  * **mongodb**: > `npm install mongodb`;
+  * **mongoose**: > `npm install mongoose`;
+  * **dontev**: > `npm install dotenv`. 
 
 <br>
 
@@ -114,7 +119,7 @@ const taskSchema = new mongoose.Schema({
     required: true,
   }
   completed:{
-    type:boolean,
+    type:Boolean,
     default: false
   }
 })
@@ -162,7 +167,9 @@ const taskSchema = new mongoose.Schema({
 * Qaundo você monta uma estrutura desse tipo, você está dizendo ao mongoose: "Esse Schema representa o tipo **Task**. Crie um model para eu trablhar com ele";
 * Nisso, o mongoose vai associar esse model à collection correspondente, normalmente `task`.
 
-#### 🤔 Métodos que um model oferece:
+<hr>
+
+### 🤔 Métodos que um model oferece:
 
 * Task.create()
 * Task.find()
@@ -171,4 +178,55 @@ const taskSchema = new mongoose.Schema({
 * Task.findByIdAndUpdate()
 * Task.findByIdAndDelete()
 
+#### Mudança de arquitetura na prática
+
+**Localmente:**
+- É manipulado os dados locais. O array é percorrido e manipulado conforme a necessidade;
+- É usado o uuidv4 para definir ids exclusivos;
+- `tasks` ainda está dentro do "doc" do user.
+
+```
+import users from '../data/usersData.js'
+import { v4 as uuidv4} from "uuid"
+
+export const existUser = (inputUser, inputPassword) => {
+
+  return users.find((item) => {
+    return item.user === inputUser 
+  })
+}
+
+export const createNewUser = (inputUser, inputPassword) => {
+  users.push({
+    id:uuidv4(),
+    user:inputUser,
+    password:inputPassword,
+    tasks: []
+  })
+}
+```
+<br>
+
+**Com mongoDB:**
+- É manipulado os dados direto do mongo através do **Models + seus métodos internos**;
+- uuidv4 já não é necessário, já que o próprio mongo se responsabiliza em criar um identificador único;
+- `tasks` já não está dentro diretamente de User, já que por decisão (modelagem de dados) ele foi separado em outra collection.
+
+````
+import users from "../data/usersData.js"
+import User from "./../models/User.js"
+
+export const existUser = async (inputUser, inputPassword) => {
+
+  return await Task.findOne({name:inputUser})
+}
+
+export const createNewUser = async (inputUser, inputPassword) => {
+  
+  await Task.create({
+    name:inputUser,
+    password:inputPassword
+  })
+}
+```` 
 
