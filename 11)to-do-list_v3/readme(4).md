@@ -169,7 +169,7 @@ const taskSchema = new mongoose.Schema({
 
 <hr>
 
-### 🤔 Métodos que um model oferece:
+## 🤔 Métodos que um model oferece:
 
 * Task.create()
 * Task.find()
@@ -178,9 +178,10 @@ const taskSchema = new mongoose.Schema({
 * Task.findByIdAndUpdate()
 * Task.findByIdAndDelete()
 
-#### Mudança de arquitetura na prática
+### Mudança de arquitetura na prática
 
-**Localmente:**
+#### Localmente:
+
 - É manipulado os dados locais. O array é percorrido e manipulado conforme a necessidade;
 - É usado o uuidv4 para definir ids exclusivos;
 - `tasks` ainda está dentro do "doc" do user.
@@ -207,26 +208,30 @@ export const createNewUser = (inputUser, inputPassword) => {
 ```
 <br>
 
-**Com mongoDB:**
+#### Com mongoDB:
+
 - É manipulado os dados direto do mongo através do **Models + seus métodos internos**;
 - uuidv4 já não é necessário, já que o próprio mongo se responsabiliza em criar um identificador único;
-- `tasks` já não está dentro diretamente de User, já que por decisão (modelagem de dados) ele foi separado em outra collection.
+- `tasks` já não está dentro diretamente de User, já que por decisão (modelagem de dados) ele foi separado em outra collection;
+- Nesse caso **não se esqueça de trabalhar com `async/await`**.
 
 ````
-import users from "../data/usersData.js"
 import User from "./../models/User.js"
 
 export const existUser = async (inputUser, inputPassword) => {
 
-  return await Task.findOne({name:inputUser})
+  return await User.findOne({name:inputUser})
 }
 
 export const createNewUser = async (inputUser, inputPassword) => {
   
-  await Task.create({
+  await User.create({
     name:inputUser,
     password:inputPassword
   })
 }
 ```` 
 
+### Mudanças no restante do backend
+
+* Os `services` receberam a função de manipular o banco externo e suas funções internas se tornarem assícronas. Nisso os `controllers` tbm irão sofrer mudanças, se tornando assícronos e ao chamar um service, tbm irão deixar explicito o aguardo da resposta com o `await`;

@@ -37,8 +37,6 @@ export const trySignUp = async (user, password) => {
 
 export const trySignIn = async (user, password) => {
 
-	console.log(user, password)
-
 	try{
 		const res = await fetch("http://localhost:3000/login", {
 			method: "POST",

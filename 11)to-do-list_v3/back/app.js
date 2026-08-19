@@ -2,7 +2,6 @@
 
 import express from "express"
 import cors from "cors"
-import users from './src/data/usersData.js'
 
 // importar rotasroutes
 import loginRoutes from "./src/routes/loginRoutes.js"
@@ -13,7 +12,6 @@ import usersRoutes from "./src/routes/usersRoutes.js"
 const app = express()
 app.use(cors())
 app.use(express.json())
-console.log(users)
 
 // rotas
 app.use("/login", loginRoutes)

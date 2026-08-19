@@ -2,12 +2,12 @@
 import * as loginService from "../services/loginService.js";
 
 
-const signIn =  (req, res) => {
+const signIn =  async (req, res) => {
 
 	const {inputUser, inputPassword} = req.body;
 
 	
-	const trySignIn = loginService.foundUser(inputUser, inputPassword)
+	const trySignIn = await loginService.foundUser(inputUser, inputPassword)
 
 	if(!trySignIn){
 		return res.status(404).json({
@@ -17,7 +17,7 @@ const signIn =  (req, res) => {
 	}
 	return res.status(200).json({
 		message: "Login efetuado",		
-		id:trySignIn.id,
+		id: trySignIn._id
 	})
 }
 

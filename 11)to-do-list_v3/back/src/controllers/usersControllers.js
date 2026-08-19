@@ -2,10 +2,10 @@
 import * as usersService from "../services/usersService.js"
 
 // getData
-const getUserData = (req, res) => {
+const getUserData = async (req, res) => {
 
 	const { id } = req.params;
-	const userData = usersService.getData(id);
+	const userData = await usersService.getData(id);
 
 	if(!userData){
 		return res.status(404).json({
@@ -23,12 +23,12 @@ const getUserData = (req, res) => {
 
 // newTask
 
-const newTask = (req, res) => {
+const newTask = async (req, res) => {
 
 	const { id } = req.params;
 	const { text } = req.body;
 
-	const isNewTaskCreated = usersService.createNewTask(id, text)
+	const isNewTaskCreated = await usersService.createNewTask(id, text)
 
 	if(!isNewTaskCreated){
 		return res.status(404).json({
@@ -46,30 +46,23 @@ const newTask = (req, res) => {
 
 // update task data
 
-const updateTaskData = (req, res) => {
+const updateTaskData = async (req, res) => {
 
 	const { id, taskId } = req.params;
 	const { text, description, completed } = req.body;
 
-	const user = usersService.getData(id);
-	if(!user) return res.status(404).json({ message: "Usuário não encontrado" }) 
-	
-	const task = usersService.findTask(user, taskId)
-	if(!task) return res.status(404).json({ message: "Tarefa não encontrada" }) 
-
-
 	let responseMessage = ""
 
 	if(text !== undefined) {
-		usersService.updateTaskData(task, "text", text)
+		await usersService.updateTaskData(taskId, "text", text)
 		responseMessage = `Nome tarefa atualizado: ${text}`
 	}
 	if(description !== undefined) {
-		usersService.updateTaskData(task, "description", description)
+		await usersService.updateTaskData(taskId, "description", description)
 		responseMessage = `Descrição atualizada: ${description}`
 	}
 	if(completed !== undefined) {
-		usersService.updateTaskData(task, "completed", completed)
+		await usersService.updateTaskData(taskId, "completed", completed)
 		responseMessage = completed ? "Tarefa marcada" : "Tarefa desmarcada"
 	}
 
@@ -77,7 +70,6 @@ const updateTaskData = (req, res) => {
 	return res.status(200).json({
 		message: `${responseMessage}`,
 		status:true,
-		task
 	})
 
 }

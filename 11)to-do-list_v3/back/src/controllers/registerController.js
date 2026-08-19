@@ -1,11 +1,11 @@
 
 import * as registerService from "../services/registerService.js";
 
-const singUp = (req, res) => {
+const singUp = async (req, res) => {
 
 	const {inputUser, inputPassword} = req.body;
 
-	const existUser = registerService.existUser(inputUser, inputPassword)
+	const existUser = await registerService.existUser(inputUser)
 
 	if(existUser){
 		return res.status(409).json({

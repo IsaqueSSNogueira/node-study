@@ -1,9 +1,6 @@
 
-import users from "../data/usersData.js"
-
+import User from "./../models/User.js"
 
 export const foundUser = (inputUser, inputPassword) => {
-	return users.find((item) => {
-		return item.user === inputUser && item.password === inputPassword
-	})
+	return User.findOne({name:inputUser, password:inputPassword})
 }

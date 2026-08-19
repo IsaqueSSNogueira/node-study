@@ -65,12 +65,12 @@ export const newTask = async (id) => {
 
 
 // toggle status task (do/done)
-export const checkboxTaskAction = async (idUser, idTask, isChecked) => {
+export const checkboxTaskAction = async (task, isChecked) => {
 
-	const success = await toggleStatusTask(idUser, idTask, isChecked)
+	const success = await toggleStatusTask(task, isChecked)
 	console.log(success)
 	if (success.status) {
-		renderTab(idUser)
+		renderTab(task.userId)
 	}
 }
 

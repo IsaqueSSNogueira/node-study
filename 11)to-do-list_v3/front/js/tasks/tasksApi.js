@@ -61,10 +61,10 @@ export const approveEdit = async (idUser, idTask, text) => {
 
 
 // toggle status task (do/done)
-export const toggleStatusTask = async (idUser, idTask, isChecked) => {
+export const toggleStatusTask = async (task, isChecked) => {
 
 	try{
-		const res = await fetch(`http://localhost:3000/users/${idUser}/tasks/${idTask}`, {
+		const res = await fetch(`http://localhost:3000/users/${task.userId}/tasks/${task._id}`, {
 			method:"PATCH",
 			headers: {"Content-Type": "application/json"},
 			body: JSON.stringify({ completed:isChecked })

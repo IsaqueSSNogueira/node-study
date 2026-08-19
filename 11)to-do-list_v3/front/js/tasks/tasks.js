@@ -20,7 +20,7 @@ export const states = {
 }
 
 
-const createTaskBox = (task, taskContainer, id) => {
+const createTaskBox = (task, taskContainer) => {
 
 	/*create & render*/
 
@@ -33,7 +33,7 @@ const createTaskBox = (task, taskContainer, id) => {
 	checkboxTask.type = "checkbox"
 	checkboxTask.checked = task.completed;
 	checkboxTask.classList.add("checkboxTask")
-	checkboxTask.addEventListener("change", (event) => {checkboxTaskAction(id, task.id, event.currentTarget.checked)})
+	checkboxTask.addEventListener("change", (event) => {checkboxTaskAction(task, event.currentTarget.checked)})
 
 	// info task container 
 	const infoTaskContainer = document.createElement("div")
@@ -47,7 +47,7 @@ const createTaskBox = (task, taskContainer, id) => {
 	inputTask.type = "text"
 	inputTask.disabled = true;
 	inputTask.placeholder = "Escreva algo"
-	inputTask.value = task.text
+	inputTask.value = task.title
 	inputTask.classList.add("inputTask")
 
 	// description button
@@ -96,9 +96,9 @@ const createTaskBox = (task, taskContainer, id) => {
 	
 	editTaskButton.addEventListener("click", () => {editTask(isOpenMoreActions, inputTask, containerMoreActions, moreActionsTaskButton, actionsInputBox)})
 	cancelEditInputButton.addEventListener("click", () => {cancelEditAction(id)})
-	approveEditButton.addEventListener("click", () => {approveEditAction(id, task.id, inputTask)})
+	approveEditButton.addEventListener("click", () => {approveEditAction(task, inputTask)})
 	
-	deleteTaskButton.addEventListener("click", () => {deleteTaskAction(id, task.id)})
+	deleteTaskButton.addEventListener("click", () => {deleteTaskAction(task)})
 
 
 
@@ -121,8 +121,9 @@ const createTaskBox = (task, taskContainer, id) => {
 // quando renderiza a tela, chama essa função
 export const renderTasks = async (id) => {
 
+
 	// data
-	const dataUser = await getUserData(id)
+	const userData = await getUserData(id)
 
 	// elementos
 	const toDoCountE = document.querySelector("#toDoCount")
@@ -135,7 +136,7 @@ export const renderTasks = async (id) => {
 	let doneCount = 0;
 
 
-	dataUser.tasks.forEach(task => {
+	userData.forEach(task => {
 		if(!task.completed){
 			// count task
 			toDoCount++

@@ -1,55 +1,43 @@
 
-import users from "../data/usersData.js"
 import { v4 as uuidv4} from "uuid"
+import Task from "./../models/Task.js"
 
+const users = []
 
-export const getData = (id) => {
-	return users.find((user) => {
-		return user.id === id;
-	})
+export const getData = async (id) => {
+	return await Task.find({userId:id})
 }
 
-export const createNewTask = (id, text) => {
-
-	const user = getData(id)
-
-	if(!user){
-		return false
-	}
+export const createNewTask = async (id, text) => {
 
 	// add new task
-	const task = {
-		id: uuidv4(),
-		text:text,
-		description: "",
-		completed: false
-	}
+	const newTask = await Task.create({
+		userId:id,
+		title:text,
+		description:""
+	})
 
-	user.tasks.push(task)
-
-	return task;
+	return newTask;
 }
 
 
 // find task for update
-export const findTask = (user, taskId) => {
+export const findTask = async (user, taskId) => {
 
-	return user.tasks.find((task) => {
-		return task.id === taskId
-	})
+	return await Task.findOne({ _id:taskId, userId:user })
 }
 
 
-export const updateTaskData = (task, type, value) => {
+export const updateTaskData = async (taskId, type, value) => {
 
 	if(type === "text"){
-		task.text = value;
+		await Task.findByIdAndUpdate(taskId, {title:value}, { returnDocument: "after" })
 	}
 	else if(type === "description"){
-		task.description = value;
+		await Task.findByIdAndUpdate(taskId, {description:value}, { returnDocument: "after" })
 	}
 	else if(type === "completed"){
-		task.completed = value;
+		await Task.findByIdAndUpdate(taskId, {completed:value}, { returnDocument: "after" })		
 	}
 
 } 
