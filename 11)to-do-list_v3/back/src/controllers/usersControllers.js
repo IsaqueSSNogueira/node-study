@@ -75,23 +75,18 @@ const updateTaskData = async (req, res) => {
 }
 
 
-const deleteTask = (req, res) => {
+const deleteTask = async (req, res) => {
 
 	const {id, taskId} = req.params;
 	
-	const user = usersService.getData(id);
-	if(!user) return res.status(404).json({ message: "Usuário não encontrado" })  
-
-	// action
-	const isTaskDeleted = usersService.deleteTask(user, taskId)
+	const isTaskDeleted = await usersService.deleteTask(taskId)
 
 	if(!isTaskDeleted){
 		return res.status(404).json({ message: "Erro ao tentar deletar tarefa"})
 	}
 
 	return res.status(200).json({
-		message: "Tarefa deletada com sucesso",
-		tasks:user.tasks
+		message: "Tarefa deletada com sucesso"
 	})
 
 }

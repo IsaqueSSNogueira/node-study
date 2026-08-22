@@ -48,13 +48,13 @@ export const newTask = async (id) => {
 	const newTaskButton = document.querySelector("#newTaskButton")
 	const newTaskInput = document.querySelector("#newTaskInput")
 
-	newTaskButton.addEventListener("click", () => {
+	newTaskButton.addEventListener("click", async () => {
 		const value = newTaskInput.value
 		if(value){
-			const res = createNewTask(id, value)
+			const res = await createNewTask(id, value)
 			if(res){
-				newTaskInput.value = ""				
-				renderTasks(id)
+				newTaskInput.value = ""		
+				await renderTasks(id)
 			}
 		}
 		else {
@@ -104,7 +104,7 @@ export const openDescriptionBox = (task, id) => {
 	
 	descriptionBackdrop.classList.remove("hidden")
 	descriptionTextarea.value = task.description
-	states.currentIdTask = task.id
+	states.currentIdTask = task._id
 }
 
 

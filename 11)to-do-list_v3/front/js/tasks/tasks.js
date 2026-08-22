@@ -55,7 +55,7 @@ const createTaskBox = (task, taskContainer) => {
 	descriptionTaskButton.classList.add("descriptionTaskButton")
 	descriptionTaskButton.innerHTML = `<i class="fa-solid fa-circle-info icon"></i>Descrição`
 	descriptionTaskButton.title = task.description;
-	descriptionTaskButton.addEventListener("click", () => {openDescriptionBox(task, id)})
+	descriptionTaskButton.addEventListener("click", () => {openDescriptionBox(task, task.userId)})
 
 	// more actions
 	const moreActionsTaskButton = document.createElement("button")
@@ -95,10 +95,10 @@ const createTaskBox = (task, taskContainer) => {
 	moreActionsTaskButton.addEventListener("click", () => {toggleMoreActionsContainer(isOpenMoreActions, containerMoreActions)})
 	
 	editTaskButton.addEventListener("click", () => {editTask(isOpenMoreActions, inputTask, containerMoreActions, moreActionsTaskButton, actionsInputBox)})
-	cancelEditInputButton.addEventListener("click", () => {cancelEditAction(id)})
-	approveEditButton.addEventListener("click", () => {approveEditAction(task, inputTask)})
+	cancelEditInputButton.addEventListener("click", () => {cancelEditAction(task.userId)})
+	approveEditButton.addEventListener("click", () => {approveEditAction(task.userId, task._id, inputTask)})
 	
-	deleteTaskButton.addEventListener("click", () => {deleteTaskAction(task)})
+	deleteTaskButton.addEventListener("click", () => {deleteTaskAction(task.userId, task._id)})
 
 
 
@@ -120,7 +120,6 @@ const createTaskBox = (task, taskContainer) => {
 
 // quando renderiza a tela, chama essa função
 export const renderTasks = async (id) => {
-
 
 	// data
 	const userData = await getUserData(id)

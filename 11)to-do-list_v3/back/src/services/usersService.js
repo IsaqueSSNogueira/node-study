@@ -42,14 +42,9 @@ export const updateTaskData = async (taskId, type, value) => {
 
 } 
 
+export const deleteTask = async (taskId) => {
 
-export const deleteTask = (user, taskId) => {
+  const deletedTask = await Task.findByIdAndDelete(taskId)
 
-	const taskIndex = user.tasks.findIndex(item => item.id === taskId)
-	if(taskIndex === -1){
-		return false
-	}
-
-	user.tasks.splice(taskIndex, 1)
-	return true
+  return true;
 }
